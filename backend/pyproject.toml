@@ -1,0 +1,23 @@
+[project]
+name = "olympiad-preparation"
+version = "1.0"
+description = "Olympiad preparation app backend"
+authors = [
+    {name = "mrdsx"}
+]
+readme = "../README.md"
+license = "../LICENSE.txt"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.121.0,<0.122.0)",
+    "uvicorn (>=0.38.0,<0.39.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
