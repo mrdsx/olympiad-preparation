@@ -2,10 +2,13 @@ from fastapi import Request, status
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 
-from config import ResponseStatus
+from shared import ResponseStatus
 
 
-def global_error_handler(request: Request, exception: Exception):
+def global_error_handler(
+    request: Request,
+    exception: Exception,
+) -> JSONResponse:
     return JSONResponse(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         content={
@@ -16,7 +19,10 @@ def global_error_handler(request: Request, exception: Exception):
     )
 
 
-def validation_error_handler(request: Request, exception: ValidationError):
+def validation_error_handler(
+    request: Request,
+    exception: ValidationError,
+) -> JSONResponse:
     return JSONResponse(
         status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
         content={

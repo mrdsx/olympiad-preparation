@@ -5,17 +5,15 @@ import { usePathname } from "next/navigation";
 import { createContext, useEffect, useRef } from "react";
 import { useTrainingStore } from "../training";
 
-type CountdownContextType = {};
-
-const CountdownContext = createContext<CountdownContextType | null>(null);
+const CountdownContext = createContext<null>(null);
 
 function CountdownProvider({ children }: React.PropsWithChildren) {
-  const { reset } = useTrainingStore();
+  const resetTrainingStore = useTrainingStore((state) => state.reset);
   const pathname = usePathname();
   const previousPathnameRef = useRef<string>(null);
 
   useEffect(() => {
-    if (previousPathnameRef.current === path.MATCHES) reset();
+    if (previousPathnameRef.current === path.MATCHES) resetTrainingStore();
     previousPathnameRef.current = pathname;
   }, [pathname]);
 

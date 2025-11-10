@@ -1,5 +1,9 @@
 type BaseAPIErrorResponse = {
-  detail: string;
+  detail: {
+    status: string;
+    message: string;
+    error_type: string;
+  };
 };
 
 export type { BaseAPIErrorResponse };

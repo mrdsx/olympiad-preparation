@@ -1,4 +1,5 @@
 import { groupWordsByLength, useUserAnagramsStore } from "@/features/word-game";
+import { AnagramPopover } from "./AnagramPopover";
 
 function UserAnagramsList() {
   const userAnagrams = useUserAnagramsStore((state) => state.userAnagrams);
@@ -11,10 +12,9 @@ function UserAnagramsList() {
         .map(([wordLength, anagrams]) => (
           <li key={wordLength}>
             <h2 className="text-xl font-semibold">{wordLength}</h2>
-            <p>{anagrams.join(", ")}</p>
-            {/* {anagrams.map((anagram) => (
-              <AnagramHoverCard anagram={anagram} key={anagram} />
-            ))} */}
+            {anagrams.map((anagram) => (
+              <AnagramPopover anagram={anagram} key={anagram} />
+            ))}
           </li>
         ))}
     </ul>

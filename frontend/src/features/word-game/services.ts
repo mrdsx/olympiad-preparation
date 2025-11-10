@@ -1,6 +1,6 @@
 import { queryKeys } from "@/lib/constants";
 import { useMutation } from "@tanstack/react-query";
-import { getAnagrams, getWordWithAnagrams } from "./api";
+import { getAnagrams, getWordExplanation, getWordWithAnagrams } from "./api";
 
 const wordGameRepository = {
   useAnagramsMutation: () =>
@@ -8,9 +8,14 @@ const wordGameRepository = {
       mutationKey: [queryKeys.GET_ANAGRAMS],
       mutationFn: (baseWord: string) => getAnagrams(baseWord),
     }),
+  useExplainWordMutation: () =>
+    useMutation({
+      mutationKey: [queryKeys.GET_WORD_EXPLANATION],
+      mutationFn: (word: string) => getWordExplanation(word),
+    }),
   useGenerateWordMutation: () =>
     useMutation({
-      mutationKey: [queryKeys.RANDOM_WORD],
+      mutationKey: [queryKeys.GET_RANDOM_WORD],
       mutationFn: () => getWordWithAnagrams(),
     }),
 };

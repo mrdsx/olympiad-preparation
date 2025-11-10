@@ -6,8 +6,31 @@ import "./globals.css";
 
 const metadata: Metadata = {
   title: "Подготовка к ОВИО",
-  description:
-    'Приложение для тренировки подготовки к олимпиаде "Наше Наследие"',
+  description: 'Приложение для подготовки к олимпиаде "ОВИО Наше Наследие"',
+  applicationName: "Подготовка к ОВИО Наше Наследие",
+  authors: [{ name: "mrdsx", url: "https://github.com/mrdsx" }],
+  creator: "mrdsx",
+  referrer: "origin",
+  generator: "Next.js",
+  publisher: "Vercel",
+  keywords: [
+    "ОВИО",
+    "Наше Наследие",
+    "олимпиада",
+    "подготовка к олимпиаде",
+    "тренировка памяти",
+    "задания ОВИО",
+    "соответствия",
+    "запоминание картинок",
+    "история России",
+    "культура России",
+    "онлайн тренировка",
+    "викторина",
+    "интеллектуальные игры",
+    "школьная олимпиада",
+    "тренажёр памяти",
+    "подготовка школьников",
+  ],
 };
 
 function RootLayout({ children }: Readonly<React.PropsWithChildren>) {

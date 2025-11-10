@@ -2,10 +2,10 @@ import { CircleAlert } from "lucide-react";
 
 type ErrorTextProps = {
   message: string;
-  isError: boolean;
+  isError?: boolean;
 };
 
-function ErrorText({ isError, message }: ErrorTextProps) {
+function ErrorText({ isError = true, message }: ErrorTextProps) {
   if (!isError) return;
 
   return (

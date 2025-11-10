@@ -1,16 +1,21 @@
+import { HTTP_TOO_MANY_REQUESTS } from "./constants";
 import { isBaseAPIErrorResponse } from "./utils";
 
-async function apiFetch<TResponse extends Record<string, any>>(
+async function apiFetch(
   path: string,
   init?: RequestInit,
-): Promise<TResponse> {
+  errorMessage?: string,
+): Promise<any> {
   const response = await fetch(path, { ...init });
   const data = await response.json();
 
   if (response.ok) return data;
-  if (isBaseAPIErrorResponse(data)) console.warn(data.detail);
+  if (isBaseAPIErrorResponse(data)) console.warn(data.detail.message);
 
-  throw new Error(data.detail ?? "Unexpected error occurred.");
+  if (response.status === HTTP_TOO_MANY_REQUESTS) {
+    throw new Error("Слишком много запросов");
+  }
+  throw new Error(errorMessage ?? "Произошла ошибка.");
 }
 
 export { apiFetch };

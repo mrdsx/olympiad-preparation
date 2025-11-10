@@ -1,11 +1,11 @@
-import { Countdown } from "@/features/countdown";
-import { SelectGridSize } from "@/features/grid";
-import { TrainingArea } from "@/features/training";
+import { MatchesCountdown } from "./components/MatchesCountdown";
+import { SelectGridSize } from "./components/SelectGridSize";
+import { TrainingArea } from "./components/TrainingArea";
 
 function MatchesPage() {
   return (
     <>
-      <Countdown className="absolute top-5 left-5 text-2xl" />
+      <MatchesCountdown />
       <SelectGridSize />
       <TrainingArea />
     </>

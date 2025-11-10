@@ -7,13 +7,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useGridLayoutStore } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
-import { useGridLayoutStore } from "../stores";
 
 function SelectGridSize() {
-  const { gridLayout } = useGridLayoutStore();
-  const { setGridLayout } = useGridLayoutStore();
-  const { reset: resetTrainingStore } = useTrainingStore();
+  const { gridLayout, setGridLayout } = useGridLayoutStore();
+  const resetTrainingStore = useTrainingStore((state) => state.reset);
 
   function handleValueChange(value: string) {
     setGridLayout(value as "4x4" | "5x6");

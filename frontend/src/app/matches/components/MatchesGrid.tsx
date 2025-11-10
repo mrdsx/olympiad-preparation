@@ -1,22 +1,22 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useGridLayoutStore, useImagesStore } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
 import Image from "next/image";
-import { useGridLayoutStore, useImagesStore } from "../stores";
 
 const GRID_CELL_WIDTH = "160px";
 const GRID_CELL_HEIGHT = "100px";
 
 function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
-  const { gridLayout } = useGridLayoutStore();
-  const { images } = useImagesStore();
-  const { reset: resetTraining } = useTrainingStore();
+  const gridLayout = useGridLayoutStore((state) => state.gridLayout);
+  const images = useImagesStore((state) => state.images);
+  const resetTrainingStore = useTrainingStore((state) => state.reset);
 
   return (
     <>
       {showAnswers && (
-        <Button onClick={resetTraining}>Сгенерировать заново</Button>
+        <Button onClick={resetTrainingStore}>Сгенерировать заново</Button>
       )}
       <div
         className="mb-3 grid border-1"

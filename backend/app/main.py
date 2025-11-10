@@ -6,11 +6,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import ValidationError
 from typing import Any
 
-from config import APP_HOST, APP_PORT, ResponseStatus
+from config import APP_HOST, APP_PORT
 from error_handlers import global_error_handler, validation_error_handler
 from features.word_game import router as word_game_router
+from lifespan import lifespan
+from shared import ResponseStatus
 
-app = FastAPI(title="My API", version="1.0")
+app = FastAPI(title="My API", version="1.0", lifespan=lifespan)
 
 origins = [os.getenv("ALLOWED_ORIGIN", "localhost:3000"), "http://localhost:3000"]
 project_environment = os.getenv("PROJECT_ENVIRONMENT", "development")

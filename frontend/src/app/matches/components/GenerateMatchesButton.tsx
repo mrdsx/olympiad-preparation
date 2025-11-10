@@ -7,16 +7,16 @@ import {
   useGridLayoutStore,
   useImagesStore,
 } from "@/features/grid";
-import { useTrainingStore } from "../trainingStore";
+import { useTrainingStore } from "@/features/training";
 
 const MEMORIZATION_TIME =
   Number(process.env.NEXT_PUBLIC_MEMORIZATION_TIME) || 60;
 
 function GenerateMatchesButton() {
-  const { gridLayout } = useGridLayoutStore();
+  const setRemainingTime = useCountdownStore((state) => state.setRemainingTime);
+  const gridLayout = useGridLayoutStore((state) => state.gridLayout);
+  const setImages = useImagesStore((state) => state.setImages);
   const { setIsFinished, setIsRemembering } = useTrainingStore();
-  const { setImages } = useImagesStore();
-  const { setRemainingTime } = useCountdownStore();
 
   function handleClick() {
     const length = gridLayout.columns * gridLayout.rows;

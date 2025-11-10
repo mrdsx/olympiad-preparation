@@ -11,7 +11,14 @@ function isBaseAPIErrorResponse(data: unknown): data is BaseAPIErrorResponse {
     data !== null &&
     typeof data === "object" &&
     "detail" in data &&
-    typeof data.detail === "string"
+    data.detail !== null &&
+    typeof data.detail === "object" &&
+    "status" in data.detail &&
+    "message" in data.detail &&
+    "error_type" in data.detail &&
+    typeof data.detail.status === "string" &&
+    typeof data.detail.message === "string" &&
+    typeof data.detail.error_type === "string"
   );
 }
 

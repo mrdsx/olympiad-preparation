@@ -1,0 +1,21 @@
+"use client";
+
+import { Countdown, useCountdownStore } from "@/features/countdown";
+import { useTrainingStore } from "@/features/training";
+
+function MatchesCountdown() {
+  const remainingTime = useCountdownStore((state) => state.remainingTime);
+  const { isRemembering, isFinished, showAnswers } = useTrainingStore();
+
+  const isHidden = showAnswers || (!isRemembering && isFinished);
+
+  return (
+    <Countdown
+      className="absolute top-5 left-5 text-2xl"
+      remainingTime={remainingTime}
+      isHidden={isHidden}
+    />
+  );
+}
+
+export { MatchesCountdown };

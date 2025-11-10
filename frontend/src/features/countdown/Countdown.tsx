@@ -1,15 +1,14 @@
 "use client";
 
-import { useTrainingStore } from "../training";
-import { useCountdownStore } from "./countdownStore";
-
 const SECONDS_IN_MINUTE = 60;
 
-function Countdown(props: React.ComponentProps<"span">) {
-  const { remainingTime } = useCountdownStore();
-  const { isRemembering, isFinished, showAnswers } = useTrainingStore();
+type CountdownProps = {
+  isHidden: boolean;
+  remainingTime: number;
+} & React.ComponentProps<"span">;
 
-  if (showAnswers || (!isRemembering && isFinished)) return null;
+function Countdown({ isHidden, remainingTime, ...props }: CountdownProps) {
+  if (isHidden) return;
 
   const remainingMinutes: number = Math.floor(
     remainingTime / SECONDS_IN_MINUTE,

@@ -5,8 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useWordGameModeStore } from "./stores";
-import { WordGameMode } from "./types";
+import { useWordGameModeStore, WordGameMode } from "@/features/word-game";
 
 function SelectWordGameMode() {
   const { wordGameMode, setWordGameMode } = useWordGameModeStore();

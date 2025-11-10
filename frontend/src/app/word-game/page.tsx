@@ -1,17 +1,16 @@
 "use client";
 
+import { useWordGameModeStore, wordGameRepository } from "@/features/word-game";
 import {
+  BaseAnagramsList,
+  BaseWordTitle,
+  CreateWordsForm,
+  ErrorText,
+  GenerateWordButton,
   SelectWordGameMode,
-  useWordGameModeStore,
-  wordGameRepository,
-} from "@/features/word-game";
-import { BaseAnagramsList } from "./components/BaseAnagramsList";
-import { BaseWordTitle } from "./components/BaseWordTitle";
-import { CreateWordsForm } from "./components/CreateWordsForm";
-import { ErrorText } from "./components/ErrorText";
-import { GenerateWordButton } from "./components/GenerateWordButton";
-import { SwitchAnagramsVisibility } from "./components/SwitchAnagramsVisibility";
-import { UserAnagramsList } from "./components/UserAnagramsList";
+  SwitchAnagramsVisibility,
+  UserAnagramsList,
+} from "./components";
 
 function WordGamePage() {
   const wordGameMode = useWordGameModeStore((state) => state.wordGameMode);

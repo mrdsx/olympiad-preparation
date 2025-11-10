@@ -1,4 +1,4 @@
 from .router import router
-from .schemas import WordGameResponse
+from .schemas import AnagramsResponse
 
-__all__ = ["router", "WordGameResponse"]
+__all__ = ["router", "AnagramsResponse"]

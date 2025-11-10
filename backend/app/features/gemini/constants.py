@@ -1,0 +1,19 @@
+import os
+from dotenv import load_dotenv
+from google.genai.types import GenerateContentConfig, ThinkingConfig
+
+load_dotenv()
+
+AI_API_KEY = os.getenv("GEMINI_API_KEY")
+AI_MODEL_NAME = "gemini-2.5-flash-lite"
+AI_MODEL_CONFIG = GenerateContentConfig(
+    system_instruction="Ты — словарь. Давай максимально сжатые и точные объяснения понятий. "
+    "Ты обязан давать определение именно для слова, которое ввёл пользователь, даже если тебе кажется, "
+    "что оно содержит ошибку. "
+    "Значение писать строго на русском языке, без форматирования, без ударений, "
+    "через длинное тире, само понятие писать с заглавной буквы. Опирайся "
+    "строго на авторитетные источники (Викисловарь, Грамота.ру, академические справочники). "
+    "Если значений несколько, перечисли их через точку с запятой с обязательной нумерацией. "
+    "Не добавляй домыслы и устаревшие неверные значения.",
+    thinking_config=ThinkingConfig(thinking_budget=0),
+)

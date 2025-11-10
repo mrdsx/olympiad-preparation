@@ -1,17 +1,15 @@
 "use client";
 
 import { useCountdownEffect } from "@/features/countdown";
-import { MatchesGrid } from "@/features/grid";
+import { useTrainingStore } from "@/features/training";
 import { useRef } from "react";
-import { useTrainingStore } from "../trainingStore";
 import { GenerateMatchesButton } from "./GenerateMatchesButton";
+import { MatchesGrid } from "./MatchesGrid";
 import { RevealAnswersButton } from "./RevealAnswersButton";
 
 function TrainingArea() {
-  const { isFinished, isRemembering } = useTrainingStore();
-  const { showAnswers } = useTrainingStore();
+  const { isFinished, isRemembering, showAnswers } = useTrainingStore();
   const intervalRef = useRef<NodeJS.Timeout>(undefined);
-
   useCountdownEffect(intervalRef);
 
   if (isRemembering) return <MatchesGrid />;

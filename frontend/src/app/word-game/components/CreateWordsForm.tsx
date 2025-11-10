@@ -6,7 +6,6 @@ import {
   useUserWordStore,
   wordGameRepository,
 } from "@/features/word-game";
-import { useEffect } from "react";
 
 const MIN_INPUT_LENGTH = 1;
 const MAX_INPUT_LENGTH = 20;
@@ -21,15 +20,14 @@ function CreateWordsForm({ mutation }: CreateWordsFormProps) {
   );
   const { userWord, setUserWord } = useUserWordStore();
 
-  const { data, isPending, mutate } = mutation;
-
-  useEffect(() => {
-    if (data) setUserAnagrams(data.anagrams);
-  }, [data]);
+  const { isPending, mutate } = mutation;
 
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
-    if (userWord.length > 0) mutate(userWord);
+    if (userWord.length > 0)
+      mutate(userWord, {
+        onSuccess: (data) => setUserAnagrams(data.anagrams),
+      });
   }
 
   return (
