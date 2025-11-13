@@ -21,7 +21,6 @@ def search_anagrams(base_word: str) -> list[str]:
 def generate_anagrams(base_word: str) -> list[str]:
     if base_word in anagrams_dictionary:
         return anagrams_dictionary[base_word]
-
     return search_anagrams(base_word)
 
 
