@@ -1,6 +1,9 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const LINK_CLASSNAME = "border-b-1 hover:border-b-black";
 const ACTIVE_LINK_CLASSNAME = "border-b-black";
@@ -8,10 +11,11 @@ const NOT_ACTIVE_LINK_CLASSNAME = "border-b-transparent";
 
 type NavBarLinkProps = {
   href: Url;
-  pathname: string;
 } & React.PropsWithChildren;
 
-function NavBarLink({ children, href, pathname }: NavBarLinkProps) {
+function NavBarLink({ children, href }: NavBarLinkProps) {
+  const pathname = usePathname();
+
   return (
     <Link
       href={href}

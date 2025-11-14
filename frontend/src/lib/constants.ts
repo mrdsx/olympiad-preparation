@@ -10,6 +10,7 @@ const queryKeys = {
 
 const path = {
   ROOT: "/",
+  EXPRESSIONS: "/expressions",
   MATCHES: "/matches",
   WORD_GAME: "/word-game",
 } as const;

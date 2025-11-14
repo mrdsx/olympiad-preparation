@@ -13,10 +13,9 @@ import { ErrorText } from "./ErrorText";
 function AnagramPopover({ anagram }: { anagram: string }) {
   const [isFetchingAnagram, setIsFetchingAnagram] = useState<boolean>(true);
   const [anagramExplanation, setAnagramExplanation] = useState<string>("");
-  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const { useExplainWordMutation } = wordGameRepository;
-  const { isError, mutate } = useExplainWordMutation();
+  const { isError, error, mutate } = useExplainWordMutation();
 
   return (
     <Popover
@@ -27,7 +26,6 @@ function AnagramPopover({ anagram }: { anagram: string }) {
             setAnagramExplanation(data.explanation);
             setIsFetchingAnagram(false);
           },
-          onError: (error) => setErrorMessage(error.message),
         });
       }}
     >
@@ -43,7 +41,7 @@ function AnagramPopover({ anagram }: { anagram: string }) {
         )}
       >
         {isError ? (
-          <ErrorText message={errorMessage} />
+          <ErrorText message={error.message} />
         ) : isFetchingAnagram ? (
           <LoaderCircle className="animate-spin" />
         ) : (
