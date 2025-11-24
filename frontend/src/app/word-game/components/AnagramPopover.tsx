@@ -10,11 +10,12 @@ import { LoaderCircle } from "lucide-react";
 import { useState } from "react";
 import { ErrorText } from "./ErrorText";
 
+const { useExplainWordMutation } = wordGameRepository;
+
 function AnagramPopover({ anagram }: { anagram: string }) {
   const [isFetchingAnagram, setIsFetchingAnagram] = useState<boolean>(true);
   const [anagramExplanation, setAnagramExplanation] = useState<string>("");
 
-  const { useExplainWordMutation } = wordGameRepository;
   const { isError, error, mutate } = useExplainWordMutation();
 
   return (

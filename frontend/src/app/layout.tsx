@@ -34,7 +34,7 @@ const metadata: Metadata = {
   ],
 };
 
-function RootLayout({ children }: Readonly<React.PropsWithChildren>) {
+function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <AppProvider>
       <html lang="en">

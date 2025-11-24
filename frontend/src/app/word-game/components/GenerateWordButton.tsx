@@ -16,22 +16,18 @@ function GenerateWordButton({ mutation }: GenerateWordButtonProps) {
 
   const { isPending, mutate } = mutation;
 
+  function handleClick(): void {
+    mutate(undefined, {
+      onSuccess: (data) => {
+        setBaseWord(data.base_word);
+        setAnagrams(data.anagrams);
+      },
+    });
+  }
+
   if (isPending) return <PendingButton>Генерация</PendingButton>;
 
-  return (
-    <Button
-      onClick={() =>
-        mutate(undefined, {
-          onSuccess: (data) => {
-            setBaseWord(data.base_word);
-            setAnagrams(data.anagrams);
-          },
-        })
-      }
-    >
-      Генерировать слово
-    </Button>
-  );
+  return <Button onClick={handleClick}>Генерировать слово</Button>;
 }
 
 export { GenerateWordButton };

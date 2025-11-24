@@ -4,19 +4,20 @@ import { useWordGameModeStore, wordGameRepository } from "@/features/word-game";
 import {
   BaseAnagramsList,
   BaseWordTitle,
-  CreateWordsForm,
   ErrorText,
+  GenerateAnagramsForm,
   GenerateWordButton,
   SelectWordGameMode,
   SwitchAnagramsVisibility,
   UserAnagramsList,
 } from "./components";
 
+const { useGenerateAnagramsMutation, useGenerateWordMutation } =
+  wordGameRepository;
+
 function WordGamePage() {
   const wordGameMode = useWordGameModeStore((state) => state.wordGameMode);
-
-  const { useAnagramsMutation, useGenerateWordMutation } = wordGameRepository;
-  const anagramsMutation = useAnagramsMutation();
+  const anagramsMutation = useGenerateAnagramsMutation();
   const generateWordMutation = useGenerateWordMutation();
 
   return (
@@ -30,7 +31,7 @@ function WordGamePage() {
             <GenerateWordButton mutation={generateWordMutation} />
           </>
         ) : (
-          <CreateWordsForm mutation={anagramsMutation} />
+          <GenerateAnagramsForm mutation={anagramsMutation} />
         )}
       </div>
       {wordGameMode === "generation" ? (

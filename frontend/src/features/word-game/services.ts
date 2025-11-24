@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { getAnagrams, getWordExplanation, getWordWithAnagrams } from "./api";
 
 const wordGameRepository = {
-  useAnagramsMutation: () =>
+  useGenerateAnagramsMutation: () =>
     useMutation({
       mutationKey: [queryKeys.GET_ANAGRAMS],
       mutationFn: (baseWord: string) => getAnagrams(baseWord),

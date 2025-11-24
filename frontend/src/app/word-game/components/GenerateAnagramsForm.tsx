@@ -10,24 +10,28 @@ import {
 const MIN_INPUT_LENGTH = 1;
 const MAX_INPUT_LENGTH = 20;
 
-type CreateWordsFormProps = {
-  mutation: ReturnType<(typeof wordGameRepository)["useAnagramsMutation"]>;
+type GenerateAnagramsFormProps = {
+  mutation: ReturnType<
+    (typeof wordGameRepository)["useGenerateAnagramsMutation"]
+  >;
 };
 
-function CreateWordsForm({ mutation }: CreateWordsFormProps) {
+function GenerateAnagramsForm({ mutation }: GenerateAnagramsFormProps) {
   const setUserAnagrams = useUserAnagramsStore(
     (state) => state.setUserAnagrams,
   );
   const { userWord, setUserWord } = useUserWordStore();
-
   const { isPending, mutate } = mutation;
 
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
-    if (userWord.length > 0)
-      mutate(userWord, {
-        onSuccess: (data) => setUserAnagrams(data.anagrams),
-      });
+
+    const normalizedUserWord = userWord.trim().toLowerCase();
+    if (normalizedUserWord.length === 0) return;
+
+    mutate(normalizedUserWord, {
+      onSuccess: (data) => setUserAnagrams(data.anagrams),
+    });
   }
 
   return (
@@ -53,4 +57,4 @@ function CreateWordsForm({ mutation }: CreateWordsFormProps) {
   );
 }
 
-export { CreateWordsForm };
+export { GenerateAnagramsForm };
