@@ -2,12 +2,12 @@ import pytest
 from fastapi import HTTPException, status
 from google.genai.errors import ClientError
 
-from app.features.word_game.exceptions import (
+from src.features.word_game.exceptions import (
     raise_ai_client_error,
     raise_invalid_string_length,
     raise_value_error,
 )
-from app.shared import ErrorType, ResponseStatus
+from src.shared import ErrorType, ResponseStatus
 
 
 @pytest.fixture

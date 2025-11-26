@@ -1,0 +1,18 @@
+from datetime import datetime
+from fastapi import APIRouter
+from typing import Any
+
+from config import PROJECT_ENV
+from shared import ResponseStatus
+
+router = APIRouter()
+
+
+@router.get("/")
+async def read_root() -> dict[str, Any]:
+    return {
+        "title": "Olympiad preparation backend",
+        "status": ResponseStatus.OK,
+        "project_environment": PROJECT_ENV,
+        "datetime": datetime.now(),
+    }

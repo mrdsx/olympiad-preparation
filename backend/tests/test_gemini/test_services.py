@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import AsyncMock
 
-from app.features.gemini import ask_word_explanation
+from src.features.gemini import ask_word_explanation
 
 
 @pytest.mark.asyncio

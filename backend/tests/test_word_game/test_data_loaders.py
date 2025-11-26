@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from typing import Any
 
-from app.features.word_game.data_loaders import anagrams_dictionary, words_list
+from src.features.word_game.data_loaders import anagrams_dictionary, words_list
 
 
 def test_words_list_contains_valid_data(is_valid_word: Callable[[Any], bool]):

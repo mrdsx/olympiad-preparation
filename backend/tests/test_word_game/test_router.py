@@ -3,8 +3,8 @@ from fastapi import status
 from fastapi.testclient import TestClient
 from typing import Any
 
-from app.features.word_game import AnagramsResponse
-from app.shared import ErrorType, ResponseStatus
+from src.features.word_game import AnagramsResponse
+from src.shared import ErrorType, ResponseStatus
 
 
 def test_get_word_with_anagrams_success(

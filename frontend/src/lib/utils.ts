@@ -22,7 +22,7 @@ function isBaseAPIErrorResponse(data: unknown): data is BaseAPIErrorResponse {
   );
 }
 
-function getRandomInt(min: number, max: number) {
+function getRandomInt(min: number, max: number): number {
   const range = max - min + 1;
   if (range <= 0) {
     throw new Error("Invalid range: max must be greater than or equal to min.");
