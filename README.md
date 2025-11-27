@@ -4,6 +4,14 @@ The purpose of this web application is to help prepare for olympiad "Наше н
 
 ## How to setup
 
+### Prerequisites
+
+[Node.js](https://nodejs.org/en)
+[bun](https://bun.com)
+[Python](https://python.org)
+
+If you have Node.js, installed on your machine, run `npm install -g bun` to install bun globally.
+
 ### Frontend
 
 1. Navigate to frontend folder
