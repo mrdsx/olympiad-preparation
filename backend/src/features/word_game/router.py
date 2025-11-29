@@ -33,8 +33,9 @@ async def get_anagrams(base_word: str) -> AnagramsResponse:
 @router.get("/explain-word", response_model=WordExplanationResponse)
 async def get_word_explanation(word: str) -> WordExplanationResponse:
     try:
-        explanation = await ask_word_explanation(word)
-        return WordExplanationResponse(word=word, explanation=explanation)
+        processed_word = word.strip().lower()
+        explanation = await ask_word_explanation(processed_word)
+        return WordExplanationResponse(word=processed_word, explanation=explanation)
     except ValueError as error:
         raise_value_error(error)
     except ClientError as error:

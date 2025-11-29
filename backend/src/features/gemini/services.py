@@ -7,7 +7,6 @@ from .gemini_client import client
 
 @alru_cache(maxsize=DEFAULT_CACHE_MAX_SIZE, ttl=DEFAULT_TTL)
 async def ask_word_explanation(word: str) -> str:
-    word = word.strip()
     if len(word) == 0:
         raise ValueError("Invalid word length")
 
