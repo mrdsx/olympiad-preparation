@@ -26,8 +26,9 @@ async def get_anagrams(base_word: str) -> AnagramsResponse:
     if len(base_word) > MAX_BASE_WORD_LENGTH or len(base_word) == 0:
         raise_invalid_string_length()
 
+    processed_word = base_word.strip().lower()
     anagrams = generate_anagrams(base_word)
-    return AnagramsResponse(base_word=base_word, anagrams=anagrams)
+    return AnagramsResponse(base_word=processed_word, anagrams=anagrams)
 
 
 @router.get("/explain-word", response_model=WordExplanationResponse)
