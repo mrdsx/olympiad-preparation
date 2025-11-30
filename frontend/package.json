@@ -1,6 +1,6 @@
 {
   "name": "next-olympiad-preparation",
-  "version": "3.0.2",
+  "version": "3.0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
