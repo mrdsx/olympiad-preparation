@@ -48,7 +48,8 @@ Gemini API key can be obtained in [Google AI Studio](https://aistudio.google.com
 
 ```
 python -m venv .venv              # setup isolated virtual environment
-./.venv/Scripts/activate          # activate virtual environment
+./.venv/Scripts/activate          # activate virtual environment (Windows)
+source ./.venv/bin/activate       # activate virtual environment (Linux)
 pip install poetry                # install poetry package manager
 poetry install                    # install all deps using poetry
 poetry run python ./src/main.py   # run project!
