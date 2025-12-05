@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [4.0.1] - December 6, 2025
+
+### Fixed
+
+- Add vercel config to fix routing issues
+
 ## [4.0.0] - December 5, 2025
 
 ### Changed
