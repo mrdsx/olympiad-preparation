@@ -1,6 +1,6 @@
 "use client";
 
-import { path } from "@/lib/constants";
+import { PATH } from "@/lib/constants";
 import { usePathname } from "next/navigation";
 import { createContext, useEffect, useRef } from "react";
 import { useTrainingStore } from "../training";
@@ -13,7 +13,7 @@ function CountdownProvider({ children }: React.PropsWithChildren) {
   const previousPathnameRef = useRef<string>(null);
 
   useEffect(() => {
-    if (previousPathnameRef.current === path.MATCHES) resetTrainingStore();
+    if (previousPathnameRef.current === PATH.MATCHES) resetTrainingStore();
     previousPathnameRef.current = pathname;
   }, [pathname]);
 

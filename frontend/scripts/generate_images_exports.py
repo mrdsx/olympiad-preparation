@@ -5,6 +5,7 @@ OUTPUT_PATH: str = "output"
 
 if not os.path.exists(IMAGES_FOLDER_PATH):
     os.makedirs(IMAGES_FOLDER_PATH)
+    raise OSError("images directory not found")
 if not os.path.exists(OUTPUT_PATH):
     os.makedirs(OUTPUT_PATH)
 os.chdir(IMAGES_FOLDER_PATH)
@@ -26,6 +27,9 @@ images: list[str] = []
 for ext in extensions:
     images.extend(glob.glob(ext))
 images = sorted(images)
+
+if len(images) == 0:
+    raise OSError("images list is empty")
 
 # generate imports string
 imports: list[str] = []

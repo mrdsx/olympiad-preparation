@@ -1,0 +1,98 @@
+{
+  "2_4": [
+    { "name": "Башкиры", "publicId": "bashkiri_2_4_pquyix" },
+    { "name": "Баурсак", "publicId": "baursak_2_4_skjsi4" },
+    { "name": "Чак-чак", "publicId": "chak-chak_2_4_z2t2k2" },
+    { "name": "Чебоксары", "publicId": "cheboksari_2_4_h0va24" },
+    { "name": "Чуваши", "publicId": "chuvashi_2_4_r7yszz" },
+    { "name": "Ижевск", "publicId": "izhevsk_2_4_foyzjn" },
+    { "name": "Йошкар-Ола", "publicId": "johkar-ola_2_4_m7ygmk" },
+    { "name": "Калмыки", "publicId": "kalmiki_2_4_s3znh5" },
+    { "name": "Казань", "publicId": "kazan_2_4_usxoz7" },
+    { "name": "Киров", "publicId": "kirov_2_4_b2r0sl" },
+    { "name": "Марийцы", "publicId": "marijtsi_2_4_r3dvdg" },
+    { "name": "Мордва", "publicId": "mordva_2_4_doizay" },
+    { "name": "Оренбург", "publicId": "orenburg_2_4_jwrltr" },
+    { "name": "Пенза", "publicId": "penza_2_4_sc3wtt" },
+    { "name": "Перемячи", "publicId": "peremyachi_2_4_u1hxwl" },
+    { "name": "Пермь", "publicId": "perm_2_4_qdgi2f" },
+    { "name": "Русские", "publicId": "russkije_2_4_igug0s" },
+    { "name": "Самара", "publicId": "samara_2_4_zexcnr" },
+    { "name": "Саранск", "publicId": "saransk_2_4_djdq9e" },
+    { "name": "Саратов", "publicId": "saratov_2_4_bmrkf4" },
+    { "name": "Шаньга", "publicId": "shanga_2_4_h5tluk" },
+    { "name": "Татары", "publicId": "tatari_2_4_v3ysb1" },
+    { "name": "Удмурты", "publicId": "udmurti_2_4_g5n5p7" },
+    { "name": "Уфа", "publicId": "ufa_2_4_xksyzm" }
+  ],
+  "9_11": [
+    { "name": "Акатуй", "publicId": "akatuj_9_11_dlzdpd" },
+    { "name": "Балаково", "publicId": "balakovo_9_11_zgj8o0" },
+    { "name": "Балашов", "publicId": "balashov_9_11_ovnlwx" },
+    { "name": "Башкиры", "publicId": "bashkiri_9_11_veovl3" },
+    {
+      "name": "Боголюбов А. П. (1824-1896)",
+      "publicId": "bogolubov-a-p_9_11_bmggkc"
+    },
+    { "name": "Бортничество", "publicId": "bortnichestvo_9_11_q4akpn" },
+    { "name": "Войлоковаляние", "publicId": "vojlokovalyanije_9_11_kzxgcj" },
+    { "name": "Вольск", "publicId": "volsk_9_11_agxbiv" },
+    {
+      "name": "Воробьев Н. И. (1894-1967)",
+      "publicId": "vorobjev-n-i_9_11_xv9186"
+    },
+    { "name": "Даль В. И. (1801-1872)", "publicId": "dal-v-i_9_11_uimqeu" },
+    { "name": "Журавли", "publicId": "zhuravli_9_11_mv2g71" },
+    { "name": "Каюлы Читек", "publicId": "kauli-chitek_9_11_yxhqiu" },
+    { "name": "Коми парча", "publicId": "komi-parcha_9_11_qhgk9k" },
+    { "name": "Марийцы", "publicId": "marijtsi_9_11_mrptdr" },
+    {
+      "name": "Маркелов М. Т. (1899-1937)",
+      "publicId": "markelov-m-t_9_11_owxtcy"
+    },
+    { "name": "Нардуган", "publicId": "nardugan_9_11_xplbbx" },
+    { "name": "П. А. Столыпину", "publicId": "p-a-stolipinu_9_11_djnfny" },
+    {
+      "name": "Первой Учительнице",
+      "publicId": "pervoj-uchitelnitse_9_11_igqj7e"
+    },
+    { "name": "Сабантуй", "publicId": "sabantuj_9_11_j9goxd" },
+    { "name": "Саратов", "publicId": "saratov_9_11_to0sdu" },
+    {
+      "name": "Саратовской гармошке",
+      "publicId": "saratovskoj-garmoshke_9_11_hnvzen"
+    },
+    { "name": "Семык", "publicId": "semik_9_11_yvqma9" },
+    {
+      "name": "Смирнов И. Н. (1856-1904)",
+      "publicId": "smirnov-i-n_9_11_mdlb3q"
+    },
+    {
+      "name": "Табаков О. П. (1935-2018)",
+      "publicId": "tabakov-o-p_9_11_xlzkhe"
+    },
+    { "name": "Татары", "publicId": "tatari_9_11_md60ij" },
+    {
+      "name": "Татищев В. Н. (1686-1750)",
+      "publicId": "tatischev-v-n_9_11_nsyxuc"
+    },
+    { "name": "Тĕрĕ", "publicId": "tere_9_11_st29by" },
+    { "name": "Удмурты", "publicId": "udmurti_9_11_whttpz" },
+    {
+      "name": "Худяков М. Г. (1894-1936)",
+      "publicId": "hudyakov-m-g_9_11_t73vp7"
+    },
+    {
+      "name": "Чернышевский Н. Г. (1828-1889)",
+      "publicId": "chernishevskiy-n-g_9_11_g0ow59"
+    },
+    { "name": "Чуваши", "publicId": "chuvashi_9_11_hagdr3" },
+    {
+      "name": "Шнитке А. Г. (1934-1998)",
+      "publicId": "shnitke-a-g_9_11_p1nhgd"
+    },
+    { "name": "Шумбрат", "publicId": "shumbrat_9_11_hbyqbr" },
+    { "name": "Энгельс", "publicId": "engels_9_11_leepuu" },
+    { "name": "Ю. Гагарину", "publicId": "ju-gagarinu_9_11_kdms9r" }
+  ]
+}

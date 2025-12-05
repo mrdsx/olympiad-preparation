@@ -30,7 +30,6 @@ function useCountdownEffect(
 
     //* interval goes on even when isWritingAnswers === false
     intervalRef.current = setInterval(() => {
-      console.log("isFinished interval");
       decrementRemainingTime();
     }, 1000);
 

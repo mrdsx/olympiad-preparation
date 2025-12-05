@@ -16,7 +16,7 @@ const useImagesStore = create<ImagesState>()(
     {
       name: "images-storage",
       storage: createJSONStorage(() => localStorage),
-    }
-  )
+    },
+  ),
 );
 export { useImagesStore };

@@ -1,3 +1,5 @@
+type Path = `/${string}`;
+
 type BaseAPIErrorResponse = {
   detail: {
     status: string;
@@ -6,4 +8,4 @@ type BaseAPIErrorResponse = {
   };
 };
 
-export type { BaseAPIErrorResponse };
+export type { BaseAPIErrorResponse, Path };

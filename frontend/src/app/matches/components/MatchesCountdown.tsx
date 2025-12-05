@@ -11,7 +11,7 @@ function MatchesCountdown() {
 
   return (
     <Countdown
-      className="absolute top-14.5 left-5 text-xl"
+      className="absolute top-14.5 left-3 text-xl sm:left-5"
       remainingTime={remainingTime}
       isHidden={isHidden}
     />

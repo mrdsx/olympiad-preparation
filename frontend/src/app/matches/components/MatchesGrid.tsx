@@ -3,9 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { useGridLayoutStore, useImagesStore } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
-import Image from "next/image";
+import { getCloudinaryUrl } from "@/lib/cdn";
+import { MAX_IMAGE_WIDTH } from "@/lib/constants";
 
-const GRID_CELL_WIDTH = "160px";
+const GRID_CELL_WIDTH = `${MAX_IMAGE_WIDTH}px`;
 const GRID_CELL_HEIGHT = "100px";
 
 function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
@@ -19,7 +20,7 @@ function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
         <Button onClick={resetTrainingStore}>Сгенерировать заново</Button>
       )}
       <div
-        className="mb-3 grid border-1"
+        className="mb-3 grid border"
         style={{
           gridTemplateColumns: `repeat(${gridLayout.columns}, minmax(0, ${GRID_CELL_WIDTH}))`,
           gridTemplateRows: `repeat(${gridLayout.rows}, minmax(0, ${GRID_CELL_HEIGHT}))`,
@@ -27,18 +28,16 @@ function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
       >
         {images.map((image) => (
           <div
-            className="relative grid place-content-center overflow-hidden border-1 text-center grayscale-100"
+            className="relative flex items-center justify-center border text-center grayscale-100"
             key={image.name}
           >
             {showAnswers ? (
               <span>{image.name}</span>
             ) : (
-              <Image
-                src={image.url}
+              <img
+                src={getCloudinaryUrl(image.publicId, MAX_IMAGE_WIDTH)}
                 alt={image.name}
-                className="object-contain"
-                fill
-                sizes={`${GRID_CELL_WIDTH}`}
+                className="max-h-full max-w-full"
               />
             )}
           </div>

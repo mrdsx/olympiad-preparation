@@ -9,10 +9,19 @@ import {
 } from "@/components/ui/select";
 import { useGridLayoutStore } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
+import { useSchoolGradeStore } from "@/features/training/schoolGradeStore";
+import { useEffect } from "react";
 
 function SelectGridSize() {
   const { gridLayout, setGridLayout } = useGridLayoutStore();
+  const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);
   const resetTrainingStore = useTrainingStore((state) => state.reset);
+
+  useEffect(() => {
+    if (schoolGrade === "2_4") {
+      setGridLayout("4x4");
+    }
+  }, [schoolGrade]);
 
   function handleValueChange(value: string) {
     setGridLayout(value as "4x4" | "5x6");
@@ -29,7 +38,9 @@ function SelectGridSize() {
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="4x4">4 столбцов, 4 строки</SelectItem>
-        <SelectItem value="5x6">5 столбцов, 6 строк</SelectItem>
+        <SelectItem value="5x6" disabled={schoolGrade === "2_4"}>
+          5 столбцов, 6 строк
+        </SelectItem>
       </SelectContent>
     </Select>
   );

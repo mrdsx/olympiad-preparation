@@ -2,17 +2,30 @@ const HTTP_TOO_MANY_REQUESTS = 429;
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://127.0.0.1:8000";
 
-const queryKeys = {
+const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+const MAX_IMAGE_WIDTH = 160;
+const MEMORIZATION_TIME = 60;
+// Number(process.env.NEXT_PUBLIC_MEMORIZATION_TIME) ?? 60;
+
+const QUERY_KEYS = {
   GET_ANAGRAMS: "get-anagrams",
   GET_RANDOM_WORD: "get-random-word",
   GET_WORD_EXPLANATION: "get-word-explanation",
 } as const;
 
-const path = {
+const PATH = {
   ROOT: "/",
   EXPRESSIONS: "/expressions",
   MATCHES: "/matches",
   WORD_GAME: "/word-game",
 } as const;
 
-export { BACKEND_URL, HTTP_TOO_MANY_REQUESTS, path, queryKeys };
+export {
+  BACKEND_URL,
+  CLOUD_NAME,
+  HTTP_TOO_MANY_REQUESTS,
+  MAX_IMAGE_WIDTH,
+  MEMORIZATION_TIME,
+  PATH,
+  QUERY_KEYS,
+};

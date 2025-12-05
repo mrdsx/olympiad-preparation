@@ -1,8 +1,11 @@
 import { getRandomInt } from "@/lib/utils";
-import { imagesArray, type ImageItem } from "./images";
+import { getImages, type ImageItem } from "./images";
+import { SchoolGrade } from "./types";
 
-function generateImages(length: number): ImageItem[] {
-  const images = [...imagesArray];
+const imagesObject = getImages();
+
+function generateImages(length: number, grade: SchoolGrade): ImageItem[] {
+  const images = [...imagesObject[grade]];
   const randomImages = [];
   for (let i = 0; i < length; i++) {
     const randomIndex = getRandomInt(0, images.length - 1);

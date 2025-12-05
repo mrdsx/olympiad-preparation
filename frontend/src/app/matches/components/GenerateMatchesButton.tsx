@@ -8,19 +8,20 @@ import {
   useImagesStore,
 } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
-
-const MEMORIZATION_TIME =
-  Number(process.env.NEXT_PUBLIC_MEMORIZATION_TIME) || 60;
+import { useSchoolGradeStore } from "@/features/training/schoolGradeStore";
+import { MEMORIZATION_TIME } from "@/lib/constants";
 
 function GenerateMatchesButton() {
   const setRemainingTime = useCountdownStore((state) => state.setRemainingTime);
   const gridLayout = useGridLayoutStore((state) => state.gridLayout);
   const setImages = useImagesStore((state) => state.setImages);
-  const { setIsFinished, setIsRemembering } = useTrainingStore();
+  const setIsFinished = useTrainingStore((state) => state.setIsFinished);
+  const setIsRemembering = useTrainingStore((state) => state.setIsRemembering);
+  const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);
 
   function handleClick() {
     const length = gridLayout.columns * gridLayout.rows;
-    setImages(generateImages(length));
+    setImages(generateImages(length, schoolGrade));
     setIsFinished(false);
     setIsRemembering(true);
     setRemainingTime(MEMORIZATION_TIME);
