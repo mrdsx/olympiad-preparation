@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [4.0.2] - December 6, 2025
+
+### Fixed
+
+- Fix button styles on PC version
+- Fix matches aren't displayed
+
 ## [4.0.1] - December 6, 2025
 
 ### Fixed
