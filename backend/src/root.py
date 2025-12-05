@@ -2,7 +2,7 @@ from datetime import datetime
 from fastapi import APIRouter
 from typing import Any
 
-from config import PROJECT_ENV
+from config import PROJECT_ENV, PROJECT_VERSION
 from shared import ResponseStatus
 
 router = APIRouter()
@@ -15,4 +15,5 @@ async def read_root() -> dict[str, Any]:
         "status": ResponseStatus.OK,
         "project_environment": PROJECT_ENV,
         "datetime": datetime.now(),
+        "version": PROJECT_VERSION,
     }

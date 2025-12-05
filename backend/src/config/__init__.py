@@ -6,6 +6,7 @@ from .constants import (
     DEV_ENV,
     PROD_ENV,
     PROJECT_ENV,
+    PROJECT_VERSION,
     DEFAULT_CACHE_MAX_SIZE,
     DEFAULT_TTL,
 )
@@ -19,6 +20,7 @@ __all__ = [
     "DEV_ENV",
     "PROD_ENV",
     "PROJECT_ENV",
+    "PROJECT_VERSION",
     "DEFAULT_CACHE_MAX_SIZE",
     "DEFAULT_TTL",
 ]
