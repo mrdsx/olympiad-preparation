@@ -1,6 +1,6 @@
+import type { SchoolGrade } from "@/features/grid";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { SchoolGrade } from "../grid";
 
 type T = SchoolGrade;
 

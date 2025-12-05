@@ -18,8 +18,9 @@ If you have Node.js, installed on your machine, run `npm install -g bun` to inst
 2. Setup environment variables:
 
 ```
-NEXT_PUBLIC_MEMORIZATION_TIME=3                # optional, for testing matches page
-NEXT_PUBLIC_BACKEND_URL=your-backend-url.com   # PRODUCTION ONLY
+VITE_CLOUDINARY_CLOUD_NAME=dsf4g0owu
+VITE_MEMORIZATION_TIME=3                # optional, for testing matches page
+VITE_BACKEND_URL=your-backend-url.com   # PRODUCTION ONLY
 ```
 
 3. Run these commands:

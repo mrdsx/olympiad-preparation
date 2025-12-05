@@ -1,5 +1,5 @@
 import { BACKEND_URL, HTTP_TOO_MANY_REQUESTS } from "./constants";
-import { Path } from "./types";
+import { type Path } from "./types";
 import { isBaseAPIErrorResponse } from "./utils";
 
 async function apiFetch(

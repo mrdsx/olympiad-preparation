@@ -1,5 +1,3 @@
-"use client";
-
 import { Countdown, useCountdownStore } from "@/features/countdown";
 import { useTrainingStore } from "@/features/training";
 

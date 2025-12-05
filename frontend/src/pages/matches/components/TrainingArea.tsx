@@ -1,5 +1,3 @@
-"use client";
-
 import { useCountdownEffect } from "@/features/countdown";
 import { useTrainingStore } from "@/features/training";
 import { useRef } from "react";

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router";
 import { Button } from "./ui/button";
 
 function Footer() {
@@ -6,7 +6,7 @@ function Footer() {
     <footer className="mt-auto mb-2">
       Об ошибках писать{" "}
       <Button className="px-0" variant="link">
-        <Link className="font-semibold" href="mailto:CastleGG@yandex.ru">
+        <Link className="font-semibold" to="mailto:CastleGG@yandex.ru">
           CastleGG@yandex.ru
         </Link>
       </Button>

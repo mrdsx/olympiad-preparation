@@ -16,4 +16,4 @@ function MatchesPage() {
   );
 }
 
-export default MatchesPage;
+export { MatchesPage };

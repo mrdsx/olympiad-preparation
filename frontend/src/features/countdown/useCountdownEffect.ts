@@ -1,5 +1,3 @@
-"use client";
-
 import { useTrainingStore } from "@/features/training";
 import { useEffect } from "react";
 import { useCountdownStore } from "../countdown";

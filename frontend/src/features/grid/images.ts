@@ -1,5 +1,5 @@
 import imagesData from "./data/images.json";
-import { SchoolGrade } from "./types";
+import type { SchoolGrade } from "./types";
 
 type ImageItem = {
   name: string;

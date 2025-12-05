@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { WordGameMode } from "../types";
+import type { WordGameMode } from "../types";
 
 type _WordGameMode = WordGameMode;
 

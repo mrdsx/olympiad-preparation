@@ -1,5 +1,3 @@
-"use client";
-
 import { useWordGameModeStore, wordGameRepository } from "@/features/word-game";
 import {
   BaseAnagramsList,
@@ -57,4 +55,4 @@ function WordGamePage() {
   );
 }
 
-export default WordGamePage;
+export { WordGamePage };

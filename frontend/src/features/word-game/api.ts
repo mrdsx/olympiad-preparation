@@ -1,5 +1,5 @@
 import { apiFetch } from "@/lib/api";
-import { AnagramsResponse, WordExplanationResponse } from "./types";
+import type { AnagramsResponse, WordExplanationResponse } from "./types";
 
 async function getAnagrams(baseWord: string): Promise<AnagramsResponse> {
   return await apiFetch(`/word-game/anagrams?base_word=${baseWord}`);

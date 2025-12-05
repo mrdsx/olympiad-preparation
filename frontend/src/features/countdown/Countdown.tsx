@@ -1,5 +1,3 @@
-"use client";
-
 const SECONDS_IN_MINUTE = 60;
 
 type CountdownProps = {

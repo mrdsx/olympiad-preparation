@@ -1,16 +1,17 @@
-"use client";
-
 import { CountdownProvider } from "@/features/countdown";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
+import { BrowserRouter } from "react-router";
 
 function AppProvider({ children }: React.PropsWithChildren) {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <CountdownProvider>{children}</CountdownProvider>
-    </QueryClientProvider>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <CountdownProvider>{children}</CountdownProvider>
+      </QueryClientProvider>
+    </BrowserRouter>
   );
 }
 

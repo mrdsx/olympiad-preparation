@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Select,
   SelectContent,
@@ -7,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SchoolGrade } from "@/features/grid";
+import type { SchoolGrade } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
 import { useSchoolGradeStore } from "@/features/training/schoolGradeStore";
 

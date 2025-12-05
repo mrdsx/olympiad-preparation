@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { BaseAPIErrorResponse } from "./types";
+import { type BaseAPIErrorResponse } from "./types";
 
 function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs));

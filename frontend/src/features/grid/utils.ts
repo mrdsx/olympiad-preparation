@@ -1,6 +1,6 @@
 import { getRandomInt } from "@/lib/utils";
 import { getImages, type ImageItem } from "./images";
-import { SchoolGrade } from "./types";
+import type { SchoolGrade } from "./types";
 
 const imagesObject = getImages();
 

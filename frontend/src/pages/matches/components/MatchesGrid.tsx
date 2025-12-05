@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { useGridLayoutStore, useImagesStore } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
