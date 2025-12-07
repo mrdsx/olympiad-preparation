@@ -5,17 +5,36 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { SchoolGrade } from "@/features/grid";
-import { useTrainingStore } from "@/features/training";
-import { useSchoolGradeStore } from "@/features/training/schoolGradeStore";
+import { useGrid, type SchoolGrade } from "@/features/grid";
+import {
+  useOlympiadStageStore,
+  useSchoolGradeStore,
+} from "@/features/training";
+import { useEffect } from "react";
 
 function SelectSchoolGrade() {
+  const {
+    syncComponentsOnSchoolGradeChange,
+    syncComponentsOnSchoolGradeOrOlympiadStageChange,
+  } = useGrid();
+  const isFinalOlympiadStage = useOlympiadStageStore((state) => state.isFinal);
   const { schoolGrade, setSchoolGrade } = useSchoolGradeStore();
-  const resetTrainingStore = useTrainingStore((state) => state.reset);
 
-  function handleValueChange(value: SchoolGrade) {
-    setSchoolGrade(value);
-    resetTrainingStore();
+  useEffect(() => {
+    syncComponentsOnSchoolGradeChange(schoolGrade);
+    syncComponentsOnSchoolGradeOrOlympiadStageChange(
+      schoolGrade,
+      isFinalOlympiadStage,
+    );
+  }, []);
+
+  function handleValueChange(schoolGrade: SchoolGrade): void {
+    setSchoolGrade(schoolGrade);
+    syncComponentsOnSchoolGradeChange(schoolGrade);
+    syncComponentsOnSchoolGradeOrOlympiadStageChange(
+      schoolGrade,
+      isFinalOlympiadStage,
+    );
   }
 
   return (
@@ -24,8 +43,10 @@ function SelectSchoolGrade() {
         <SelectValue placeholder="Класс" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="2_4">2-4 класс</SelectItem>
-        <SelectItem value="9_11">9-11 класс</SelectItem>
+        <SelectItem value="2">2 класс</SelectItem>
+        <SelectItem value="3_4">3-4 класс</SelectItem>
+        <SelectItem value="5_6">5-6 класс</SelectItem>
+        <SelectItem value="7_11">7-11 класс</SelectItem>
       </SelectContent>
     </Select>
   );

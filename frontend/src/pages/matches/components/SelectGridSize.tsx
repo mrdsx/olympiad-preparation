@@ -5,40 +5,43 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useGridLayoutStore } from "@/features/grid";
-import { useTrainingStore } from "@/features/training";
-import { useSchoolGradeStore } from "@/features/training/schoolGradeStore";
-import { useEffect } from "react";
+import { useGridLayoutStore, type StringGridLayout } from "@/features/grid";
+import {
+  useOlympiadStageStore,
+  useSchoolGradeStore,
+} from "@/features/training";
 
 function SelectGridSize() {
   const { gridLayout, setGridLayout } = useGridLayoutStore();
+  const isFinalOlympiadStage = useOlympiadStageStore((state) => state.isFinal);
   const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);
-  const resetTrainingStore = useTrainingStore((state) => state.reset);
 
-  useEffect(() => {
-    if (schoolGrade === "2_4") {
-      setGridLayout("4x4");
-    }
-  }, [schoolGrade]);
-
-  function handleValueChange(value: string) {
-    setGridLayout(value as "4x4" | "5x6");
-    resetTrainingStore();
+  function handleValueChange(value: StringGridLayout): void {
+    setGridLayout(value);
   }
 
   return (
-    <Select
-      value={`${gridLayout.columns}x${gridLayout.rows}`}
-      onValueChange={handleValueChange}
-    >
+    <Select value={gridLayout.string} onValueChange={handleValueChange}>
       <SelectTrigger className="w-50">
         <SelectValue placeholder="Размер сетки" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="4x4">4 столбцов, 4 строки</SelectItem>
-        <SelectItem value="5x6" disabled={schoolGrade === "2_4"}>
-          5 столбцов, 6 строк
-        </SelectItem>
+        {schoolGrade === "2" && (
+          <SelectItem value="3x4">3 столбца, 4 строки</SelectItem>
+        )}
+        <SelectItem value="4x4">4 столбца, 4 строки</SelectItem>
+        {schoolGrade === "2" && (
+          <SelectItem value="4x6">4 столбца, 6 строк</SelectItem>
+        )}
+        {schoolGrade !== "2" && (
+          <SelectItem
+            value="5x6"
+            // TODO: remove hardcoded condition
+            disabled={!isFinalOlympiadStage && schoolGrade === "3_4"}
+          >
+            5 столбцов, 6 строк
+          </SelectItem>
+        )}
       </SelectContent>
     </Select>
   );

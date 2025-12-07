@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [5.0] - December 7, 2025
+
+### Added
+
+- Add school grades group: 2, 3-4, 5-6
+- Add images for final stage (grades: 3-4, 5-6)
+
+### Changed
+
+- Rename school grade `9-11` to `7-11`
+- Update select components order on matches page
+- Update `Tech Stack` section in README
+- Update previous changelog notes
+
+### Removed
+
+- Remove school grade group 2-4
+
 ## [4.0.2] - December 6, 2025
 
 ### Fixed
@@ -17,15 +35,15 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 ### Fixed
 
-- Add vercel config to fix routing issues
+- Fix routing issues
 
-## [4.0.0] - December 5, 2025
+## [4.0] - December 5, 2025
 
 ### Changed
 
-- Migrate from Next.js to plain React.js
+- Migrate from Server-Side Rendering to Client-Side Rendering
 
-## [3.1.0] - December 5, 2025
+## [3.1] - December 5, 2025
 
 ### Added
 
@@ -84,7 +102,7 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 - Fix validation error isn't handled on backend
 
-## [3.0.0] - November 24, 2025
+## [3.0] - November 24, 2025
 
 ### Added
 
@@ -97,7 +115,7 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 - Change remaining time countdown styles on the matches page
 
-## [2.1.0] - November 10, 2025
+## [2.1] - November 10, 2025
 
 ### Added
 
@@ -108,7 +126,7 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 - Change remaining time countdown styles on the matches page
 
-## [2.0.0] - November 6, 2025
+## [2.0] - November 6, 2025
 
 ### Added
 
@@ -123,7 +141,7 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 - Change remaining time countdown style on the matches page
 
-## [1.0.0] - August 22, 2025
+## [1.0] - August 22, 2025
 
 ### Added
 

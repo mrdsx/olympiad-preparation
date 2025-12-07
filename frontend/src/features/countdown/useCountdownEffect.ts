@@ -1,12 +1,11 @@
 import { useTrainingStore } from "@/features/training";
+import { WRITING_ANSWERS_TIME } from "@/lib/constants";
 import { useEffect } from "react";
-import { useCountdownStore } from "../countdown";
+import { useCountdownStore } from "./countdownStore";
 
 const NO_TIME_LEFT = 0;
 
-function useCountdownEffect(
-  intervalRef: React.RefObject<NodeJS.Timeout | undefined>,
-) {
+function useCountdownEffect(intervalRef: React.RefObject<number | undefined>) {
   const { isFinished, isRemembering, setIsRemembering } = useTrainingStore();
   const { remainingTime, setRemainingTime, decrementRemainingTime } =
     useCountdownStore();
@@ -36,8 +35,7 @@ function useCountdownEffect(
 
   useEffect(() => {
     if (!isWritingAnswers) return;
-    setRemainingTime(4 * 60); // ! ALWAYS set to 4 minutes (4 * 60)
-
+    setRemainingTime(WRITING_ANSWERS_TIME);
     return () => clearInterval(intervalRef.current);
   }, [isWritingAnswers]);
 }

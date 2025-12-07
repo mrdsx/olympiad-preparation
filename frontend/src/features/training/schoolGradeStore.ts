@@ -12,7 +12,7 @@ type SchoolGradeState = {
 const useSchoolGradeStore = create<SchoolGradeState>()(
   persist(
     (set) => ({
-      schoolGrade: "9_11",
+      schoolGrade: "7_11",
       setSchoolGrade: (value: T) => set({ schoolGrade: value }),
     }),
     {

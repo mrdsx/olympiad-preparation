@@ -77,10 +77,8 @@ python -m pytest ./tests
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![NextJS](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
-Libraries: ShadCN (Radix UI), Tanstack Query, Lucide React, Zustand
+Libraries: Radix UI, Tanstack Query, Lucide React, Prettier, React Router, TailwindCSS, Zustand
 
 ### Backend
 

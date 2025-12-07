@@ -6,7 +6,12 @@ type ImageItem = {
   publicId: string;
 };
 
-type ImagesData = Record<SchoolGrade, readonly ImageItem[]>;
+type ImagesData = {
+  [key in Exclude<SchoolGrade, "2">]: {
+    applyGrayscale: boolean;
+    images: ImageItem[];
+  };
+};
 
 function getImages(): ImagesData {
   return imagesData;

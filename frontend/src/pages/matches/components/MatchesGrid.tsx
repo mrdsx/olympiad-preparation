@@ -3,12 +3,14 @@ import { useGridLayoutStore, useImagesStore } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
 import { getCloudinaryUrl } from "@/lib/cdn";
 import { MAX_IMAGE_WIDTH } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 const GRID_CELL_WIDTH = `${MAX_IMAGE_WIDTH}px`;
 const GRID_CELL_HEIGHT = "100px";
 
 function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
   const gridLayout = useGridLayoutStore((state) => state.gridLayout);
+  const applyGrayscale = useImagesStore((state) => state.applyGrayscale);
   const images = useImagesStore((state) => state.images);
   const resetTrainingStore = useTrainingStore((state) => state.reset);
 
@@ -26,7 +28,10 @@ function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
       >
         {images.map((image) => (
           <div
-            className="relative flex items-center justify-center border text-center grayscale-100"
+            className={cn(
+              "relative flex items-center justify-center border text-center",
+              applyGrayscale ? "grayscale-100" : "",
+            )}
             key={image.name}
           >
             {showAnswers ? (

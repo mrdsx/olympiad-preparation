@@ -7,7 +7,7 @@ import { RevealAnswersButton } from "./RevealAnswersButton";
 
 function TrainingArea() {
   const { isFinished, isRemembering, showAnswers } = useTrainingStore();
-  const intervalRef = useRef<NodeJS.Timeout>(undefined);
+  const intervalRef = useRef<number | undefined>(undefined);
   useCountdownEffect(intervalRef);
 
   if (isRemembering) return <MatchesGrid />;
