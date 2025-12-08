@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useGridLayoutStore, useImagesStore } from "@/features/grid";
 import { useTrainingStore } from "@/features/training";
-import { getCloudinaryUrl } from "@/lib/cdn";
+import { getCDNUrl } from "@/lib/cdn";
 import { MAX_IMAGE_WIDTH } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -38,7 +38,7 @@ function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
               <span>{image.name}</span>
             ) : (
               <img
-                src={getCloudinaryUrl(image.publicId, MAX_IMAGE_WIDTH)}
+                src={getCDNUrl(image.publicId, MAX_IMAGE_WIDTH)}
                 alt={image.name}
                 className="max-h-full max-w-full"
               />

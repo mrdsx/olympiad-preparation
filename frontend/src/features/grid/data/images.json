@@ -1,288 +1,793 @@
 {
   "2_4": {
     "applyGrayscale": true,
+    "gridFlow": "row",
+    "columns": 4,
+    "rows": 6,
     "images": [
-      { "name": "башкиры", "publicId": "bashkiri_2_4_qlxpe9" },
-      { "name": "баурсак", "publicId": "baursak_2_4_em1ufh" },
-      { "name": "чак-чак", "publicId": "chak-chak_2_4_qhu7qu" },
+      {
+        "name": "башкиры",
+        "category": "народ",
+        "publicId": "bashkiri_2_4_qlxpe9"
+      },
+      {
+        "name": "баурсак",
+        "category": "еда",
+        "publicId": "baursak_2_4_em1ufh"
+      },
+      {
+        "name": "чак-чак",
+        "category": "еда",
+        "publicId": "chak-chak_2_4_qhu7qu"
+      },
       {
         "name": "Чебоксары",
+        "category": "герб",
         "publicId": "cheboksari_2_4_g7kt54"
       },
-      { "name": "чуваши", "publicId": "chuvashi_2_4_hj8f22" },
-      { "name": "Ижевск", "publicId": "izhevsk_2_4_ywkmcn" },
+      {
+        "name": "чуваши",
+        "category": "народ",
+        "publicId": "chuvashi_2_4_hj8f22"
+      },
+      {
+        "name": "Ижевск",
+        "category": "герб",
+        "publicId": "izhevsk_2_4_ywkmcn"
+      },
       {
         "name": "Йошкар-Ола",
+        "category": "герб",
         "publicId": "johkar-ola_2_4_jcreyv"
       },
-      { "name": "калмыки", "publicId": "kalmiki_2_4_tjja0f" },
-      { "name": "Казань", "publicId": "kazan_2_4_hximwe" },
-      { "name": "Киров", "publicId": "kirov_2_4_p6ypwg" },
-      { "name": "марийцы", "publicId": "marijtsi_2_4_ct2pcd" },
-      { "name": "мордва", "publicId": "mordva_2_4_f2dzzh" },
-      { "name": "Оренбург", "publicId": "orenburg_2_4_knkje8" },
-      { "name": "Пенза", "publicId": "penza_2_4_u59rjx" },
-      { "name": "перемячи", "publicId": "peremyachi_2_4_q9chgk" },
-      { "name": "Пермь", "publicId": "perm_2_4_wefgy3" },
-      { "name": "русские", "publicId": "russkije_2_4_d1bau6" },
-      { "name": "Самара", "publicId": "samara_2_4_vcn49y" },
-      { "name": "Саранск", "publicId": "saransk_2_4_qsg9yr" },
-      { "name": "Саратов", "publicId": "saratov_2_4_icchn4" },
-      { "name": "шаньга", "publicId": "shanga_2_4_vbj4se" },
-      { "name": "татары", "publicId": "tatari_2_4_xqgyqt" },
-      { "name": "удмурты", "publicId": "udmurti_2_4_nos8mx" },
-      { "name": "Уфа", "publicId": "ufa_2_4_grjor1" }
+      {
+        "name": "калмыки",
+        "category": "народ",
+        "publicId": "kalmiki_2_4_tjja0f"
+      },
+      { "name": "Казань", "category": "герб", "publicId": "kazan_2_4_hximwe" },
+      { "name": "Киров", "category": "герб", "publicId": "kirov_2_4_p6ypwg" },
+      {
+        "name": "марийцы",
+        "category": "народ",
+        "publicId": "marijtsi_2_4_ct2pcd"
+      },
+      {
+        "name": "мордва",
+        "category": "народ",
+        "publicId": "mordva_2_4_f2dzzh"
+      },
+      {
+        "name": "Оренбург",
+        "category": "герб",
+        "publicId": "orenburg_2_4_knkje8"
+      },
+      { "name": "Пенза", "category": "герб", "publicId": "penza_2_4_u59rjx" },
+      {
+        "name": "перемячи",
+        "category": "еда",
+        "publicId": "peremyachi_2_4_q9chgk"
+      },
+      { "name": "Пермь", "category": "герб", "publicId": "perm_2_4_wefgy3" },
+      {
+        "name": "русские",
+        "category": "народ",
+        "publicId": "russkije_2_4_d1bau6"
+      },
+      {
+        "name": "Самара",
+        "category": "герб",
+        "publicId": "samara_2_4_vcn49y"
+      },
+      {
+        "name": "Саранск",
+        "category": "герб",
+        "publicId": "saransk_2_4_qsg9yr"
+      },
+      {
+        "name": "Саратов",
+        "category": "герб",
+        "publicId": "saratov_2_4_icchn4"
+      },
+      { "name": "шаньга", "category": "еда", "publicId": "shanga_2_4_vbj4se" },
+      {
+        "name": "татары",
+        "category": "народ",
+        "publicId": "tatari_2_4_xqgyqt"
+      },
+      {
+        "name": "удмурты",
+        "category": "народ",
+        "publicId": "udmurti_2_4_nos8mx"
+      },
+      { "name": "Уфа", "category": "герб", "publicId": "ufa_2_4_grjor1" }
     ]
   },
   "3_4": {
     "applyGrayscale": true,
+    "gridFlow": "column",
+    "columns": 5,
+    "rows": 7,
     "images": [
-      { "name": "А. А. Лиханов", "publicId": "a-a-likhanov_3_4_pxdnfk" },
-      { "name": "А. М. Васнецов", "publicId": "a-m-vasnetsov_3_4_v2dt7x" },
-      { "name": "А. С. Грин", "publicId": "a-s-grin_3_4_qmxuuq" },
-      { "name": "башкиры", "publicId": "bashkiri_3_4_afhxbt" },
+      {
+        "name": "А. А. Лиханов",
+        "category": "личность",
+        "publicId": "a-a-likhanov_3_4_pxdnfk"
+      },
+      {
+        "name": "А. М. Васнецов",
+        "category": "личность",
+        "publicId": "a-m-vasnetsov_3_4_v2dt7x"
+      },
+      {
+        "name": "А. С. Грин",
+        "category": "личность",
+        "publicId": "a-s-grin_3_4_qmxuuq"
+      },
+      {
+        "name": "башкиры",
+        "category": "народ",
+        "publicId": "bashkiri_3_4_afhxbt"
+      },
       {
         "name": "Бурачный промысел",
+        "category": "занятие",
         "publicId": "burachnij-promisel_3_4_gh8hio"
       },
-      { "name": "чуваши", "publicId": "chuvashi_3_4_g0bnuh" },
+      {
+        "name": "чуваши",
+        "category": "народ",
+        "publicId": "chuvashi_3_4_g0bnuh"
+      },
       {
         "name": "Дымковская игрушка",
+        "category": "занятие",
         "publicId": "dimkovskaya-igrushka_3_4_c1og0n"
       },
-      { "name": "Д. К. Зеленин", "publicId": "d-k-zelenin_3_4_o9sppg" },
-      { "name": "И. А. Чарушин", "publicId": "i-a-charushin_3_4_qdg53u" },
+      {
+        "name": "Д. К. Зеленин",
+        "category": "личность",
+        "publicId": "d-k-zelenin_3_4_o9sppg"
+      },
+      {
+        "name": "И. А. Чарушин",
+        "category": "личность",
+        "publicId": "i-a-charushin_3_4_qdg53u"
+      },
       {
         "name": "Инкрустация соломкой",
+        "category": "занятие",
         "publicId": "inkrustatsija-solomkoj_3_4_jxszsw"
       },
-      { "name": "Истобенск", "publicId": "istobensk_3_4_xrar4z" },
-      { "name": "И. В. Казенин", "publicId": "i-v-kazenin_3_4_iucbcn" },
-      { "name": "К. А. Анфилатов", "publicId": "k-a-anfilatov_3_4_enmefm" },
-      { "name": "калмыки", "publicId": "kalmiki_3_4_azin3d" },
+      {
+        "name": "Истобенск",
+        "category": "объект",
+        "publicId": "istobensk_3_4_xrar4z"
+      },
+      {
+        "name": "И. В. Казенин",
+        "category": "личность",
+        "publicId": "i-v-kazenin_3_4_iucbcn"
+      },
+      {
+        "name": "К. А. Анфилатов",
+        "category": "личность",
+        "publicId": "k-a-anfilatov_3_4_enmefm"
+      },
+      {
+        "name": "калмыки",
+        "category": "народ",
+        "publicId": "kalmiki_3_4_azin3d"
+      },
       {
         "name": "Капокорешковый промысел",
+        "category": "занятие",
         "publicId": "kapokoreshkovij-promisel_3_4_eecztl"
       },
-      { "name": "Киров", "publicId": "kirov_3_4_bax3on" },
-      { "name": "Кирово-Чепецк", "publicId": "kirovo-chepetsk_3_4_iyp9zf" },
+      {
+        "name": "Киров",
+        "category": "герб",
+        "publicId": "kirov_3_4_bax3on"
+      },
+      {
+        "name": "Кирово-Чепецк",
+        "category": "герб",
+        "publicId": "kirovo-chepetsk_3_4_iyp9zf"
+      },
       {
         "name": "Космоцентр им. Савиных",
+        "category": "объект",
         "publicId": "kosmotsentr-im-savinikh_3_4_zy9ltj"
       },
-      { "name": "Котельнич", "publicId": "kotelnich_3_4_moxywy" },
+      {
+        "name": "Котельнич",
+        "category": "герб",
+        "publicId": "kotelnich_3_4_moxywy"
+      },
       {
         "name": "Кукарское кружево",
+        "category": "занятие",
         "publicId": "kukarskoje-kruzhevo_3_4_ief3zg"
       },
-      { "name": "марийцы", "publicId": "marijtsi_3_4_lz6anj" },
-      { "name": "Матрешка", "publicId": "matreshka_3_4_f6ufif" },
-      { "name": "мордва", "publicId": "mordva_3_4_cvbkry" },
-      { "name": "Нургуш", "publicId": "nurgush_3_4_tt81cg" },
-      { "name": "Плетение", "publicId": "pletenije_3_4_spd9gg" },
-      { "name": "Слободской", "publicId": "slobodskoj_3_4_wvajv6" },
-      { "name": "Свистунья", "publicId": "svistunja_3_4_jus8y0" },
+      {
+        "name": "марийцы",
+        "category": "народ",
+        "publicId": "marijtsi_3_4_lz6anj"
+      },
+      {
+        "name": "Матрешка",
+        "category": "занятие",
+        "publicId": "matreshka_3_4_f6ufif"
+      },
+      {
+        "name": "мордва",
+        "category": "народ",
+        "publicId": "mordva_3_4_cvbkry"
+      },
+      {
+        "name": "Нургуш",
+        "category": "герб",
+        "publicId": "nurgush_3_4_tt81cg"
+      },
+      {
+        "name": "Плетение",
+        "category": "занятие",
+        "publicId": "pletenije_3_4_spd9gg"
+      },
+      {
+        "name": "Слободской",
+        "category": "герб",
+        "publicId": "slobodskoj_3_4_wvajv6"
+      },
+      {
+        "name": "Свистунья",
+        "category": "объект",
+        "publicId": "svistunja_3_4_jus8y0"
+      },
       {
         "name": "Свято-Серафимовский собор",
+        "category": "объект",
         "publicId": "svyato-serafimovskij-sobor_3_4_tw2ipj"
       },
-      { "name": "татары", "publicId": "tatari_3_4_fnbtmj" },
-      { "name": "удмурты", "publicId": "udmurti_3_4_smg0ro" },
-      { "name": "Уржум", "publicId": "urzhum_3_4_lpbsa7" },
+      {
+        "name": "татары",
+        "category": "народ",
+        "publicId": "tatari_3_4_fnbtmj"
+      },
+      {
+        "name": "удмурты",
+        "category": "народ",
+        "publicId": "udmurti_3_4_smg0ro"
+      },
+      {
+        "name": "Уржум",
+        "category": "герб",
+        "publicId": "urzhum_3_4_lpbsa7"
+      },
       {
         "name": "Успенский Трифонов Монастырь",
+        "category": "объект",
         "publicId": "uspenskij-trifonov-monastir_3_4_rj2de8"
       },
       {
         "name": "Великорецкий крестный ход",
+        "category": "объект",
         "publicId": "velikoretskij-krestnij-khod_3_4_eatvr7"
       },
       {
         "name": "Вятская гуманитарная гимназия",
+        "category": "объект",
         "publicId": "vyatskaja-gumanitarnaja-gimnazija_3_4_lzarhn"
       },
-      { "name": "Вятские Поляны", "publicId": "vyatskije-polyani_3_4_qysi5s" }
+      {
+        "name": "Вятские Поляны",
+        "category": "герб",
+        "publicId": "vyatskije-polyani_3_4_qysi5s"
+      }
     ]
   },
   "5_6": {
     "applyGrayscale": false,
+    "gridFlow": "row",
+    "columns": 5,
+    "rows": 7,
     "images": [
-      { "name": "Акатуй", "publicId": "akatuj_5_6_xc4l3v" },
-      { "name": "башкиры", "publicId": "bashkiri_5_6_t0zbov" },
-      { "name": "Бортничество", "publicId": "bortnichestvo_5_6_cau794" },
+      {
+        "name": "Акатуй",
+        "category": "праздник",
+        "publicId": "akatuj_5_6_xc4l3v"
+      },
+      {
+        "name": "башкиры",
+        "category": "народ",
+        "publicId": "bashkiri_5_6_t0zbov"
+      },
+      {
+        "name": "Бортничество",
+        "category": "занятие",
+        "publicId": "bortnichestvo_5_6_cau794"
+      },
       {
         "name": "Чавайн С. Г. (1888-1942)",
+        "category": "личность",
         "publicId": "chavajn-s-g_5_6_o7dhef"
       },
-      { "name": "Чумбылат", "publicId": "chumbilat_5_6_lqvjjy" },
-      { "name": "чуваши", "publicId": "chuvashi_5_6_d8knny" },
-      { "name": "Даль В. И. (1801-1872)", "publicId": "dal-v-i_5_6_d5l0w8" },
+      {
+        "name": "Чумбылат",
+        "category": "личность",
+        "publicId": "chumbilat_5_6_lqvjjy"
+      },
+      {
+        "name": "чуваши",
+        "category": "народ",
+        "publicId": "chuvashi_5_6_d8knny"
+      },
+      {
+        "name": "Даль В. И. (1801-1872)",
+        "category": "личность",
+        "publicId": "dal-v-i_5_6_d5l0w8"
+      },
       {
         "name": "Эшпай А. Я. (1925-2015)",
+        "category": "личность",
         "publicId": "eshpaj-a-ja_5_6_fq86rv"
       },
       {
         "name": "Худяков М. Г. (1894-1936)",
+        "category": "личность",
         "publicId": "hudyakov-m-g_5_6_kwuls8"
       },
-      { "name": "Йошкар-Ола", "publicId": "joshkar-ola_ffjj6l" },
-      { "name": "Каюлы читек", "publicId": "kajuli-chitek_5_6_wf43kb" },
-      { "name": "Коми парча", "publicId": "komi-parcha_5_6_wwdzng" },
-      { "name": "Козьмодемьянск", "publicId": "kozmodemjansk_5_6_ig3cx8" },
-      { "name": "Марий Эл", "publicId": "mari-el_5_6_g5wr0s" },
-      { "name": "Марий Чодра", "publicId": "marij-chodra_5_6_ltxr0o" },
-      { "name": "марийцы", "publicId": "marijtsi_5_6_e9mbk1" },
+      {
+        "name": "Йошкар-Ола",
+        "category": "герб",
+        "publicId": "joshkar-ola_ffjj6l"
+      },
+      {
+        "name": "Каюлы читек",
+        "category": "занятие",
+        "publicId": "kajuli-chitek_5_6_wf43kb"
+      },
+      {
+        "name": "Коми парча",
+        "category": "занятие",
+        "publicId": "komi-parcha_5_6_wwdzng"
+      },
+      {
+        "name": "Козьмодемьянск",
+        "category": "герб",
+        "publicId": "kozmodemjansk_5_6_ig3cx8"
+      },
+      {
+        "name": "Марий Эл",
+        "category": "герб",
+        "publicId": "mari-el_5_6_g5wr0s"
+      },
+      {
+        "name": "Марий Чодра",
+        "category": "объект",
+        "publicId": "marij-chodra_5_6_ltxr0o"
+      },
+      {
+        "name": "марийцы",
+        "category": "народ",
+        "publicId": "marijtsi_5_6_e9mbk1"
+      },
       {
         "name": "Маркелов М. Т. (1899-1937)",
+        "category": "личность",
         "publicId": "markelov-m-t_5_6_jfk7v1"
       },
       {
         "name": "Мосолов В. П. (1888-1951)",
+        "category": "личность",
         "publicId": "mosolov-v-p_5_6_i5q4io"
       },
       {
         "name": "Набережная Брюгге",
+        "category": "объект",
         "publicId": "nabereznaja-bryugge_5_6_m8zfew"
       },
-      { "name": "Нардуган", "publicId": "nardugan_5_6_lphqvh" },
+      {
+        "name": "Нардуган",
+        "category": "праздник",
+        "publicId": "nardugan_5_6_lphqvh"
+      },
       {
         "name": "Памятник Оболенскому-Ноготкову",
+        "category": "объект",
         "publicId": "pamyatnik-obolenskomu-nogotkovu_5_6_aamndg"
       },
-      { "name": "Сабантуй", "publicId": "sabantuj_5_6_kgw5qr" },
-      { "name": "Семык", "publicId": "semik_5_6_ef8dot" },
-      { "name": "Шумбрат", "publicId": "shumbrat_5_6_km45wp" },
+      {
+        "name": "Сабантуй",
+        "category": "праздник",
+        "publicId": "sabantuj_5_6_kgw5qr"
+      },
+      {
+        "name": "Семык",
+        "category": "праздник",
+        "publicId": "semik_5_6_ef8dot"
+      },
+      {
+        "name": "Шумбрат",
+        "category": "праздник",
+        "publicId": "shumbrat_5_6_km45wp"
+      },
       {
         "name": "Смирнов И. Н. (1856-1904)",
+        "category": "личность",
         "publicId": "smirnov-i-n_5_6_uvxpbs"
       },
-      { "name": "татары", "publicId": "tatari_5_6_x5e2zp" },
+      {
+        "name": "татары",
+        "category": "народ",
+        "publicId": "tatari_5_6_x5e2zp"
+      },
       {
         "name": "Татищев В. Н. (1686-1750)",
+        "category": "личность",
         "publicId": "tatischev-v-n_5_6_y3jhnl"
       },
       {
         "name": "Царёвококшайский кремль",
+        "category": "объект",
         "publicId": "tsarevokokshajskij-kreml_5_6_vhmmgw"
       },
-      { "name": "удмурты", "publicId": "udmurti_5_6_kfpsbi" },
-      { "name": "Войлоковаляние", "publicId": "vojlokovalyanije_5_6_x2ldit" },
-      { "name": "Тĕрĕ", "publicId": "tere_5_6_xz04kb" },
-      { "name": "Волжск", "publicId": "volzhsk_5_6_rkjvdi" },
+      {
+        "name": "удмурты",
+        "category": "народ",
+        "publicId": "udmurti_5_6_kfpsbi"
+      },
+      {
+        "name": "Войлоковаляние",
+        "category": "занятие",
+        "publicId": "vojlokovalyanije_5_6_x2ldit"
+      },
+      { "name": "Тĕрĕ", "category": "занятие", "publicId": "tere_5_6_xz04kb" },
+      {
+        "name": "Волжск",
+        "category": "герб",
+        "publicId": "volzhsk_5_6_rkjvdi"
+      },
       {
         "name": "Воробьев Н. И. (1894-1967)",
+        "category": "личность",
         "publicId": "vorobjev-n-i_5_6_gm94zu"
       },
-      { "name": "Звенигово", "publicId": "zvenigovo_5_6_z5tznl" },
-      { "name": "Замок Шереметева", "publicId": "zamok-sheremeteva_5_6_kc6wk3" }
+      {
+        "name": "Звенигово",
+        "category": "герб",
+        "publicId": "zvenigovo_5_6_z5tznl"
+      },
+      {
+        "name": "Замок Шереметева",
+        "category": "объект",
+        "publicId": "zamok-sheremeteva_5_6_kc6wk3"
+      }
     ]
   },
   "5_11": {
     "applyGrayscale": true,
+    "gridFlow": "column",
+    "columns": 5,
+    "rows": 6,
     "images": [
-      { "name": "Ассоциация", "publicId": "assotsiatsija_5_11_jvfqwn" },
-      { "name": "башкиры", "publicId": "bashkiri_5_11_cpzopx" },
-      { "name": "чуваши", "publicId": "chuvashi_5_11_matsb3" },
-      { "name": "Даль В. И.", "publicId": "dal-v-i_5_11_pedctg" },
-      { "name": "Бортничество", "publicId": "bortnichestvo_5_11_ejrocu" },
-      { "name": "Худяков М. Г.", "publicId": "hudyakov-m-g_5_11_z9jen3" },
-      { "name": "Йошкар-Ола", "publicId": "joshkar-ola_urpa6l" },
-      { "name": "Каюлы читек", "publicId": "kajuli-chitek_5_11_cvu2g6" },
-      { "name": "Акатуй", "publicId": "akatuj_fuxbre" },
-      { "name": "Хохлома", "publicId": "khokhloma_5_11_xuhkkc" },
-      { "name": "Киров", "publicId": "kirov_5_11_gp35m3" },
-      { "name": "Коми парча", "publicId": "komi-parcha_5_11_eaxaju" },
-      { "name": "марийцы", "publicId": "marijtsi_5_11_vgz2zq" },
-      { "name": "Маркелов М. Т.", "publicId": "markelov-m-t_5_11_jcnm0o" },
-      { "name": "Нардуган", "publicId": "nardugan_up2ijb" },
-      { "name": "русские", "publicId": "russkije_5_11_k3nlct" },
-      { "name": "Сабантуй", "publicId": "sabantuj_e0ya6o" },
-      { "name": "Самара", "publicId": "samara_5_11_p47xae" },
-      { "name": "Саранск", "publicId": "saransk_5_11_hphvwe" },
-      { "name": "Рождество", "publicId": "rozhdestvo_stuir3" },
-      { "name": "Саратов", "publicId": "saratov_5_11_tukvet" },
-      { "name": "Смирнов И. Н.", "publicId": "smirnov-i-n_5_11_b3ymkj" },
-      { "name": "Татары", "publicId": "tatari_5_11_ldjgu1" },
-      { "name": "Семык", "publicId": "semik_cgqtnt" },
-      { "name": "Татищев В. Н.", "publicId": "tatischev-v-n_5_11_q8imez" },
-      { "name": "Шумбрат", "publicId": "shumbrat_sftb0h" },
-      { "name": "удмурты", "publicId": "udmurti_5_11_jhhpry" },
-      { "name": "Войлоковаляние", "publicId": "vojlokovalyanije_5_11_s6wq1g" },
-      { "name": "Воробьев Н. И.", "publicId": "vorobjev-n-i_5_11_kpdbwx" },
-      { "name": "Тĕрĕ", "publicId": "tere_5_11_qjitcs" }
+      {
+        "name": "Ассоциация",
+        "category": "герб",
+        "publicId": "assotsiatsija_5_11_jvfqwn"
+      },
+      {
+        "name": "башкиры",
+        "category": "народ",
+        "publicId": "bashkiri_5_11_cpzopx"
+      },
+      {
+        "name": "чуваши",
+        "category": "народ",
+        "publicId": "chuvashi_5_11_matsb3"
+      },
+      {
+        "name": "Даль В. И.",
+        "category": "личность",
+        "publicId": "dal-v-i_5_11_pedctg"
+      },
+      {
+        "name": "Бортничество",
+        "category": "занятие",
+        "publicId": "bortnichestvo_5_11_ejrocu"
+      },
+      {
+        "name": "Худяков М. Г.",
+        "category": "личность",
+        "publicId": "hudyakov-m-g_5_11_z9jen3"
+      },
+      {
+        "name": "Йошкар-Ола",
+        "category": "герб",
+        "publicId": "joshkar-ola_urpa6l"
+      },
+      {
+        "name": "Каюлы читек",
+        "category": "занятие",
+        "publicId": "kajuli-chitek_5_11_cvu2g6"
+      },
+      { "name": "Акатуй", "category": "праздник", "publicId": "akatuj_fuxbre" },
+      {
+        "name": "Хохлома",
+        "category": "занятие",
+        "publicId": "khokhloma_5_11_xuhkkc"
+      },
+      { "name": "Киров", "category": "герб", "publicId": "kirov_5_11_gp35m3" },
+      {
+        "name": "Коми парча",
+        "category": "занятие",
+        "publicId": "komi-parcha_5_11_eaxaju"
+      },
+      {
+        "name": "марийцы",
+        "category": "народ",
+        "publicId": "marijtsi_5_11_vgz2zq"
+      },
+      {
+        "name": "Маркелов М. Т.",
+        "category": "личность",
+        "publicId": "markelov-m-t_5_11_jcnm0o"
+      },
+      {
+        "name": "Нардуган",
+        "category": "праздник",
+        "publicId": "nardugan_up2ijb"
+      },
+      {
+        "name": "русские",
+        "category": "народ",
+        "publicId": "russkije_5_11_k3nlct"
+      },
+      {
+        "name": "Сабантуй",
+        "category": "праздник",
+        "publicId": "sabantuj_e0ya6o"
+      },
+      {
+        "name": "Самара",
+        "category": "герб",
+        "publicId": "samara_5_11_p47xae"
+      },
+      {
+        "name": "Саранск",
+        "category": "герб",
+        "publicId": "saransk_5_11_hphvwe"
+      },
+      {
+        "name": "Рождество",
+        "category": "праздник",
+        "publicId": "rozhdestvo_stuir3"
+      },
+      {
+        "name": "Саратов",
+        "category": "герб",
+        "publicId": "saratov_5_11_tukvet"
+      },
+      {
+        "name": "Смирнов И. Н.",
+        "category": "личность",
+        "publicId": "smirnov-i-n_5_11_b3ymkj"
+      },
+      {
+        "name": "татары",
+        "category": "народ",
+        "publicId": "tatari_5_11_ldjgu1"
+      },
+      { "name": "Семык", "category": "праздник", "publicId": "semik_cgqtnt" },
+      {
+        "name": "Татищев В. Н.",
+        "category": "личность",
+        "publicId": "tatischev-v-n_5_11_q8imez"
+      },
+      {
+        "name": "Шумбрат",
+        "category": "праздник",
+        "publicId": "shumbrat_sftb0h"
+      },
+      {
+        "name": "удмурты",
+        "category": "народ",
+        "publicId": "udmurti_5_11_jhhpry"
+      },
+      {
+        "name": "Войлоковаляние",
+        "category": "занятие",
+        "publicId": "vojlokovalyanije_5_11_s6wq1g"
+      },
+      {
+        "name": "Воробьев Н. И.",
+        "category": "личность",
+        "publicId": "vorobjev-n-i_5_11_kpdbwx"
+      },
+      { "name": "Тĕрĕ", "category": "занятие", "publicId": "tere_5_11_qjitcs" }
     ]
   },
   "7_11": {
     "applyGrayscale": true,
+    "gridFlow": "row",
+    "columns": 5,
+    "rows": 7,
     "images": [
-      { "name": "Акатуй", "publicId": "akatuj_7_11_gbsr8x" },
-      { "name": "Балаково", "publicId": "balakovo_7_11_qyuwyj" },
-      { "name": "Балашов", "publicId": "balashov_7_11_swpuef" },
-      { "name": "башкиры", "publicId": "bashkiri_7_11_fdbkyw" },
+      {
+        "name": "Акатуй",
+        "category": "праздник",
+        "publicId": "akatuj_7_11_gbsr8x"
+      },
+      {
+        "name": "Балаково",
+        "category": "герб",
+        "publicId": "balakovo_7_11_qyuwyj"
+      },
+      {
+        "name": "Балашов",
+        "category": "герб",
+        "publicId": "balashov_7_11_swpuef"
+      },
+      {
+        "name": "башкиры",
+        "category": "народ",
+        "publicId": "bashkiri_7_11_fdbkyw"
+      },
       {
         "name": "Боголюбов А. П. (1824-1896)",
+        "category": "личность",
         "publicId": "bogolyubov-a-p_7_11_w8x8qt"
       },
-      { "name": "Бортничество", "publicId": "bortnichestvo_7_11_ifq3wf" },
-      { "name": "Войлоковаляние", "publicId": "vojlokovalyanije_7_11_iolhhm" },
-      { "name": "Вольск", "publicId": "volsk_7_11_ubbbgm" },
+      {
+        "name": "Бортничество",
+        "category": "занятие",
+        "publicId": "bortnichestvo_7_11_ifq3wf"
+      },
+      {
+        "name": "Войлоковаляние",
+        "category": "занятие",
+        "publicId": "vojlokovalyanije_7_11_iolhhm"
+      },
+      {
+        "name": "Вольск",
+        "category": "герб",
+        "publicId": "volsk_7_11_ubbbgm"
+      },
       {
         "name": "Воробьев Н. И. (1894-1967)",
+        "category": "личность",
         "publicId": "vorobjev-n-i_7_11_m3ozex"
       },
-      { "name": "Даль В. И. (1801-1872)", "publicId": "dal-v-i_7_11_du7aj9" },
-      { "name": "Журавли", "publicId": "zhuravli_7_11_ttb1dh" },
-      { "name": "Каюлы Читек", "publicId": "kajuli-chitek_7_11_xq0yi6" },
-      { "name": "Коми парча", "publicId": "komi-parcha_7_11_gezrgj" },
-      { "name": "марийцы", "publicId": "marijtsi_7_11_xxgs3b" },
+      {
+        "name": "Даль В. И. (1801-1872)",
+        "category": "личность",
+        "publicId": "dal-v-i_7_11_du7aj9"
+      },
+      {
+        "name": "Журавли",
+        "category": "памятник",
+        "publicId": "zhuravli_7_11_ttb1dh"
+      },
+      {
+        "name": "Каюлы читек",
+        "category": "занятие",
+        "publicId": "kajuli-chitek_7_11_xq0yi6"
+      },
+      {
+        "name": "Коми парча",
+        "category": "занятие",
+        "publicId": "komi-parcha_7_11_gezrgj"
+      },
+      {
+        "name": "марийцы",
+        "category": "народ",
+        "publicId": "marijtsi_7_11_xxgs3b"
+      },
       {
         "name": "Маркелов М. Т. (1899-1937)",
+        "category": "личность",
         "publicId": "markelov-m-t_7_11_aawkas"
       },
-      { "name": "Нардуган", "publicId": "nardugan_7_11_tkslbj" },
-      { "name": "П. А. Столыпину", "publicId": "p-a-stolipinu_7_11_eaojad" },
+      {
+        "name": "Нардуган",
+        "category": "праздник",
+        "publicId": "nardugan_7_11_tkslbj"
+      },
+      {
+        "name": "П. А. Столыпину",
+        "category": "памятник",
+        "publicId": "p-a-stolipinu_7_11_eaojad"
+      },
       {
         "name": "Первой Учительнице",
+        "category": "памятник",
         "publicId": "pervoj-uchitelnitse_7_11_yjwp3w"
       },
-      { "name": "Сабантуй", "publicId": "sabantuj_7_11_zse3lg" },
-      { "name": "Саратов", "publicId": "saratov_7_11_g4jeqy" },
+      {
+        "name": "Сабантуй",
+        "category": "праздник",
+        "publicId": "sabantuj_7_11_zse3lg"
+      },
+      {
+        "name": "Саратов",
+        "category": "герб",
+        "publicId": "saratov_7_11_g4jeqy"
+      },
       {
         "name": "Саратовской гармошке",
+        "category": "памятник",
         "publicId": "saratovskoj-garmoshke_7_11_isj81c"
       },
-      { "name": "Семык", "publicId": "semik_7_11_ponldv" },
+      {
+        "name": "Семык",
+        "category": "праздник",
+        "publicId": "semik_7_11_ponldv"
+      },
       {
         "name": "Смирнов И. Н. (1856-1904)",
+        "category": "личность",
         "publicId": "smirnov-i-n_7_11_fcnbaj"
       },
       {
         "name": "Табаков О. П. (1935-2018)",
+        "category": "личность",
         "publicId": "tabakov-o-p_7_11_fkxtyz"
       },
-      { "name": "татары", "publicId": "tatari_7_11_a6jtjj" },
+      {
+        "name": "татары",
+        "category": "народ",
+        "publicId": "tatari_7_11_a6jtjj"
+      },
       {
         "name": "Татищев В. Н. (1686-1750)",
+        "category": "личность",
         "publicId": "tatischev-v-n_7_11_x6lkpf"
       },
-      { "name": "Тĕрĕ", "publicId": "tere_7_11_wnhm68" },
-      { "name": "удмурты", "publicId": "udmurti_7_11_rd57ce" },
+      {
+        "name": "Тĕрĕ",
+        "category": "занятие",
+        "publicId": "tere_7_11_wnhm68"
+      },
+      {
+        "name": "удмурты",
+        "category": "народ",
+        "publicId": "udmurti_7_11_rd57ce"
+      },
       {
         "name": "Худяков М. Г. (1894-1936)",
+        "category": "личность",
         "publicId": "hudyakov-m-g_7_11_y3blij"
       },
       {
         "name": "Чернышевский Н. Г. (1828-1889)",
+        "category": "личность",
         "publicId": "chernishevskij-n-g_7_11_obcq41"
       },
-      { "name": "чуваши", "publicId": "chuvashi_7_11_nuzbw7" },
+      {
+        "name": "чуваши",
+        "category": "народ",
+        "publicId": "chuvashi_7_11_nuzbw7"
+      },
       {
         "name": "Шнитке А. Г. (1934-1998)",
+        "category": "личность",
         "publicId": "shnitke-a-g_7_11_frpddm"
       },
-      { "name": "Шумбрат", "publicId": "shumbrat_7_11_e2uxpl" },
-      { "name": "Энгельс", "publicId": "engels_7_11_xwhlcb" },
-      { "name": "Ю. Гагарину", "publicId": "ju-gagarinu_7_11_ilctgs" }
+      {
+        "name": "Шумбрат",
+        "category": "праздник",
+        "publicId": "shumbrat_7_11_e2uxpl"
+      },
+      {
+        "name": "Энгельс",
+        "category": "герб",
+        "publicId": "engels_7_11_xwhlcb"
+      },
+      {
+        "name": "Ю. Гагарину",
+        "category": "памятник",
+        "publicId": "ju-gagarinu_7_11_ilctgs"
+      }
     ]
   }
 }

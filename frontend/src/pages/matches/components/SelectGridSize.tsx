@@ -13,7 +13,9 @@ import {
 
 function SelectGridSize() {
   const { gridLayout, setGridLayout } = useGridLayoutStore();
-  const isFinalOlympiadStage = useOlympiadStageStore((state) => state.isFinal);
+  const isFinalOlympiadStage = useOlympiadStageStore(
+    (state) => state.isFinalOlympiadStage,
+  );
   const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);
 
   function handleValueChange(value: StringGridLayout): void {

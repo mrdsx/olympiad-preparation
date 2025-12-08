@@ -1,20 +1,26 @@
 import imagesData from "./data/images.json";
-import type { SchoolGrade } from "./types";
 
 type ImageItem = {
   name: string;
+  category: string;
   publicId: string;
 };
 
-type ImagesData = {
-  [key in Exclude<SchoolGrade, "2">]: {
-    applyGrayscale: boolean;
-    images: ImageItem[];
-  };
+type ImagesEntry = {
+  applyGrayscale: boolean;
+  gridFlow: "row" | "column";
+  columns: number;
+  rows: number;
+  images: ImageItem[];
 };
 
-function getImages(): ImagesData {
+// TODO: add category attribute to all images
+function getImagesObject(): Record<string, ImagesEntry> {
   return imagesData;
 }
 
-export { getImages, type ImageItem };
+function getImagesById(id: string): ImagesEntry | null {
+  return getImagesObject()[id] ?? null;
+}
+
+export { getImagesById, getImagesObject, type ImagesEntry, type ImageItem };

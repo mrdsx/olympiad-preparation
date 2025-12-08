@@ -13,28 +13,21 @@ import {
 import { useEffect } from "react";
 
 function SelectSchoolGrade() {
-  const {
-    syncComponentsOnSchoolGradeChange,
-    syncComponentsOnSchoolGradeOrOlympiadStageChange,
-  } = useGrid();
-  const isFinalOlympiadStage = useOlympiadStageStore((state) => state.isFinal);
+  const { onSchoolGradeChange, onSchoolGradeOrOlympiadStageChange } = useGrid();
+  const isFinalOlympiadStage = useOlympiadStageStore(
+    (state) => state.isFinalOlympiadStage,
+  );
   const { schoolGrade, setSchoolGrade } = useSchoolGradeStore();
 
   useEffect(() => {
-    syncComponentsOnSchoolGradeChange(schoolGrade);
-    syncComponentsOnSchoolGradeOrOlympiadStageChange(
-      schoolGrade,
-      isFinalOlympiadStage,
-    );
+    onSchoolGradeChange(schoolGrade);
+    onSchoolGradeOrOlympiadStageChange(schoolGrade, isFinalOlympiadStage);
   }, []);
 
   function handleValueChange(schoolGrade: SchoolGrade): void {
     setSchoolGrade(schoolGrade);
-    syncComponentsOnSchoolGradeChange(schoolGrade);
-    syncComponentsOnSchoolGradeOrOlympiadStageChange(
-      schoolGrade,
-      isFinalOlympiadStage,
-    );
+    onSchoolGradeChange(schoolGrade);
+    onSchoolGradeOrOlympiadStageChange(schoolGrade, isFinalOlympiadStage);
   }
 
   return (

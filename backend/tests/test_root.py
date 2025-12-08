@@ -4,6 +4,7 @@ from fastapi import status
 from fastapi.testclient import TestClient
 
 from src.shared import ResponseStatus
+from src.config import PROJECT_VERSION
 
 
 @pytest.mark.asyncio
@@ -15,6 +16,6 @@ async def test_read_root_success(test_client: TestClient):
     assert data["title"] == "Olympiad preparation backend"
     assert data["status"] == ResponseStatus.OK
     assert data["project_environment"] == "development"
-    assert isinstance(data["version"], str)
+    assert data["version"] == PROJECT_VERSION
     assert isinstance(data["datetime"], str)
     assert isinstance(datetime.fromisoformat(data["datetime"]), datetime)

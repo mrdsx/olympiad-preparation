@@ -17,7 +17,9 @@ function GenerateMatchesButton() {
   const gridLayout = useGridLayoutStore((state) => state.gridLayout);
   const setApplyGrayscale = useImagesStore((state) => state.setApplyGrayscale);
   const setImages = useImagesStore((state) => state.setImages);
-  const isFinalOlympiadStage = useOlympiadStageStore((state) => state.isFinal);
+  const isFinalOlympiadStage = useOlympiadStageStore(
+    (state) => state.isFinalOlympiadStage,
+  );
   const setIsFinished = useTrainingStore((state) => state.setIsFinished);
   const setIsRemembering = useTrainingStore((state) => state.setIsRemembering);
   const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);

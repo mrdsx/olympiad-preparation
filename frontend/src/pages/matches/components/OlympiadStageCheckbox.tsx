@@ -9,25 +9,20 @@ import type { CheckedState } from "@radix-ui/react-checkbox";
 import { useEffect } from "react";
 
 function OlympiadStageCheckbox() {
-  const {
-    olympiadStageCheckboxRef,
-    syncComponentsOnSchoolGradeOrOlympiadStageChange,
-  } = useGrid();
-  const { isFinal: isFinalOlympiadStage, setIsFinal: setIsFinalOlympiadStage } =
+  const { olympiadStageCheckboxRef, onSchoolGradeOrOlympiadStageChange } =
+    useGrid();
+  const { isFinalOlympiadStage, setIsFinalOlympiadStage } =
     useOlympiadStageStore();
   const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);
 
   useEffect(() => {
-    syncComponentsOnSchoolGradeOrOlympiadStageChange(
-      schoolGrade,
-      isFinalOlympiadStage,
-    );
+    onSchoolGradeOrOlympiadStageChange(schoolGrade, isFinalOlympiadStage);
   }, []);
 
   function handleCheckedChange(isChecked: CheckedState): void {
     if (isChecked === "indeterminate") return;
     setIsFinalOlympiadStage(isChecked);
-    syncComponentsOnSchoolGradeOrOlympiadStageChange(schoolGrade, isChecked);
+    onSchoolGradeOrOlympiadStageChange(schoolGrade, isChecked);
   }
 
   return (

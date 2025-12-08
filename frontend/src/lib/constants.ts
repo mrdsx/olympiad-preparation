@@ -21,6 +21,14 @@ const QUERY_KEYS = {
 
 const PATH = {
   ROOT: "/",
+  DATASET: {
+    SEGMENT: "/dataset/:id",
+    REGION_2_4: "/dataset/region-2-4",
+    REGION_5_11: "/dataset/region-5-11",
+    FINAL_3_4: "/dataset/final-3-4",
+    FINAL_5_6: "/dataset/final-5-6",
+    FINAL_7_11: "/dataset/final-7-11",
+  },
   EXPRESSIONS: "/expressions",
   MATCHES: "/matches",
   WORD_GAME: "/word-game",

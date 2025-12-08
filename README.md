@@ -1,6 +1,6 @@
 # Olympiad preparation
 
-The purpose of this web application is to help prepare for olympiad "Наше наследие".
+Olympiad Preparation is a full stack web application designed to help you prepare for the olympiad "Наше наследие".
 
 ## How to setup
 
@@ -20,6 +20,7 @@ If you have Node.js, installed on your machine, run `npm install -g bun` to inst
 ```
 VITE_CLOUDINARY_CLOUD_NAME=dsf4g0owu
 VITE_MEMORIZATION_TIME=3                # optional, for testing matches page
+VITE_WRITING_ANSWERS_TIME=10            # optional, for testing matches page
 VITE_BACKEND_URL=your-backend-url.com   # PRODUCTION ONLY
 ```
 

@@ -1,3 +1,4 @@
+import { H1 } from "@/components/ui/typography-h1";
 import { useWordGameModeStore, wordGameRepository } from "@/features/word-game";
 import {
   BaseAnagramsList,
@@ -20,7 +21,7 @@ function WordGamePage() {
 
   return (
     <>
-      <span>Выберите режим:</span>
+      <H1>Выберите режим:</H1>
       <div className="flex flex-col items-center gap-3">
         <SelectWordGameMode />
         {wordGameMode === "generation" ? (
