@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
+import { PSK } from "@/lib/constants";
+
 type T = boolean;
 
 type OlympiadStageState = {
@@ -16,7 +18,7 @@ const useOlympiadStageStore = create<OlympiadStageState>()(
         set({ isFinalOlympiadStage: value }),
     }),
     {
-      name: "olympiad-stage-storage",
+      name: PSK.OLYMPIAD_STAGE_STORAGE,
       storage: createJSONStorage(() => localStorage),
     },
   ),

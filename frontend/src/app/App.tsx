@@ -1,3 +1,5 @@
+import { Route, Routes } from "react-router";
+
 import { AppProvider } from "@/components/AppProvider";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -9,7 +11,6 @@ import {
   MatchesPage,
   WordGamePage,
 } from "@/pages";
-import { Route, Routes } from "react-router";
 
 function App() {
   return (

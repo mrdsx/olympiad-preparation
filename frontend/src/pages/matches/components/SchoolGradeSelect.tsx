@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import {
   Select,
   SelectContent,
@@ -5,15 +7,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useGrid, type SchoolGrade } from "@/features/grid";
 import {
+  type SchoolGrade,
+  useGridSettings,
   useOlympiadStageStore,
   useSchoolGradeStore,
-} from "@/features/training";
-import { useEffect } from "react";
+} from "@/features/matches";
 
-function SelectSchoolGrade() {
-  const { onSchoolGradeChange, onSchoolGradeOrOlympiadStageChange } = useGrid();
+function SchoolGradeSelect() {
+  const { onSchoolGradeChange, onSchoolGradeOrOlympiadStageChange } =
+    useGridSettings();
   const isFinalOlympiadStage = useOlympiadStageStore(
     (state) => state.isFinalOlympiadStage,
   );
@@ -22,7 +25,7 @@ function SelectSchoolGrade() {
   useEffect(() => {
     onSchoolGradeChange(schoolGrade);
     onSchoolGradeOrOlympiadStageChange(schoolGrade, isFinalOlympiadStage);
-  }, []);
+  }, []); // eslint-disable-line
 
   function handleValueChange(schoolGrade: SchoolGrade): void {
     setSchoolGrade(schoolGrade);
@@ -45,4 +48,4 @@ function SelectSchoolGrade() {
   );
 }
 
-export { SelectSchoolGrade };
+export { SchoolGradeSelect };

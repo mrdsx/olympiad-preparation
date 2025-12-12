@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
+import { PSK } from "@/lib/constants";
+
 type Anagrams = string[];
 type AreVisible = boolean;
 
@@ -20,7 +22,7 @@ const useAnagramsStore = create<AnagramsState>()(
       setAreVisible: (value: AreVisible) => set({ areVisible: value }),
     }),
     {
-      name: "anagrams-storage",
+      name: PSK.ANAGRAMS_STORAGE,
       storage: createJSONStorage(() => localStorage),
     },
   ),

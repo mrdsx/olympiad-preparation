@@ -4,16 +4,14 @@ import { Input } from "@/components/ui/input";
 import {
   useUserAnagramsStore,
   useUserWordStore,
-  wordGameRepository,
+  wordGameService,
 } from "@/features/word-game";
 
 const MIN_INPUT_LENGTH = 1;
 const MAX_INPUT_LENGTH = 20;
 
 type GenerateAnagramsFormProps = {
-  mutation: ReturnType<
-    (typeof wordGameRepository)["useGenerateAnagramsMutation"]
-  >;
+  mutation: ReturnType<(typeof wordGameService)["useGenerateAnagramsMutation"]>;
 };
 
 function GenerateAnagramsForm({ mutation }: GenerateAnagramsFormProps) {
@@ -25,11 +23,10 @@ function GenerateAnagramsForm({ mutation }: GenerateAnagramsFormProps) {
 
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
+    const processedUserWord = userWord.trim().toLowerCase();
+    if (processedUserWord.length === 0) return;
 
-    const normalizedUserWord = userWord.trim().toLowerCase();
-    if (normalizedUserWord.length === 0) return;
-
-    mutate(normalizedUserWord, {
+    mutate(processedUserWord, {
       onSuccess: (data) => setUserAnagrams(data.anagrams),
     });
   }

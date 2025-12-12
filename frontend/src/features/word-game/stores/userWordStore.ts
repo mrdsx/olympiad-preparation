@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
+import { PSK } from "@/lib/constants";
+
 type UserWord = string;
 
 type UserWordState = {
@@ -15,7 +17,7 @@ const useUserWordStore = create<UserWordState>()(
       setUserWord: (value: UserWord) => set({ userWord: value }),
     }),
     {
-      name: "user-word-storage",
+      name: PSK.USER_WORD_STORAGE,
       storage: createJSONStorage(() => localStorage),
     },
   ),

@@ -14,13 +14,14 @@ type ImagesEntry = {
   images: ImageItem[];
 };
 
-// TODO: add category attribute to all images
 function getImagesObject(): Record<string, ImagesEntry> {
-  return imagesData;
+  // @ts-ignore
+  // TODO: add zod validation
+  return structuredClone(imagesData);
 }
 
 function getImagesById(id: string): ImagesEntry | null {
   return getImagesObject()[id] ?? null;
 }
 
-export { getImagesById, getImagesObject, type ImagesEntry, type ImageItem };
+export { getImagesById, getImagesObject, type ImageItem, type ImagesEntry };

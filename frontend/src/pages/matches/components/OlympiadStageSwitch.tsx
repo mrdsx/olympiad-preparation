@@ -1,23 +1,24 @@
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import { useGrid } from "@/features/grid";
-import {
-  useOlympiadStageStore,
-  useSchoolGradeStore,
-} from "@/features/training";
 import type { CheckedState } from "@radix-ui/react-checkbox";
 import { useEffect } from "react";
 
-function OlympiadStageCheckbox() {
-  const { olympiadStageCheckboxRef, onSchoolGradeOrOlympiadStageChange } =
-    useGrid();
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import {
+  useGridSettings,
+  useOlympiadStageStore,
+  useSchoolGradeStore,
+} from "@/features/matches";
+
+function OlympiadStageSwitch() {
+  const { olympiadStageSwitchRef, onSchoolGradeOrOlympiadStageChange } =
+    useGridSettings();
   const { isFinalOlympiadStage, setIsFinalOlympiadStage } =
     useOlympiadStageStore();
   const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);
 
   useEffect(() => {
     onSchoolGradeOrOlympiadStageChange(schoolGrade, isFinalOlympiadStage);
-  }, []);
+  }, []); // eslint-disable-line
 
   function handleCheckedChange(isChecked: CheckedState): void {
     if (isChecked === "indeterminate") return;
@@ -27,15 +28,15 @@ function OlympiadStageCheckbox() {
 
   return (
     <div className="flex gap-2">
-      <Checkbox
-        id="olympiad-stage-checkbox"
+      <Switch
+        id="olympiad-stage-switch"
         checked={isFinalOlympiadStage}
         onCheckedChange={handleCheckedChange}
-        ref={olympiadStageCheckboxRef}
+        ref={olympiadStageSwitchRef}
       />
-      <Label htmlFor="olympiad-stage-checkbox">Финал</Label>
+      <Label htmlFor="olympiad-stage-switch">Финал</Label>
     </div>
   );
 }
 
-export { OlympiadStageCheckbox };
+export { OlympiadStageSwitch };

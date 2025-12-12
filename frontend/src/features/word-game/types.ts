@@ -1,4 +1,4 @@
-type WordGameMode = "generation" | "creation";
+type WordGameMode = "generation" | "input";
 
 type AnagramsResponse = {
   base_word: string;

@@ -5,25 +5,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useGridLayoutStore, type StringGridLayout } from "@/features/grid";
 import {
+  type StringGridLayout,
+  useGridSizeStore,
   useOlympiadStageStore,
   useSchoolGradeStore,
-} from "@/features/training";
+} from "@/features/matches";
 
-function SelectGridSize() {
-  const { gridLayout, setGridLayout } = useGridLayoutStore();
+function GridSizeSelect() {
+  const { gridSize, setGridSize } = useGridSizeStore();
   const isFinalOlympiadStage = useOlympiadStageStore(
     (state) => state.isFinalOlympiadStage,
   );
   const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);
 
   function handleValueChange(value: StringGridLayout): void {
-    setGridLayout(value);
+    setGridSize(value);
   }
 
   return (
-    <Select value={gridLayout.string} onValueChange={handleValueChange}>
+    <Select value={gridSize.string} onValueChange={handleValueChange}>
       <SelectTrigger className="w-50">
         <SelectValue placeholder="Размер сетки" />
       </SelectTrigger>
@@ -49,4 +50,4 @@ function SelectGridSize() {
   );
 }
 
-export { SelectGridSize };
+export { GridSizeSelect };

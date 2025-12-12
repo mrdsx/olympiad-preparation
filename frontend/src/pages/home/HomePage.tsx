@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import {
   Card,
   CardDescription,
@@ -5,10 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { H1 } from "@/components/ui/typography-h1";
-import { getImagesById } from "@/features/grid";
+import { getImagesById } from "@/features/matches";
 import { declineWord } from "@/lib/utils";
 import { DATASET_LINKS } from "@/pages/dataset/dataset-links";
-import { Link } from "react-router";
 
 const WORDS_LIST = ["изображение", "изображения", "изображений"];
 

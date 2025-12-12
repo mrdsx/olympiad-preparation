@@ -1,4 +1,5 @@
 import { apiFetch } from "@/lib/api";
+
 import type { AnagramsResponse, WordExplanationResponse } from "./types";
 
 async function getAnagrams(baseWord: string): Promise<AnagramsResponse> {

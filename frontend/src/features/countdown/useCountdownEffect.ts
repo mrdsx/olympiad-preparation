@@ -1,6 +1,8 @@
-import { useTrainingStore } from "@/features/training";
-import { WRITING_ANSWERS_TIME } from "@/lib/constants";
 import { useEffect } from "react";
+
+import { useTrainingStore } from "@/features/matches";
+import { WRITING_ANSWERS_TIME } from "@/lib/constants";
+
 import { useCountdownStore } from "./countdownStore";
 
 const NO_TIME_LEFT = 0;

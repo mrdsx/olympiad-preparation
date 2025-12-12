@@ -2,7 +2,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useAnagramsStore } from "@/features/word-game";
 
-function SwitchAnagramsVisibility() {
+function AnagramsVisibilitySwitch() {
   const areAnagramsVisible = useAnagramsStore((state) => state.areVisible);
   const setAreAnagramsVisible = useAnagramsStore(
     (state) => state.setAreVisible,
@@ -20,4 +20,4 @@ function SwitchAnagramsVisibility() {
   );
 }
 
-export { SwitchAnagramsVisibility };
+export { AnagramsVisibilitySwitch };

@@ -1,12 +1,17 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+import { PSK } from "@/lib/constants";
+
 import type { ImageItem } from "../images";
+
+type T = ImageItem[];
 
 type ImagesState = {
   applyGrayscale: boolean;
-  images: ImageItem[];
+  images: T;
   setApplyGrayscale: (value: boolean) => void;
-  setImages: (value: ImageItem[]) => void;
+  setImages: (value: T) => void;
 };
 
 const useImagesStore = create<ImagesState>()(
@@ -15,10 +20,10 @@ const useImagesStore = create<ImagesState>()(
       applyGrayscale: false,
       images: [],
       setApplyGrayscale: (value: boolean) => set({ applyGrayscale: value }),
-      setImages: (value: ImageItem[]) => set({ images: value }),
+      setImages: (value: T) => set({ images: value }),
     }),
     {
-      name: "images-storage",
+      name: PSK.IMAGES_STORAGE,
       storage: createJSONStorage(() => localStorage),
     },
   ),

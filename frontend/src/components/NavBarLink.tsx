@@ -1,6 +1,7 @@
+import { Link, useLocation } from "react-router";
+
 import type { Path } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Link, useLocation } from "react-router";
 
 const LINK_CLASSNAME = "border-b-1 hover:border-b-black";
 const ACTIVE_LINK_CLASSNAME = "border-b-black";

@@ -1,9 +1,11 @@
 import { create } from "zustand";
 
+type T = number;
+
 type CountdownState = {
-  remainingTime: number;
+  remainingTime: T;
   decrementRemainingTime: () => void;
-  setRemainingTime: (seconds: number) => void;
+  setRemainingTime: (seconds: T) => void;
 };
 
 const useCountdownStore = create<CountdownState>((set) => ({
@@ -13,7 +15,7 @@ const useCountdownStore = create<CountdownState>((set) => ({
       remainingTime: state.remainingTime - 1,
     }));
   },
-  setRemainingTime: (seconds: number) => set({ remainingTime: seconds }),
+  setRemainingTime: (seconds: T) => set({ remainingTime: seconds }),
 }));
 
 export { useCountdownStore };

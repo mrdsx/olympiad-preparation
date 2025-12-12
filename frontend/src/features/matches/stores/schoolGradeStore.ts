@@ -1,6 +1,8 @@
-import type { SchoolGrade } from "@/features/grid";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+import type { SchoolGrade } from "@/features/matches";
+import { PSK } from "@/lib/constants";
 
 type T = SchoolGrade;
 
@@ -16,7 +18,7 @@ const useSchoolGradeStore = create<SchoolGradeState>()(
       setSchoolGrade: (value: T) => set({ schoolGrade: value }),
     }),
     {
-      name: "school-grade-storage",
+      name: PSK.SCHOOL_GRADE_STORAGE,
       storage: createJSONStorage(() => localStorage),
     },
   ),

@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import {
   useAnagramsStore,
   useBaseWordStore,
-  wordGameRepository,
+  wordGameService,
 } from "@/features/word-game";
 
 type GenerateWordButtonProps = {
-  mutation: ReturnType<(typeof wordGameRepository)["useGenerateWordMutation"]>;
+  mutation: ReturnType<(typeof wordGameService)["useGenerateWordMutation"]>;
 };
 
 function GenerateWordButton({ mutation }: GenerateWordButtonProps) {

@@ -1,5 +1,6 @@
-import { clsx, type ClassValue } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+
 import { type BaseAPIErrorResponse } from "./types";
 
 function cn(...inputs: ClassValue[]): string {
@@ -16,31 +17,26 @@ function cn(...inputs: ClassValue[]): string {
  * const word = declineWord(1, ["книга", "книги", "книг"]);
  * console.log(word); // Output: книга
  */
-function declineWord(number: number, words: string[]): string {
+function declineWord(value: number, words: string[]): string {
   if (words.length !== 3) {
     throw new Error(
       "words array must contain at least 3 forms: [singular, genitive_singular, genitive_plural]",
     );
   }
 
-  const lastDigit = number % 10;
-  const lastTwoDigits = number % 100;
+  value = Math.abs(value) % 100;
+  const digit = value % 10;
 
-  // слова с числами 11-14 склоняются в ед. числе, род. падеже
-  if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
-    return words[2];
-  }
-
-  if (lastDigit === 1) {
-    return words[0]; // nominative singular
-  } else if (lastDigit >= 2 && lastDigit <= 4) {
-    return words[1]; // genitive singular
-  } else {
-    return words[2]; // genitive plural
-  }
+  if (value > 10 && value < 20) return words[2];
+  if (digit > 1 && digit < 5) return words[1];
+  if (digit == 1) return words[0];
+  return words[2];
 }
 
-function getRandomInt(min: number, max: number): number {
+/**
+ * Generates number within range [min, max].
+ */
+function getRandomInt(min: number = 0, max: number = 1): number {
   const range = max - min + 1;
   if (range <= 0) {
     throw new Error("Invalid range: max must be greater than or equal to min.");

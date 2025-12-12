@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { useTrainingStore } from "@/features/training";
+import { useTrainingStore } from "@/features/matches";
 
-function RevealAnswersButton() {
+function ShowAnswersButton() {
   const setShowAnswers = useTrainingStore((state) => state.setShowAnswers);
 
   return <Button onClick={() => setShowAnswers(true)}>Показать ответы</Button>;
 }
 
-export { RevealAnswersButton };
+export { ShowAnswersButton };

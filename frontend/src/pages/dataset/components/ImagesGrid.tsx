@@ -1,5 +1,5 @@
-import { getImagesById, processImages } from "@/features/grid";
-import { getCDNUrl } from "@/lib/cdn";
+import { getImagesById, processImages } from "@/features/matches";
+import { getCDNImageURL } from "@/lib/cdn";
 import { MAX_IMAGE_WIDTH } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -33,7 +33,7 @@ function ImagesGrid({ imagesId }: ImagesGridProps) {
           key={image.name}
         >
           <img
-            src={getCDNUrl(image.publicId, MAX_IMAGE_WIDTH)}
+            src={getCDNImageURL(image.publicId, MAX_IMAGE_WIDTH)}
             alt={image.name}
             className={cn(
               "max-h-full max-w-full",

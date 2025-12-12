@@ -1,5 +1,6 @@
 import { groupWordsByLength, useUserAnagramsStore } from "@/features/word-game";
-import { AnagramPopover } from "./AnagramPopover";
+
+import { AnagramPopover } from "../AnagramPopover";
 
 function UserAnagramsList() {
   const userAnagrams = useUserAnagramsStore((state) => state.userAnagrams);

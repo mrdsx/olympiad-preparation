@@ -1,8 +1,9 @@
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router";
+
 import { Button } from "@/components/ui/button";
 import { H1 } from "@/components/ui/typography-h1";
 import { PATH } from "@/lib/constants";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router";
 
 type TitleBarProps = {
   title: string;

@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
+import { PSK } from "@/lib/constants";
+
 type UserAnagrams = string[];
 
 type UserAnagramsState = {
@@ -15,7 +17,7 @@ const useUserAnagramsStore = create<UserAnagramsState>()(
       setUserAnagrams: (value: UserAnagrams) => set({ userAnagrams: value }),
     }),
     {
-      name: "user-anagrams-storage",
+      name: PSK.USER_ANAGRAMS_STORAGE,
       storage: createJSONStorage(() => localStorage),
     },
   ),

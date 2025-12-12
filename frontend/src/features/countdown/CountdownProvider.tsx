@@ -1,7 +1,8 @@
-import { PATH } from "@/lib/constants";
 import { createContext, useEffect, useRef } from "react";
 import { useLocation } from "react-router";
-import { useTrainingStore } from "../training";
+
+import { useTrainingStore } from "@/features/matches";
+import { PATH } from "@/lib/constants";
 
 const CountdownContext = createContext<null>(null);
 
@@ -13,7 +14,7 @@ function CountdownProvider({ children }: React.PropsWithChildren) {
   useEffect(() => {
     if (previousPathnameRef.current === PATH.MATCHES) resetTrainingStore();
     previousPathnameRef.current = pathname;
-  }, [pathname]);
+  }, [pathname, resetTrainingStore]);
 
   return (
     <CountdownContext.Provider value={null}>

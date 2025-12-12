@@ -1,20 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { useCountdownStore } from "@/features/countdown";
 import {
-  generateImages,
-  useGridLayoutStore,
+  handleImagesGeneration,
+  useGridSizeStore,
   useImagesStore,
-} from "@/features/grid";
-import {
   useOlympiadStageStore,
   useSchoolGradeStore,
   useTrainingStore,
-} from "@/features/training";
+} from "@/features/matches";
 import { MEMORIZATION_TIME } from "@/lib/constants";
 
 function GenerateMatchesButton() {
   const setRemainingTime = useCountdownStore((state) => state.setRemainingTime);
-  const gridLayout = useGridLayoutStore((state) => state.gridLayout);
+  const gridSize = useGridSizeStore((state) => state.gridSize);
   const setApplyGrayscale = useImagesStore((state) => state.setApplyGrayscale);
   const setImages = useImagesStore((state) => state.setImages);
   const isFinalOlympiadStage = useOlympiadStageStore(
@@ -25,9 +23,8 @@ function GenerateMatchesButton() {
   const schoolGrade = useSchoolGradeStore((state) => state.schoolGrade);
 
   function handleClick() {
-    const length = gridLayout.columns * gridLayout.rows;
-    const [applyGrayscale, images] = generateImages(
-      length,
+    const { applyGrayscale, images } = handleImagesGeneration(
+      gridSize,
       schoolGrade,
       isFinalOlympiadStage,
     );

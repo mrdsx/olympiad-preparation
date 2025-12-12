@@ -1,15 +1,17 @@
+import { useEffect, useRef } from "react";
+
+import { useTrainingStore } from "@/features/matches";
+
+import { getImagesObject } from "../images";
 import {
+  useGridSizeStore,
   useOlympiadStageStore,
   useSchoolGradeStore,
-  useTrainingStore,
-} from "@/features/training";
-import { useEffect, useRef } from "react";
-import { getImagesObject } from "./images";
-import { useGridLayoutStore } from "./stores";
-import type { SchoolGrade, StringGridLayout } from "./types";
+} from "../stores";
+import type { SchoolGrade, StringGridLayout } from "../types";
 
-type GridContextState = {
-  olympiadStageCheckboxRef: React.RefObject<HTMLButtonElement | null>;
+type GridSettingsContextType = {
+  olympiadStageSwitchRef: React.RefObject<HTMLButtonElement | null>;
   onSchoolGradeChange: (schoolGrade: SchoolGrade) => void;
   onSchoolGradeOrOlympiadStageChange: (
     schoolGrade: SchoolGrade,
@@ -30,24 +32,24 @@ const SCHOOL_GRADES_LAYOUTS: Record<ValidSchoolGrade, StringGridLayout[]> = {
   "7_11": ["4x4", "5x6"],
 };
 
-function useGridContextState(): GridContextState {
-  const olympiadStageCheckboxRef = useRef<HTMLButtonElement>(null);
-  const { gridLayout, setGridLayout } = useGridLayoutStore();
+function useGridSettingsContext(): GridSettingsContextType {
+  const olympiadStageSwitchRef = useRef<HTMLButtonElement>(null);
+  const { gridSize, setGridSize } = useGridSizeStore();
   const { isFinalOlympiadStage, setIsFinalOlympiadStage } =
     useOlympiadStageStore();
   const { schoolGrade, setSchoolGrade } = useSchoolGradeStore();
   const resetTrainingStore = useTrainingStore((state) => state.reset);
 
-  const stringGridLayout = gridLayout.string;
+  const stringGridLayout = gridSize.string;
 
   useEffect(() => {
     resetTrainingStore();
-  }, [stringGridLayout, isFinalOlympiadStage, schoolGrade]);
+  }, [isFinalOlympiadStage, schoolGrade, stringGridLayout, resetTrainingStore]);
 
   function setIsCheckboxDisabled(isDisabled: boolean): void {
-    if (!olympiadStageCheckboxRef.current) return;
-    olympiadStageCheckboxRef.current.disabled = isDisabled;
-    olympiadStageCheckboxRef.current.ariaDisabled = `${isDisabled}`;
+    if (!olympiadStageSwitchRef.current) return;
+    olympiadStageSwitchRef.current.disabled = isDisabled;
+    olympiadStageSwitchRef.current.ariaDisabled = `${isDisabled}`;
   }
 
   function onSchoolGradeChange(schoolGrade: SchoolGrade): void {
@@ -64,13 +66,13 @@ function useGridContextState(): GridContextState {
     if (!(schoolGrade in SCHOOL_GRADES_LAYOUTS)) {
       const gridLayouts = SCHOOL_GRADES_LAYOUTS[FALLBACK_GRADE];
       setSchoolGrade(FALLBACK_GRADE);
-      setGridLayout(gridLayouts[0]);
+      setGridSize(gridLayouts[0]);
     } else if (
       !SCHOOL_GRADES_LAYOUTS[schoolGrade as ValidSchoolGrade].includes(
         stringGridLayout,
       )
     ) {
-      setGridLayout(FALLBACK_GRID_LAYOUT);
+      setGridSize(FALLBACK_GRID_LAYOUT);
     }
   }
 
@@ -83,15 +85,15 @@ function useGridContextState(): GridContextState {
       !isFinalOlympiadStage &&
       stringGridLayout !== "4x4"
     ) {
-      setGridLayout("4x4");
+      setGridSize("4x4");
     }
   }
 
   return {
-    olympiadStageCheckboxRef,
+    olympiadStageSwitchRef,
     onSchoolGradeChange,
     onSchoolGradeOrOlympiadStageChange,
   };
 }
 
-export { useGridContextState, type GridContextState };
+export { useGridSettingsContext, type GridSettingsContextType }; // eslint-disable-line

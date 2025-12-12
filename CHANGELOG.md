@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [7.0.0] - December 12, 2025
+
+### Changed
+
+- Refine matches generation algorithm
+- Replace checkbox with switch component on matches page
+- Update footer text in anagram explanation popover
+
+### Fixed
+
+- Fix images titles going beyond cell area
+
 ## [6.0.0] - December 8, 2025
 
 ### Added

@@ -1,9 +1,11 @@
-import { useCountdownEffect } from "@/features/countdown";
-import { useTrainingStore } from "@/features/training";
 import { useRef } from "react";
+
+import { useCountdownEffect } from "@/features/countdown";
+import { useTrainingStore } from "@/features/matches";
+
 import { GenerateMatchesButton } from "./GenerateMatchesButton";
 import { MatchesGrid } from "./MatchesGrid";
-import { RevealAnswersButton } from "./RevealAnswersButton";
+import { ShowAnswersButton } from "./ShowAnswersButton";
 
 function TrainingArea() {
   const { isFinished, isRemembering, showAnswers } = useTrainingStore();
@@ -13,7 +15,7 @@ function TrainingArea() {
   if (isRemembering) return <MatchesGrid />;
   if (isFinished) return <GenerateMatchesButton />;
   if (showAnswers) return <MatchesGrid showAnswers />;
-  return <RevealAnswersButton />;
+  return <ShowAnswersButton />;
 }
 
 export { TrainingArea };

@@ -1,35 +1,35 @@
+import { LoaderCircle } from "lucide-react";
+import { useState } from "react";
+
+import { ErrorText } from "@/components/ErrorText";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { wordGameRepository } from "@/features/word-game";
+import { wordGameService } from "@/features/word-game";
 import { cn } from "@/lib/utils";
-import { LoaderCircle } from "lucide-react";
-import { useState } from "react";
-import { ErrorText } from "./ErrorText";
 
-const { useExplainWordMutation } = wordGameRepository;
+const { useExplainWordMutation } = wordGameService;
 
 function AnagramPopover({ anagram }: { anagram: string }) {
   const [isFetchingAnagram, setIsFetchingAnagram] = useState<boolean>(true);
   const [anagramExplanation, setAnagramExplanation] = useState<string>("");
-
   const { isError, error, mutate } = useExplainWordMutation();
 
+  function handleOpenChange(isOpen: boolean): void {
+    if (!isOpen || !isFetchingAnagram) return;
+    mutate(anagram, {
+      onSuccess: (data) => {
+        setAnagramExplanation(data.explanation);
+        setIsFetchingAnagram(false);
+      },
+    });
+  }
+
   return (
-    <Popover
-      onOpenChange={(isOpen: boolean) => {
-        if (!isOpen || !isFetchingAnagram) return;
-        mutate(anagram, {
-          onSuccess: (data) => {
-            setAnagramExplanation(data.explanation);
-            setIsFetchingAnagram(false);
-          },
-        });
-      }}
-    >
+    <Popover onOpenChange={handleOpenChange}>
       <PopoverTrigger asChild>
         <Button className="text-md touch-none px-2 font-normal" variant="link">
           {anagram}
@@ -49,7 +49,7 @@ function AnagramPopover({ anagram }: { anagram: string }) {
           <div className="grid gap-2">
             <p>{anagramExplanation}</p>
             <p className="text-muted-foreground text-xs">
-              Ответ сгенерирован ИИ. Могут быть неточности
+              Ответ сгенерирован ИИ. Может содержать неточности
             </p>
           </div>
         )}

@@ -1,5 +1,5 @@
 import { Countdown, useCountdownStore } from "@/features/countdown";
-import { useTrainingStore } from "@/features/training";
+import { useTrainingStore } from "@/features/matches";
 
 function MatchesCountdown() {
   const remainingTime = useCountdownStore((state) => state.remainingTime);

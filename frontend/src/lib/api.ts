@@ -2,11 +2,11 @@ import { BACKEND_URL, HTTP_TOO_MANY_REQUESTS } from "./constants";
 import { type Path } from "./types";
 import { isBaseAPIErrorResponse } from "./utils";
 
-async function apiFetch(
+async function apiFetch<T = unknown>(
   path: Path,
   init?: RequestInit,
   errorMessage?: string,
-): Promise<any> {
+): Promise<T> {
   const response = await fetch(`${BACKEND_URL}${path}`, { ...init });
   const data = await response.json();
 

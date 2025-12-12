@@ -1,8 +1,9 @@
 import { ErrorBoundary } from "react-error-boundary";
 import { useParams } from "react-router";
-import { ErrorText } from "../word-game/components";
-import { ImagesGrid } from "./components/ImagesGrid";
-import { TitleBar } from "./components/TitleBar";
+
+import { ErrorText } from "@/components/ErrorText";
+
+import { ImagesGrid, TitleBar } from "./components";
 import { DATASET_LINKS } from "./dataset-links";
 
 const FALLBACK_LINK = { id: "no-id", title: "-" };
@@ -17,7 +18,7 @@ function DatasetPage() {
     <>
       <TitleBar title={title} />
       <ErrorBoundary
-        fallback={<ErrorText message="Ошибка при получении изображений" />}
+        fallback={<ErrorText message="Ошибка при загрузке изображений" />}
       >
         <ImagesGrid imagesId={imagesId} />
       </ErrorBoundary>

@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router";
+
+import { Button } from "@/components/ui/button";
 
 const MATH_PROBLEMS_GENERATOR_URL = "https://ra-zor.ru/gen";
 

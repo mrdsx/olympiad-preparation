@@ -1,57 +1,26 @@
 import { H1 } from "@/components/ui/typography-h1";
-import { useWordGameModeStore, wordGameRepository } from "@/features/word-game";
-import {
-  BaseAnagramsList,
-  BaseWordTitle,
-  ErrorText,
-  GenerateAnagramsForm,
-  GenerateWordButton,
-  SelectWordGameMode,
-  SwitchAnagramsVisibility,
-  UserAnagramsList,
-} from "./components";
+import { useWordGameModeStore } from "@/features/word-game";
 
-const { useGenerateAnagramsMutation, useGenerateWordMutation } =
-  wordGameRepository;
+import {
+  GenerationMode,
+  InputAnagramsMode,
+  WordGameModeSelect,
+} from "./components";
 
 function WordGamePage() {
   const wordGameMode = useWordGameModeStore((state) => state.wordGameMode);
-  const anagramsMutation = useGenerateAnagramsMutation();
-  const generateWordMutation = useGenerateWordMutation();
 
   return (
     <>
       <H1>Выберите режим:</H1>
       <div className="flex flex-col items-center gap-3">
-        <SelectWordGameMode />
+        <WordGameModeSelect />
         {wordGameMode === "generation" ? (
-          <>
-            <SwitchAnagramsVisibility />
-            <GenerateWordButton mutation={generateWordMutation} />
-          </>
+          <GenerationMode />
         ) : (
-          <GenerateAnagramsForm mutation={anagramsMutation} />
+          <InputAnagramsMode />
         )}
       </div>
-      {wordGameMode === "generation" ? (
-        <ErrorText
-          message="Ошибка при генерации слова"
-          isError={generateWordMutation.isError}
-        />
-      ) : (
-        <ErrorText
-          message="Ошибка при генерации слов"
-          isError={anagramsMutation.isError}
-        />
-      )}
-      {wordGameMode === "generation" && <BaseWordTitle />}
-
-      {/* Anagrams */}
-      {wordGameMode === "generation" ? (
-        <BaseAnagramsList />
-      ) : (
-        <UserAnagramsList />
-      )}
     </>
   );
 }
