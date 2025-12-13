@@ -1,6 +1,6 @@
 from async_lru import alru_cache
 
-from config import DEFAULT_CACHE_MAX_SIZE, DEFAULT_TTL
+from core import DEFAULT_CACHE_MAX_SIZE, DEFAULT_TTL
 from .constants import AI_MODEL_CONFIG, AI_MODEL_NAME
 from .gemini_client import client
 

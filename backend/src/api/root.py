@@ -2,7 +2,7 @@ from datetime import datetime
 from fastapi import APIRouter
 from typing import Any
 
-from config import PROJECT_ENV, PROJECT_VERSION
+from core import PROJECT_ENV, PROJECT_VERSION
 from shared import ResponseStatus
 
 router = APIRouter()

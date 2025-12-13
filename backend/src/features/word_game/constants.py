@@ -1,4 +1,4 @@
-from config import APP_PACKAGE_NAME
+from core import APP_PACKAGE_NAME
 
 
 ANAGRAMS_DICTIONARY_PATH = f"{APP_PACKAGE_NAME}/data/word_game/anagrams.json.gz"

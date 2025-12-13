@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [7.0.1] - December 13, 2025
+
+### Changed
+
+- Update backend setup flow
+
 ## [7.0.0] - December 12, 2025
 
 ### Changed

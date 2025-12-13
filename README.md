@@ -9,8 +9,15 @@ Olympiad Preparation is a full stack web application designed to help you prepar
 - [Node.js](https://nodejs.org/en)
 - [bun](https://bun.com)
 - [Python](https://python.org)
+- [Poetry](https://python-poetry.org/)
+
+#### Bun installation
 
 If you have Node.js, installed on your machine, run `npm install -g bun` to install bun globally.
+
+#### Poetry installation
+
+In order to install Poetry follow instructions at [official website](https://python-poetry.org/docs/#installing-with-the-official-installer). After installation make sure you installed version 2.0.0 or higher.
 
 ### Frontend
 
@@ -49,12 +56,9 @@ Gemini API key can be obtained in [Google AI Studio](https://aistudio.google.com
 3. Run these commands:
 
 ```
-python -m venv .venv              # setup isolated virtual environment
-./.venv/Scripts/activate          # activate virtual environment (Windows)
-source ./.venv/bin/activate       # activate virtual environment (Linux)
-pip install poetry                # install poetry package manager
-poetry install                    # install all deps using poetry
-poetry run python ./src/main.py   # run project!
+poetry install                    # install deps (development)
+poetry install --without test     # install deps (production)
+poetry run python src/run.py      # run project!
 ```
 
 4. After running backend it's available at http://127.0.0.1:8000 (0.0.0.0:8000 in production environment)
@@ -66,10 +70,10 @@ Unfortunately, automatic tests are covering only backend, and tests for frontend
 ### Testing backend
 
 1. Navigate to backend
-2. Run this command:
+2. Run tests:
 
 ```
-python -m pytest ./tests
+poetry run pytest tests
 ```
 
 ## Tech Stack
@@ -78,8 +82,9 @@ python -m pytest ./tests
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-Libraries: Radix UI, Tanstack Query, Lucide React, Prettier, React Router, TailwindCSS, Zustand
+Libraries: Zustand, Tanstack Query, React Router, Radix UI, Lucide React, Prettier
 
 ### Backend
 

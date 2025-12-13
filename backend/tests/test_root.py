@@ -4,7 +4,7 @@ from fastapi import status
 from fastapi.testclient import TestClient
 
 from src.shared import ResponseStatus
-from src.config import PROJECT_VERSION
+from src.core import PROJECT_VERSION
 
 
 @pytest.mark.asyncio

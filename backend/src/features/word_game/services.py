@@ -1,7 +1,7 @@
 import random
 from cachetools.func import ttl_cache
 
-from config import DEFAULT_CACHE_MAX_SIZE, DEFAULT_TTL
+from core import DEFAULT_CACHE_MAX_SIZE, DEFAULT_TTL
 from .constants import MIN_WORD_LENGTH, MIN_ANAGRAMS, MAX_ANAGRAMS
 from .data_loaders import anagrams_dictionary, words_list
 from .utils import can_build
