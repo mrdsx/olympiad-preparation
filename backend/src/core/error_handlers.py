@@ -5,7 +5,7 @@ from pydantic import ValidationError
 from shared import ResponseStatus
 
 
-def global_error_handler(
+async def global_error_handler(
     request: Request,
     exception: Exception,
 ) -> JSONResponse:
@@ -19,7 +19,7 @@ def global_error_handler(
     )
 
 
-def validation_error_handler(
+async def validation_error_handler(
     request: Request,
     exception: ValidationError,
 ) -> JSONResponse:

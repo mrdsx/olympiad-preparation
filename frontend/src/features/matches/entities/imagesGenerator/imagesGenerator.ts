@@ -13,6 +13,8 @@ import type {
   WordsCount,
 } from "./types";
 
+const REGIONAL_STAGE_GRID_AREA = 16;
+
 class ImagesGenerator {
   public generate(images: ImageItem[], gridSize: GridSize): ImageItem[] {
     const groupedImages = groupImagesByCategory(images);
@@ -24,11 +26,9 @@ class ImagesGenerator {
 
     const maxArea = this.calculateMaxGridArea(occurrencesMap);
     const currentArea = gridSize.rows * gridSize.columns;
-    const enforceRowColumnConstraints = maxArea >= currentArea;
-
-    if (enforceRowColumnConstraints) {
-      this.validateDistinctWords(words, gridSize);
-    }
+    const enforceColumnRowConstraints =
+      maxArea >= currentArea && currentArea <= REGIONAL_STAGE_GRID_AREA;
+    const enforceRowConstraints = gridSize.columns <= words.length;
 
     const { grid, rowWords, colWords, wordCounts } = this.createGridBody(
       gridSize,
@@ -46,7 +46,8 @@ class ImagesGenerator {
         wordCounts,
         rowWords,
         colWords,
-        enforceRowColumnConstraints,
+        enforceRowConstraints,
+        enforceColumnRowConstraints,
       })
     ) {
       throw new Error(
@@ -84,15 +85,6 @@ class ImagesGenerator {
     if (totalCells > totalMaxOccurrences) {
       throw new Error(
         `Grid size ${totalCells} exceeds total max occurrences ${totalMaxOccurrences}`,
-      );
-    }
-  }
-
-  private validateDistinctWords(words: string[], gridSize: GridSize): void {
-    const minDimension = Math.min(gridSize.rows, gridSize.columns);
-    if (words.length < minDimension) {
-      throw new Error(
-        `Need at least ${minDimension} distinct words for ${gridSize.string} grid, but only have ${words.length}`,
       );
     }
   }
@@ -170,15 +162,18 @@ class ImagesGenerator {
     colWords,
     wordCounts,
     occurrencesMap,
-    enforceRowColumnConstraints,
+    enforceRowConstraints,
+    enforceColumnRowConstraints,
   }: CanPlaceWordParams): boolean {
     if (wordCounts[word] >= occurrencesMap[word]) {
       return false;
     }
     if (
-      enforceRowColumnConstraints &&
-      (rowWords[row].has(word) || colWords[col].has(word))
+      enforceColumnRowConstraints &&
+      (colWords[col].has(word) || rowWords[row].has(word))
     ) {
+      return false;
+    } else if (enforceRowConstraints && rowWords[row].has(word)) {
       return false;
     }
 
@@ -211,8 +206,7 @@ class ImagesGenerator {
       [1, -1],
       [1, 1],
     ];
-    const canTouchDiagonally =
-      !enforceRowColumnConstraints || getRandomInt() == 0;
+    const canTouchDiagonally = getRandomInt(1, 10) <= 3;
 
     for (const [dr, dc] of diagonalDirections) {
       const nr = row + dr;
@@ -306,7 +300,8 @@ class ImagesGenerator {
     wordCounts,
     rowWords,
     colWords,
-    enforceRowColumnConstraints,
+    enforceRowConstraints,
+    enforceColumnRowConstraints,
   }: GetPatternGridParams): boolean {
     if (cellIndex === totalCells) {
       return true;
@@ -315,7 +310,7 @@ class ImagesGenerator {
     const row = Math.floor(cellIndex / gridSize.columns);
     const col = cellIndex % gridSize.columns;
 
-    const shuffledWords = [...words].sort(() => Math.random() - 0.5);
+    const shuffledWords = [...words].sort(() => getRandomInt(1, 1000) - 500);
 
     for (const word of shuffledWords) {
       if (
@@ -329,7 +324,8 @@ class ImagesGenerator {
           colWords,
           wordCounts,
           occurrencesMap,
-          enforceRowColumnConstraints,
+          enforceRowConstraints,
+          enforceColumnRowConstraints,
         })
       ) {
         this.placeWord({
@@ -353,7 +349,8 @@ class ImagesGenerator {
             wordCounts,
             rowWords,
             colWords,
-            enforceRowColumnConstraints,
+            enforceRowConstraints,
+            enforceColumnRowConstraints,
           })
         ) {
           return true;

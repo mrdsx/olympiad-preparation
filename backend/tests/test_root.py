@@ -1,10 +1,18 @@
 import pytest
+from collections.abc import Generator
 from datetime import datetime
 from fastapi import status
 from fastapi.testclient import TestClient
 
+from src.main import app
 from src.shared import ResponseStatus
 from src.core import PROJECT_VERSION
+
+
+@pytest.fixture(scope="module")
+def test_client() -> Generator[TestClient]:
+    client = TestClient(app)
+    yield client
 
 
 @pytest.mark.asyncio

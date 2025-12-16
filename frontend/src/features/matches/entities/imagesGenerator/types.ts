@@ -21,7 +21,8 @@ type BuildResultParams = {
 type CanPlaceWordParams = WordOperationParams & {
   gridSize: GridSize;
   occurrencesMap: OccurrencesMap;
-  enforceRowColumnConstraints: boolean;
+  enforceRowConstraints: boolean;
+  enforceColumnRowConstraints: boolean;
 };
 
 type GetPatternGridParams = {
@@ -34,7 +35,8 @@ type GetPatternGridParams = {
   wordCounts: WordsCount;
   rowWords: Set<string>[];
   colWords: Set<string>[];
-  enforceRowColumnConstraints: boolean;
+  enforceRowConstraints: boolean;
+  enforceColumnRowConstraints: boolean;
 };
 
 type WordOperationParams = {

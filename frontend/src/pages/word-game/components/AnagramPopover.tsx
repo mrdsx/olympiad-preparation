@@ -47,7 +47,7 @@ function AnagramPopover({ anagram }: { anagram: string }) {
           <LoaderCircle className="animate-spin" />
         ) : (
           <div className="grid gap-2">
-            <p>{anagramExplanation}</p>
+            <p className="max-h-50 overflow-auto">{anagramExplanation}</p>
             <p className="text-muted-foreground text-xs">
               Ответ сгенерирован ИИ. Может содержать неточности
             </p>

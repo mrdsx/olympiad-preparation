@@ -9,6 +9,8 @@ import {
   useSchoolGradeStore,
 } from "@/features/matches";
 
+import { OlympiadStageTooltip } from "./OlympiadStageTooltip";
+
 function OlympiadStageSwitch() {
   const { olympiadStageSwitchRef, onSchoolGradeOrOlympiadStageChange } =
     useGridSettings();
@@ -27,7 +29,7 @@ function OlympiadStageSwitch() {
   }
 
   return (
-    <div className="flex gap-2">
+    <div className="relative flex gap-2">
       <Switch
         id="olympiad-stage-switch"
         checked={isFinalOlympiadStage}
@@ -35,6 +37,7 @@ function OlympiadStageSwitch() {
         ref={olympiadStageSwitchRef}
       />
       <Label htmlFor="olympiad-stage-switch">Финал</Label>
+      <OlympiadStageTooltip className="absolute -top-1 -right-5 size-4" />
     </div>
   );
 }

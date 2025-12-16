@@ -32,7 +32,7 @@ function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
         {images.map((image) => (
           <div
             className={cn(
-              "relative flex items-center justify-center border text-center overflow-hidden",
+              "relative flex items-center justify-center overflow-hidden border text-center",
               applyGrayscale ? "grayscale-100" : "",
             )}
             key={image.name}

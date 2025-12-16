@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [7.1.0] - December 16, 2025
+
+### Added
+
+- Add filtering out prohibited words in word game
+- Add tooltip to olympiad stage switch
+- Add script for updating version number across multiple files
+- Add tests for word game services and utils
+
+### Changed
+
+- Refine matches generation algorithm
+- Update word game router and data loaders tests
+
+### Fixed
+
+- Fix long anagram explanation goes beyond the screen
+
 ## [7.0.1] - December 13, 2025
 
 ### Changed
