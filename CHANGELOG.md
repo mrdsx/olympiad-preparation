@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [7.2.1] - December 19, 2025
+
+### Changed
+
+- Edit matches generation
+  - Remove privileged group constraint (view release `7.2.0`)
+
+### Fixed
+
+- Fix countdown responsive styles
+- Fix select components styles on matches page
+
 ## [7.2.0] - December 18, 2025
 
 ### Added
@@ -16,7 +28,7 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 ### Changed
 
-- Refine matches algorithm
+- Refine matches generation
   - Add privileged group constraint with 1 duplicate allowed per column
 
 ## [7.1.0] - December 16, 2025
@@ -64,7 +76,7 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 ### Changed
 
 - Update README description and installation section
-- Revert to versioning style from `[4.0.2]`
+- Revert to versioning style from release `4.2.0`
 
 ## [5.0.0] - December 7, 2025
 

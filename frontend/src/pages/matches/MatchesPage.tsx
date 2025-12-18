@@ -14,7 +14,7 @@ function MatchesPage() {
   return (
     <>
       <H1>Выберите настройки:</H1>
-      <div className="absolute top-22 left-2 flex flex-col items-center gap-1 sm:left-4">
+      <div className="absolute top-22 left-2 flex flex-col items-center gap-1 sm:top-14 sm:left-4">
         <CountdownSettingsPopover />
         <MatchesCountdown />
       </div>

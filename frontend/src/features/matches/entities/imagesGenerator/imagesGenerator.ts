@@ -142,12 +142,12 @@ class ImagesGenerator {
       wordCounts[word] = 0;
     });
 
-    const rowWords: string[][] = Array(gridSize.rows)
+    const rowWords: Set<string>[] = Array(gridSize.rows)
       .fill(null)
-      .map(() => []);
-    const colWords: string[][] = Array(gridSize.columns)
+      .map(() => new Set());
+    const colWords: Set<string>[] = Array(gridSize.columns)
       .fill(null)
-      .map(() => []);
+      .map(() => new Set());
 
     return { grid, rowWords, colWords, wordCounts };
   }
@@ -169,23 +169,13 @@ class ImagesGenerator {
       return false;
     }
 
-    const rowHasWord = rowWords[row].includes(word);
-    const colHasWord = colWords[col].includes(word);
+    const rowHasWord = rowWords[row].has(word);
+    const colHasWord = colWords[col].has(word);
 
     if (enforceColumnRowConstraints && (colHasWord || rowHasWord)) {
       return false;
     } else if (enforceRowConstraints && rowHasWord) {
       return false;
-    }
-
-    // Privileged group constraint: if column already has duplicates,
-    // only the privileged group (the one that's duplicated) can appear again
-    if (!enforceColumnRowConstraints && enforceRowConstraints) {
-      const colHasDuplicate =
-        colWords[col].length - new Set(colWords[col]).size > 0;
-      if (colHasDuplicate && colHasWord) {
-        return false;
-      }
     }
 
     // Check no touching horizontally/vertically (always enforced)
@@ -278,8 +268,8 @@ class ImagesGenerator {
   }: WordOperationParams): void {
     grid[row][col] = word;
     wordCounts[word]++;
-    rowWords[row].push(word);
-    colWords[col].push(word);
+    rowWords[row].add(word);
+    colWords[col].add(word);
   }
 
   private removeWord({
@@ -293,10 +283,8 @@ class ImagesGenerator {
   }: WordOperationParams): void {
     grid[row][col] = null;
     wordCounts[word]--;
-    const rowIdx = rowWords[row].indexOf(word);
-    if (rowIdx !== -1) rowWords[row].splice(rowIdx, 1);
-    const colIdx = colWords[col].indexOf(word);
-    if (colIdx !== -1) colWords[col].splice(colIdx, 1);
+    rowWords[row].delete(word);
+    colWords[col].delete(word);
   }
 
   private getPatternGrid({

@@ -36,7 +36,7 @@ function declineWord(value: number, words: string[]): string {
 /**
  * Generates number within range [min, max].
  */
-function getRandomInt(min: number = 0, max: number = 1): number {
+function getRandomInt(min: number, max: number): number {
   const range = max - min + 1;
   if (range <= 0) {
     throw new Error("Invalid range: max must be greater than or equal to min.");

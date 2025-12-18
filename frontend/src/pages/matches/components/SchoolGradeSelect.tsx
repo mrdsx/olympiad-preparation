@@ -35,7 +35,7 @@ function SchoolGradeSelect() {
 
   return (
     <Select value={schoolGrade} onValueChange={handleValueChange}>
-      <SelectTrigger className="w-45">
+      <SelectTrigger className="w-48 sm:w-45">
         <SelectValue placeholder="Класс" />
       </SelectTrigger>
       <SelectContent>

@@ -25,7 +25,7 @@ function GridSizeSelect() {
 
   return (
     <Select value={gridSize.string} onValueChange={handleValueChange}>
-      <SelectTrigger className="w-45">
+      <SelectTrigger className="w-48 sm:w-45">
         <SelectValue placeholder="Размер сетки" />
       </SelectTrigger>
       <SelectContent>
