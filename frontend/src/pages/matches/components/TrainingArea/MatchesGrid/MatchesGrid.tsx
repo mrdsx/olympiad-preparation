@@ -1,9 +1,4 @@
-import { Button } from "@/components/ui/button";
-import {
-  useGridSizeStore,
-  useImagesStore,
-  useTrainingStore,
-} from "@/features/matches";
+import { useGridSizeStore, useImagesStore } from "@/features/matches";
 import { getCDNImageURL } from "@/lib/cdn";
 import { MAX_IMAGE_WIDTH } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -11,23 +6,30 @@ import { cn } from "@/lib/utils";
 const GRID_CELL_WIDTH = `${MAX_IMAGE_WIDTH}px`;
 const GRID_CELL_HEIGHT = "100px";
 
-function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
+type MatchesGridProps = {
+  matchesGridRef: React.RefObject<HTMLDivElement | null>;
+  showAnswers?: boolean;
+  showImages?: boolean;
+};
+
+function MatchesGrid({
+  matchesGridRef,
+  showAnswers,
+  showImages,
+}: MatchesGridProps) {
   const gridSize = useGridSizeStore((state) => state.gridSize);
   const applyGrayscale = useImagesStore((state) => state.applyGrayscale);
   const images = useImagesStore((state) => state.images);
-  const resetTrainingStore = useTrainingStore((state) => state.reset);
 
   return (
     <>
-      {showAnswers && (
-        <Button onClick={resetTrainingStore}>Сгенерировать заново</Button>
-      )}
       <div
-        className="mb-3 grid border"
+        className="grid border"
         style={{
           gridTemplateColumns: `repeat(${gridSize.columns}, minmax(0, ${GRID_CELL_WIDTH}))`,
           gridTemplateRows: `repeat(${gridSize.rows}, minmax(0, ${GRID_CELL_HEIGHT}))`,
         }}
+        ref={matchesGridRef}
       >
         {images.map((image) => (
           <div
@@ -37,7 +39,7 @@ function MatchesGrid({ showAnswers }: { showAnswers?: boolean }) {
             )}
             key={image.name}
           >
-            {showAnswers ? (
+            {!showImages && showAnswers ? (
               <span>{image.name}</span>
             ) : (
               <img

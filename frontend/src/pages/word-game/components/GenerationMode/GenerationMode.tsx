@@ -1,15 +1,15 @@
+import { useMutation } from "@tanstack/react-query";
+
 import { ErrorText } from "@/components/ErrorText";
-import { wordGameService } from "@/features/word-game";
+import { createGenerateWordMutationOptions } from "@/features/word-game";
 
 import { AnagramsVisibilitySwitch } from "./AnagramsVisibilitySwitch";
 import { BaseAnagramsList } from "./BaseAnagramsList";
 import { BaseWordTitle } from "./BaseWordTitle";
 import { GenerateWordButton } from "./GenerateWordButton";
 
-const { useGenerateWordMutation } = wordGameService;
-
 function GenerationMode() {
-  const generateWordMutation = useGenerateWordMutation();
+  const generateWordMutation = useMutation(createGenerateWordMutationOptions());
 
   return (
     <>

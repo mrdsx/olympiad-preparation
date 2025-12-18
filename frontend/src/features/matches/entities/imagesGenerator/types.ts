@@ -2,8 +2,8 @@ import type { GridSize, GroupedImages } from "../../types";
 
 type CreateGridBodyResult = {
   grid: (string | null)[][];
-  rowWords: Set<string>[];
-  colWords: Set<string>[];
+  rowWords: string[][];
+  colWords: string[][];
   wordCounts: Record<string, number>;
 };
 
@@ -33,8 +33,8 @@ type GetPatternGridParams = {
   totalCells: number;
   occurrencesMap: OccurrencesMap;
   wordCounts: WordsCount;
-  rowWords: Set<string>[];
-  colWords: Set<string>[];
+  rowWords: string[][];
+  colWords: string[][];
   enforceRowConstraints: boolean;
   enforceColumnRowConstraints: boolean;
 };
@@ -44,8 +44,8 @@ type WordOperationParams = {
   row: number;
   col: number;
   grid: (string | null)[][];
-  rowWords: Set<string>[];
-  colWords: Set<string>[];
+  rowWords: string[][];
+  colWords: string[][];
   wordCounts: WordsCount;
 };
 

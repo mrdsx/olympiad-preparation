@@ -1,13 +1,13 @@
+import { useMutation } from "@tanstack/react-query";
+
 import { ErrorText } from "@/components/ErrorText";
-import { wordGameService } from "@/features/word-game";
+import { createGenerateAnagramsMutationOptions } from "@/features/word-game";
 
 import { GenerateAnagramsForm } from "./GenerateAnagramsForm";
 import { UserAnagramsList } from "./UserAnagramsList";
 
-const { useGenerateAnagramsMutation } = wordGameService;
-
 function InputAnagramsMode() {
-  const anagramsMutation = useGenerateAnagramsMutation();
+  const anagramsMutation = useMutation(createGenerateAnagramsMutationOptions());
 
   return (
     <>

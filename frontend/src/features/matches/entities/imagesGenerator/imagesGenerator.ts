@@ -142,12 +142,12 @@ class ImagesGenerator {
       wordCounts[word] = 0;
     });
 
-    const rowWords: Set<string>[] = Array(gridSize.rows)
+    const rowWords: string[][] = Array(gridSize.rows)
       .fill(null)
-      .map(() => new Set());
-    const colWords: Set<string>[] = Array(gridSize.columns)
+      .map(() => []);
+    const colWords: string[][] = Array(gridSize.columns)
       .fill(null)
-      .map(() => new Set());
+      .map(() => []);
 
     return { grid, rowWords, colWords, wordCounts };
   }
@@ -168,13 +168,24 @@ class ImagesGenerator {
     if (wordCounts[word] >= occurrencesMap[word]) {
       return false;
     }
-    if (
-      enforceColumnRowConstraints &&
-      (colWords[col].has(word) || rowWords[row].has(word))
-    ) {
+
+    const rowHasWord = rowWords[row].includes(word);
+    const colHasWord = colWords[col].includes(word);
+
+    if (enforceColumnRowConstraints && (colHasWord || rowHasWord)) {
       return false;
-    } else if (enforceRowConstraints && rowWords[row].has(word)) {
+    } else if (enforceRowConstraints && rowHasWord) {
       return false;
+    }
+
+    // Privileged group constraint: if column already has duplicates,
+    // only the privileged group (the one that's duplicated) can appear again
+    if (!enforceColumnRowConstraints && enforceRowConstraints) {
+      const colHasDuplicate =
+        colWords[col].length - new Set(colWords[col]).size > 0;
+      if (colHasDuplicate && colHasWord) {
+        return false;
+      }
     }
 
     // Check no touching horizontally/vertically (always enforced)
@@ -199,7 +210,6 @@ class ImagesGenerator {
       }
     }
 
-    let diagonalSameCount = 0;
     const diagonalDirections = [
       [-1, -1],
       [-1, 1],
@@ -253,9 +263,6 @@ class ImagesGenerator {
         }
       }
     }
-    if (diagonalSameCount > 1) {
-      return false;
-    }
 
     return true;
   }
@@ -271,8 +278,8 @@ class ImagesGenerator {
   }: WordOperationParams): void {
     grid[row][col] = word;
     wordCounts[word]++;
-    rowWords[row].add(word);
-    colWords[col].add(word);
+    rowWords[row].push(word);
+    colWords[col].push(word);
   }
 
   private removeWord({
@@ -286,8 +293,10 @@ class ImagesGenerator {
   }: WordOperationParams): void {
     grid[row][col] = null;
     wordCounts[word]--;
-    rowWords[row].delete(word);
-    colWords[col].delete(word);
+    const rowIdx = rowWords[row].indexOf(word);
+    if (rowIdx !== -1) rowWords[row].splice(rowIdx, 1);
+    const colIdx = colWords[col].indexOf(word);
+    if (colIdx !== -1) colWords[col].splice(colIdx, 1);
   }
 
   private getPatternGrid({

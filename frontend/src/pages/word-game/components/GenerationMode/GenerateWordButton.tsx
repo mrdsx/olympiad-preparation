@@ -1,13 +1,15 @@
+import type { UseMutationResult } from "@tanstack/react-query";
+
 import { PendingButton } from "@/components/PendingButton";
 import { Button } from "@/components/ui/button";
 import {
+  type AnagramsResponse,
   useAnagramsStore,
   useBaseWordStore,
-  wordGameService,
 } from "@/features/word-game";
 
 type GenerateWordButtonProps = {
-  mutation: ReturnType<(typeof wordGameService)["useGenerateWordMutation"]>;
+  mutation: UseMutationResult<AnagramsResponse, Error, void, unknown>;
 };
 
 function GenerateWordButton({ mutation }: GenerateWordButtonProps) {

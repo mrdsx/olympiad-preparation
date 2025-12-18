@@ -8,4 +8,7 @@ type BaseAPIErrorResponse = {
 
 type Path = `/${string}`;
 
-export type { BaseAPIErrorResponse, Path };
+type ReactRef<T> = React.RefObject<T | null>;
+type ReactSetState<T> = React.Dispatch<React.SetStateAction<T>>;
+
+export type { BaseAPIErrorResponse, Path, ReactRef, ReactSetState };

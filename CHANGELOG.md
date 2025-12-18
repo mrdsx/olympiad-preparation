@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [7.2.0] - December 18, 2025
+
+### Added
+
+- Add countdown settings popover
+- Add toggle matches visibility button
+- Add exporting matches into file
+
+### Changed
+
+- Refine matches algorithm
+  - Add privileged group constraint with 1 duplicate allowed per column
+
 ## [7.1.0] - December 16, 2025
 
 ### Added
@@ -17,7 +30,7 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 ### Changed
 
-- Refine matches generation algorithm
+- Refine matches generation
 - Update word game router and data loaders tests
 
 ### Fixed
@@ -34,7 +47,7 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 ### Changed
 
-- Refine matches generation algorithm
+- Refine significantly matches generation
 - Replace checkbox with switch component on matches page
 - Update footer text in anagram explanation popover
 

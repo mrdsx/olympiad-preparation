@@ -1,17 +1,19 @@
+import type { UseMutationResult } from "@tanstack/react-query";
+
 import { PendingButton } from "@/components/PendingButton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
+  type AnagramsResponse,
   useUserAnagramsStore,
   useUserWordStore,
-  wordGameService,
 } from "@/features/word-game";
 
 const MIN_INPUT_LENGTH = 1;
 const MAX_INPUT_LENGTH = 20;
 
 type GenerateAnagramsFormProps = {
-  mutation: ReturnType<(typeof wordGameService)["useGenerateAnagramsMutation"]>;
+  mutation: UseMutationResult<AnagramsResponse, Error, string>;
 };
 
 function GenerateAnagramsForm({ mutation }: GenerateAnagramsFormProps) {

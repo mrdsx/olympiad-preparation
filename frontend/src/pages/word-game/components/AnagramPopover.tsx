@@ -1,3 +1,4 @@
+import { useMutation } from "@tanstack/react-query";
 import { LoaderCircle } from "lucide-react";
 import { useState } from "react";
 
@@ -8,15 +9,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { wordGameService } from "@/features/word-game";
+import { createExplainWordMutationOptions } from "@/features/word-game";
 import { cn } from "@/lib/utils";
-
-const { useExplainWordMutation } = wordGameService;
 
 function AnagramPopover({ anagram }: { anagram: string }) {
   const [isFetchingAnagram, setIsFetchingAnagram] = useState<boolean>(true);
   const [anagramExplanation, setAnagramExplanation] = useState<string>("");
-  const { isError, error, mutate } = useExplainWordMutation();
+  const { isError, error, mutate } = useMutation(
+    createExplainWordMutationOptions(),
+  );
 
   function handleOpenChange(isOpen: boolean): void {
     if (!isOpen || !isFetchingAnagram) return;

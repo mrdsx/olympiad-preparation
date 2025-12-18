@@ -1,20 +1,26 @@
 import { useEffect } from "react";
 
-import { useTrainingStore } from "@/features/matches";
-import { WRITING_ANSWERS_TIME } from "@/lib/constants";
+import {
+  useCountdownSettingsStore,
+  useTrainingStore,
+} from "@/features/matches";
+import { SECONDS_IN_MINUTE } from "@/lib/constants";
 
 import { useCountdownStore } from "./countdownStore";
 
 const NO_TIME_LEFT = 0;
 
 function useCountdownEffect(intervalRef: React.RefObject<number | undefined>) {
-  const { isFinished, isRemembering, setIsRemembering } = useTrainingStore();
   const { remainingTime, setRemainingTime, decrementRemainingTime } =
     useCountdownStore();
+  const writingAnswersTime = useCountdownSettingsStore(
+    (state) => state.writingAnswersTime,
+  );
+  const { isFinished, isRemembering, setIsRemembering } = useTrainingStore();
   const isWritingAnswers = !isFinished && !isRemembering;
 
   useEffect(() => {
-    if (remainingTime >= NO_TIME_LEFT) return;
+    if (remainingTime > NO_TIME_LEFT) return;
 
     setRemainingTime(NO_TIME_LEFT);
     if (isRemembering) setIsRemembering(false);
@@ -22,24 +28,21 @@ function useCountdownEffect(intervalRef: React.RefObject<number | undefined>) {
       clearInterval(intervalRef.current);
       setRemainingTime(NO_TIME_LEFT);
     }
-  }, [remainingTime]);
+  }, [remainingTime, isRemembering, isWritingAnswers]); // eslint-disable-line
 
   useEffect(() => {
-    if (isWritingAnswers) return;
-
-    //* interval goes on even when isWritingAnswers === false
     intervalRef.current = setInterval(() => {
       decrementRemainingTime();
     }, 1000);
 
     return () => clearInterval(intervalRef.current);
-  }, [isFinished]);
+  }, [remainingTime]); // eslint-disable-line
 
   useEffect(() => {
     if (!isWritingAnswers) return;
-    setRemainingTime(WRITING_ANSWERS_TIME);
-    return () => clearInterval(intervalRef.current);
-  }, [isWritingAnswers]);
+    const { minutes, seconds } = writingAnswersTime;
+    setRemainingTime(minutes * SECONDS_IN_MINUTE + seconds);
+  }, [isWritingAnswers, writingAnswersTime]); // eslint-disable-line
 }
 
 export { useCountdownEffect };

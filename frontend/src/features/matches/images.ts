@@ -15,7 +15,7 @@ type ImagesEntry = {
 };
 
 function getImagesObject(): Record<string, ImagesEntry> {
-  // @ts-ignore
+  // @ts-expect-error typescript raises error because it infers gridFlow as string
   // TODO: add zod validation
   return structuredClone(imagesData);
 }
