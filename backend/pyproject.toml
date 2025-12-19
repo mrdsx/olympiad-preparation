@@ -1,6 +1,6 @@
 [project]
 name = "olympiad-preparation"
-version = "7.2.1"
+version = "7.2.2"
 description = "Olympiad preparation app backend"
 authors = [{ name = "mrdsx" }]
 readme = "../README.md"

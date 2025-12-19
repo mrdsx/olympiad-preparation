@@ -34,10 +34,10 @@ function declineWord(value: number, words: string[]): string {
 }
 
 /**
- * Generates number within range [min, max].
+ * Generates number within range [start, end] including start and end.
  */
-function getRandomInt(min: number, max: number): number {
-  const range = max - min + 1;
+function getRandomInt(start: number, end: number): number {
+  const range = end - start + 1;
   if (range <= 0) {
     throw new Error("Invalid range: max must be greater than or equal to min.");
   }
@@ -45,7 +45,7 @@ function getRandomInt(min: number, max: number): number {
   const randomBytes = new Uint32Array(1);
   window.crypto.getRandomValues(randomBytes);
 
-  return Math.floor(randomBytes[0] / (0xffffffff / range)) + min;
+  return Math.floor(randomBytes[0] / (0xffffffff / range)) + start;
 }
 
 function isBaseAPIErrorResponse(data: unknown): data is BaseAPIErrorResponse {

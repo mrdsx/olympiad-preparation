@@ -6,7 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
-## [7.2.1] - December 19, 2025
+## [7.2.2] - December 19, 2025
+
+### Changed
+
+- Refine matches generation
+  - Reduce chances of introducing 3 matches from same group within column in 5x6 grid
+
+## [7.2.1] - December 18, 2025
 
 ### Changed
 

@@ -185,26 +185,35 @@ class ImagesGenerator {
       [0, -1], // left
       [0, 1], // right
     ];
+    if (!enforceColumnRowConstraints && enforceRowConstraints) {
+      horizontalVerticalDirections.push([-2, 0], [2, 0]); // [up, down]
+    }
 
-    for (const [dr, dc] of horizontalVerticalDirections) {
-      const nr = row + dr;
-      const nc = col + dc;
+    for (const [
+      verticalOffset,
+      horizontalOffset,
+    ] of horizontalVerticalDirections) {
+      if ([-2, 2].includes(verticalOffset) && getRandomInt(1, 10) <= 5) {
+        return true;
+      }
+      const curRow = row + verticalOffset;
+      const curCol = col + horizontalOffset;
       if (
-        nr >= 0 &&
-        nr < gridSize.rows &&
-        nc >= 0 &&
-        nc < gridSize.columns &&
-        grid[nr][nc] === word
+        curRow >= 0 &&
+        curRow < gridSize.rows &&
+        curCol >= 0 &&
+        curCol < gridSize.columns &&
+        grid[curRow][curCol] === word
       ) {
         return false;
       }
     }
 
     const diagonalDirections = [
-      [-1, -1],
-      [-1, 1],
-      [1, -1],
-      [1, 1],
+      [-1, -1], // top left
+      [-1, 1], // top right
+      [1, -1], // bottom left
+      [1, 1], // bottom right
     ];
     const canTouchDiagonally = getRandomInt(1, 10) <= 3;
 
@@ -223,6 +232,7 @@ class ImagesGenerator {
         // Block chains of 3 along the same diagonal
         const rr = nr + dr;
         const cc = nc + dc;
+
         if (
           rr >= 0 &&
           rr < gridSize.rows &&
