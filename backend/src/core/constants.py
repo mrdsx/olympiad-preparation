@@ -6,7 +6,7 @@ load_dotenv()
 PROD_ENV = "production"
 DEV_ENV = "development"
 PROJECT_ENV = os.getenv("PROJECT_ENV", DEV_ENV)
-PROJECT_VERSION = "7.2.2"
+PROJECT_VERSION = "7.2.3"
 
 APP_HOST = "0.0.0.0" if PROJECT_ENV == PROD_ENV else "127.0.0.1"
 APP_PORT = 8000

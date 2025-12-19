@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
 
+## [7.2.3] - December 19, 2025
+
+### Fixed
+
+- Fix matches generation
+  - Fix case where 3 matches from same group form diagonal
+
 ## [7.2.2] - December 19, 2025
 
 ### Changed

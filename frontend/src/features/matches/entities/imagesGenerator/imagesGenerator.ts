@@ -189,12 +189,21 @@ class ImagesGenerator {
       horizontalVerticalDirections.push([-2, 0], [2, 0]); // [up, down]
     }
 
+    const canTouchDiagonally = getRandomInt(1, 10) <= 3;
+
     for (const [
       verticalOffset,
       horizontalOffset,
     ] of horizontalVerticalDirections) {
       if ([-2, 2].includes(verticalOffset) && getRandomInt(1, 10) <= 5) {
-        return true;
+        return this.validateDiagonals({
+          row,
+          col,
+          word,
+          grid,
+          gridSize,
+          canTouchDiagonally,
+        });
       }
       const curRow = row + verticalOffset;
       const curCol = col + horizontalOffset;
@@ -209,62 +218,14 @@ class ImagesGenerator {
       }
     }
 
-    const diagonalDirections = [
-      [-1, -1], // top left
-      [-1, 1], // top right
-      [1, -1], // bottom left
-      [1, 1], // bottom right
-    ];
-    const canTouchDiagonally = getRandomInt(1, 10) <= 3;
-
-    for (const [dr, dc] of diagonalDirections) {
-      const nr = row + dr;
-      const nc = col + dc;
-      if (
-        nr >= 0 &&
-        nr < gridSize.rows &&
-        nc >= 0 &&
-        nc < gridSize.columns &&
-        grid[nr][nc] === word
-      ) {
-        if (!canTouchDiagonally) return false;
-
-        // Block chains of 3 along the same diagonal
-        const rr = nr + dr;
-        const cc = nc + dc;
-
-        if (
-          rr >= 0 &&
-          rr < gridSize.rows &&
-          cc >= 0 &&
-          cc < gridSize.columns &&
-          grid[rr][cc] === word
-        ) {
-          return false;
-        }
-
-        // Block adjacent diagonal pairs in the same 2x2 window
-        // 2x2 window corners: (row,col), (row,col+dc), (nr,nc), (nr,nc-dc)
-        const adj1r = row;
-        const adj1c = col + dc;
-        const adj2r = nr;
-        const adj2c = nc - dc;
-        if (
-          adj1c >= 0 &&
-          adj1c < gridSize.columns &&
-          adj2r >= 0 &&
-          adj2r < gridSize.rows &&
-          adj2c >= 0 &&
-          adj2c < gridSize.columns &&
-          grid[adj1r][adj1c] === word &&
-          grid[adj2r][adj2c] === word
-        ) {
-          return false;
-        }
-      }
-    }
-
-    return true;
+    return this.validateDiagonals({
+      row,
+      col,
+      word,
+      grid,
+      gridSize,
+      canTouchDiagonally,
+    });
   }
 
   private placeWord({
@@ -393,6 +354,78 @@ class ImagesGenerator {
       }
     }
     return neededPerWord;
+  }
+
+  private validateDiagonals({
+    row,
+    col,
+    word,
+    grid,
+    gridSize,
+    canTouchDiagonally,
+  }: {
+    row: number;
+    col: number;
+    word: string;
+    grid: (string | null)[][];
+    gridSize: GridSize;
+    canTouchDiagonally: boolean;
+  }): boolean {
+    const diagonalDirections = [
+      [-1, -1], // top left
+      [-1, 1], // top right
+      [1, -1], // bottom left
+      [1, 1], // bottom right
+    ];
+
+    for (const [dr, dc] of diagonalDirections) {
+      const nr = row + dr;
+      const nc = col + dc;
+      if (
+        nr >= 0 &&
+        nr < gridSize.rows &&
+        nc >= 0 &&
+        nc < gridSize.columns &&
+        grid[nr][nc] === word
+      ) {
+        if (!canTouchDiagonally) return false;
+
+        // Block chains of 3 along the same diagonal
+        const rr = nr + dr;
+        const cc = nc + dc;
+
+        if (
+          rr >= 0 &&
+          rr < gridSize.rows &&
+          cc >= 0 &&
+          cc < gridSize.columns &&
+          grid[rr][cc] === word
+        ) {
+          return false;
+        }
+
+        // Block adjacent diagonal pairs in the same 2x2 window
+        // 2x2 window corners: (row,col), (row,col+dc), (nr,nc), (nr,nc-dc)
+        const adj1r = row;
+        const adj1c = col + dc;
+        const adj2r = nr;
+        const adj2c = nc - dc;
+        if (
+          adj1c >= 0 &&
+          adj1c < gridSize.columns &&
+          adj2r >= 0 &&
+          adj2r < gridSize.rows &&
+          adj2c >= 0 &&
+          adj2c < gridSize.columns &&
+          grid[adj1r][adj1c] === word &&
+          grid[adj2r][adj2c] === word
+        ) {
+          return false;
+        }
+      }
+    }
+
+    return true;
   }
 
   private validateImageAvailability(
