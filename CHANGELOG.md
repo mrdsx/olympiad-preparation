@@ -1,10 +1,36 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Version numbers are stored in: `frontend/package.json`, `backend/src/config/constants.py` and `backend/pyproject.toml`.
+
+## Unreleased
+
+### Added
+
+- Add countdown start notification
+- Add tests to frontend
+
+### Changed
+
+- Split images generator class
+
+### Fixed
+
+- Fix cascades of matches pairs
+
+## [7.3.0] - December 22, 2025
+
+### Added
+
+- Add rebuses to 5x6 grids on matches page
+
+### Changed
+
+- Update prohibited words list in word game
+- Limit max number of images from same group in column to 2
 
 ## [7.2.3] - December 19, 2025
 
@@ -44,6 +70,10 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 - Refine matches generation
   - Add privileged group constraint with 1 duplicate allowed per column
+
+### Fixed
+
+- Fix off-by-one bug in timer on matches page
 
 ## [7.1.0] - December 16, 2025
 

@@ -1,10 +1,5 @@
 import imagesData from "./data/images.json";
-
-type ImageItem = {
-  name: string;
-  category: string;
-  publicId: string;
-};
+import type { ImageItem } from "./types";
 
 type ImagesEntry = {
   applyGrayscale: boolean;
@@ -24,4 +19,4 @@ function getImagesById(id: string): ImagesEntry | null {
   return getImagesObject()[id] ?? null;
 }
 
-export { getImagesById, getImagesObject, type ImageItem, type ImagesEntry };
+export { getImagesById, getImagesObject, type ImagesEntry };

@@ -1,12 +1,13 @@
 import { GRADES_2_4, GRADES_5_11 } from "@/lib/constants";
 import { getRandomInt } from "@/lib/utils";
 
-import { ImagesGenerator } from "./entities/imagesGenerator/imagesGenerator";
-import { type ImageItem, type ImagesEntry, getImagesObject } from "./images";
+import { ImagesGeneratorFabric } from "./entities/imagesGenerator/imagesGeneratorFabric";
+import { type ImagesEntry, getImagesObject } from "./images";
 import type {
   GeneratedImagesResult,
   GridSize,
   GroupedImages,
+  ImageItem,
   SchoolGrade,
 } from "./types";
 
@@ -56,27 +57,30 @@ function groupImagesByCategory(images: ImageItem[]): GroupedImages {
 
 function handleImagesGeneration(
   gridSize: GridSize,
-  grade: SchoolGrade,
+  schoolGrade: SchoolGrade,
   isFinalOlympiadStage: boolean,
 ): GeneratedImagesResult {
-  if (!isFinalOlympiadStage && GRADES_2_4.includes(grade)) {
-    grade = "2_4";
-  } else if (!isFinalOlympiadStage && GRADES_5_11.includes(grade)) {
-    grade = "5_11";
+  if (!isFinalOlympiadStage && GRADES_2_4.includes(schoolGrade)) {
+    schoolGrade = "2_4";
+  } else if (!isFinalOlympiadStage && GRADES_5_11.includes(schoolGrade)) {
+    schoolGrade = "5_11";
   }
 
-  const images = structuredClone(imagesObject[grade].images);
-  const generator = new ImagesGenerator();
+  const { images } = structuredClone(imagesObject[schoolGrade]);
+  const generatorFabric = new ImagesGeneratorFabric();
+  const generator = generatorFabric.create(gridSize, schoolGrade, images);
   let randomImages;
+
   try {
-    randomImages = generator.generate(images, gridSize);
+    randomImages = generator.generate();
   } catch {
     const imagesLength = gridSize.columns * gridSize.rows;
     randomImages = generateImages(images, imagesLength);
+    console.warn("fallback to simple generation");
   }
 
   return {
-    applyGrayscale: imagesObject[grade].applyGrayscale,
+    applyGrayscale: imagesObject[schoolGrade].applyGrayscale,
     images: randomImages,
   };
 }

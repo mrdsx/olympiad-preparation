@@ -3,7 +3,7 @@ import type { SchoolGrade } from "@/features/matches";
 const HTTP_TOO_MANY_REQUESTS = 429;
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? "http://127.0.0.1:8000";
 
-const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+const CLOUD_NAME = "dsf4g0owu";
 const MAX_IMAGE_WIDTH = 160;
 
 const SECONDS_IN_MINUTE = 60;
@@ -53,8 +53,8 @@ export {
   GRADES_5_11,
   HTTP_TOO_MANY_REQUESTS,
   MAX_IMAGE_WIDTH,
-  SECONDS_IN_MINUTE,
   PATH,
   PSK,
   QUERY_KEYS,
+  SECONDS_IN_MINUTE,
 };

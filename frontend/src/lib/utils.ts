@@ -10,7 +10,7 @@ function cn(...inputs: ClassValue[]): string {
 /**
  * Склоняет слово согласно числу, с которым используется.
  *
- * @param {number} number - число.
+ * @param {number} value - число.
  * @param {string[]} words - список слов. Шаблон: ["ед. число, им. падеж", "ед. число, род. падеж", "мн. число, род. падеж"].
  * @example
  * // Пример использования:
@@ -64,4 +64,14 @@ function isBaseAPIErrorResponse(data: unknown): data is BaseAPIErrorResponse {
   );
 }
 
-export { cn, declineWord, getRandomInt, isBaseAPIErrorResponse };
+function objectValuesSum(object: Record<string, number>): number {
+  return Object.values(object).reduce((total, cur) => total + cur, 0);
+}
+
+export {
+  cn,
+  declineWord,
+  getRandomInt,
+  isBaseAPIErrorResponse,
+  objectValuesSum,
+};

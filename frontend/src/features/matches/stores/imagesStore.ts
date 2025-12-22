@@ -3,7 +3,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 import { PSK } from "@/lib/constants";
 
-import type { ImageItem } from "../images";
+import type { ImageItem } from "../types";
 
 type T = ImageItem[];
 

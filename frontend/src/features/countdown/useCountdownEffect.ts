@@ -16,18 +16,17 @@ function useCountdownEffect(intervalRef: React.RefObject<number | undefined>) {
   const writingAnswersTime = useCountdownSettingsStore(
     (state) => state.writingAnswersTime,
   );
-  const { isFinished, isRemembering, setIsRemembering } = useTrainingStore();
+  const isFinished = useTrainingStore((state) => state.isFinished);
+  const isRemembering = useTrainingStore((state) => state.isRemembering);
+  const setIsRemembering = useTrainingStore((state) => state.setIsRemembering);
   const isWritingAnswers = !isFinished && !isRemembering;
 
   useEffect(() => {
     if (remainingTime > NO_TIME_LEFT) return;
 
-    setRemainingTime(NO_TIME_LEFT);
     if (isRemembering) setIsRemembering(false);
-    if (isWritingAnswers) {
-      clearInterval(intervalRef.current);
-      setRemainingTime(NO_TIME_LEFT);
-    }
+    if (isWritingAnswers) clearInterval(intervalRef.current);
+    setRemainingTime(NO_TIME_LEFT);
   }, [remainingTime, isRemembering, isWritingAnswers]); // eslint-disable-line
 
   useEffect(() => {

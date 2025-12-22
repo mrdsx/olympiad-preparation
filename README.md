@@ -25,7 +25,6 @@ In order to install Poetry follow instructions at [official website](https://pyt
 2. Setup environment variables:
 
 ```
-VITE_CLOUDINARY_CLOUD_NAME=dsf4g0owu
 VITE_MEMORIZATION_TIME=3                # optional, for testing matches page
 VITE_WRITING_ANSWERS_TIME=10            # optional, for testing matches page
 VITE_BACKEND_URL=your-backend-url.com   # PRODUCTION ONLY

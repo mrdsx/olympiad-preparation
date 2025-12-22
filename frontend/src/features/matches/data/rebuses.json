@@ -1,0 +1,66 @@
+[
+  { "name": "актриса", "category": "ребус", "publicId": "aktrisa_gkbtgx" },
+  { "name": "Алиса", "category": "ребус", "publicId": "alisa_qbiwlt" },
+  { "name": "ассистент", "category": "ребус", "publicId": "assistent_zanbja" },
+  { "name": "блокада", "category": "ребус", "publicId": "blokada_hsm0ci" },
+  { "name": "крейсер", "category": "ребус", "publicId": "krejser_wbefjd" },
+  { "name": "Болгария", "category": "ребус", "publicId": "bolgarija_w2balv" },
+  { "name": "хирург", "category": "ребус", "publicId": "khirurg_wq0cr7" },
+  { "name": "былина", "category": "ребус", "publicId": "bilina_hjraka" },
+  { "name": "Мойдодыр", "category": "ребус", "publicId": "mojdodir_chkzat" },
+  { "name": "Липунюшка", "category": "ребус", "publicId": "lipunushka_gynen5" },
+  { "name": "Багратион", "category": "ребус", "publicId": "bagration_ezqkb5" },
+  { "name": "обложка", "category": "ребус", "publicId": "oblozhka_hs3wky" },
+  {
+    "name": "Новороссийск",
+    "category": "ребус",
+    "publicId": "novorossijsk_blskw7"
+  },
+  { "name": "Одесса", "category": "ребус", "publicId": "odessa_f1htra" },
+  { "name": "павильон", "category": "ребус", "publicId": "paviljon_hv6uz4" },
+  { "name": "каталог", "category": "ребус", "publicId": "katalog_jk8xjg" },
+  {
+    "name": "окружение",
+    "category": "ребус",
+    "publicId": "okruzhenije_ibmnyk"
+  },
+  { "name": "Емеля", "category": "ребус", "publicId": "jemelya_ijdi3r" },
+  { "name": "перепись", "category": "ребус", "publicId": "perepis_xvqbrm" },
+  {
+    "name": "Руслан и Людмила",
+    "category": "ребус",
+    "publicId": "ruslan-i-ludmila_sw4wg6"
+  },
+  {
+    "name": "Севастополь",
+    "category": "ребус",
+    "publicId": "sevastopol_lcmo2i"
+  },
+  { "name": "Семёнов", "category": "ребус", "publicId": "semenov_shqisa" },
+  {
+    "name": "Севастополь",
+    "category": "ребус",
+    "publicId": "sevastopol2_nt3n3e"
+  },
+  {
+    "name": "Щелкунчик",
+    "category": "ребус",
+    "publicId": "schelkunchik_fh4ac4"
+  },
+  { "name": "Смоленск", "category": "ребус", "publicId": "smolensk_sefg03" },
+  { "name": "страница", "category": "ребус", "publicId": "stranitsa_z62uln" },
+  { "name": "стеллаж", "category": "ребус", "publicId": "stellazh_mcydge" },
+  {
+    "name": "Сталинград",
+    "category": "ребус",
+    "publicId": "stalingrad_mhhr1x"
+  },
+  { "name": "тротуар", "category": "ребус", "publicId": "trotuar_bl3auj" },
+  { "name": "царство", "category": "ребус", "publicId": "tsarstvo_r0aspg" },
+  { "name": "ветеринар", "category": "ребус", "publicId": "veterinar_prlmip" },
+  { "name": "ветеринар", "category": "ребус", "publicId": "veterinar_hbba99" },
+  { "name": "указатель", "category": "ребус", "publicId": "ukazatel_jx0fqb" },
+  { "name": "воевода", "category": "ребус", "publicId": "vojevoda_nudmrh" },
+  { "name": "водитель", "category": "ребус", "publicId": "voditel_y5zphj" },
+  { "name": "заголовок", "category": "ребус", "publicId": "zagolovok_b2xox7" }
+]

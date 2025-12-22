@@ -1,4 +1,8 @@
-import { useGridSizeStore, useImagesStore } from "@/features/matches";
+import {
+  REBUS_CATEGORY,
+  useGridSizeStore,
+  useImagesStore,
+} from "@/features/matches";
 import { getCDNImageURL } from "@/lib/cdn";
 import { MAX_IMAGE_WIDTH } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -35,7 +39,9 @@ function MatchesGrid({
           <div
             className={cn(
               "relative flex items-center justify-center overflow-hidden border text-center",
-              applyGrayscale ? "grayscale-100" : "",
+              image.category === REBUS_CATEGORY || applyGrayscale
+                ? "grayscale-100"
+                : "",
             )}
             key={image.name}
           >

@@ -1,60 +1,60 @@
-import type { GridSize, GroupedImages } from "../../types";
+import type {
+  GridSize,
+  GroupedImages,
+  ImageItem,
+  RebusItem,
+} from "@/features/matches";
 
-type CreateGridBodyResult = {
-  grid: (string | null)[][];
-  rowWords: Set<string>[];
-  colWords: Set<string>[];
-  wordCounts: Record<string, number>;
-};
-
+type Grid = (string | null)[][];
+type RowWords = Set<string>[];
+type ColWords = Set<string>[];
 type OccurrencesMap = Record<string, number>;
 type WordsCount = Record<string, number>;
 
+type AreDiagonalsValidParams = {
+  row: number;
+  col: number;
+  word: string;
+  canTouchDiagonally: boolean;
+};
+
 type BuildResultParams = {
-  grid: (string | null)[][];
-  gridSize: GridSize;
-  words: string[];
   groupedImages: GroupedImages;
   neededPerWord: WordsCount;
 };
 
 type CanPlaceWordParams = WordOperationParams & {
-  gridSize: GridSize;
   occurrencesMap: OccurrencesMap;
-  enforceRowConstraints: boolean;
-  enforceColumnRowConstraints: boolean;
 };
 
 type GetPatternGridParams = {
   cellIndex: number;
-  grid: (string | null)[][];
-  gridSize: GridSize;
-  words: string[];
-  totalCells: number;
   occurrencesMap: OccurrencesMap;
-  wordCounts: WordsCount;
-  rowWords: Set<string>[];
-  colWords: Set<string>[];
-  enforceRowConstraints: boolean;
-  enforceColumnRowConstraints: boolean;
+};
+
+type ImagesGeneratorConfig = {
+  images: ImageItem[];
+  gridSize: GridSize;
+  rebuses: RebusItem[];
+  rebusesCount: number;
 };
 
 type WordOperationParams = {
   word: string;
   row: number;
   col: number;
-  grid: (string | null)[][];
-  rowWords: Set<string>[];
-  colWords: Set<string>[];
-  wordCounts: WordsCount;
 };
 
 export type {
+  AreDiagonalsValidParams,
   BuildResultParams,
   CanPlaceWordParams,
-  CreateGridBodyResult,
+  ColWords,
   GetPatternGridParams,
+  Grid,
+  ImagesGeneratorConfig,
   OccurrencesMap,
+  RowWords,
   WordOperationParams,
   WordsCount,
 };
