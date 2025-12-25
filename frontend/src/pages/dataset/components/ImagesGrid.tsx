@@ -3,6 +3,8 @@ import { getCDNImageURL } from "@/lib/cdn";
 import { MAX_IMAGE_WIDTH } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+import { useShowImagesTitlesStore } from "../showImagesTitlesStore";
+
 type ImagesGridProps = {
   imagesId: string;
 };
@@ -11,6 +13,8 @@ const GRID_CELL_WIDTH = "200px";
 const GRID_CELL_HEIGHT = "120px";
 
 function ImagesGrid({ imagesId }: ImagesGridProps) {
+  const showTitles = useShowImagesTitlesStore((state) => state.showTitles);
+
   const imagesEntry = getImagesById(imagesId);
   if (imagesEntry === null) return;
 
@@ -29,7 +33,10 @@ function ImagesGrid({ imagesId }: ImagesGridProps) {
     >
       {images.map((image) => (
         <div
-          className="relative flex items-center justify-center border pb-5 text-center"
+          className={cn(
+            "relative flex items-center justify-center border text-center",
+            showTitles ? "pb-5" : "",
+          )}
           key={image.name}
         >
           <img
@@ -40,9 +47,11 @@ function ImagesGrid({ imagesId }: ImagesGridProps) {
               imagesEntry.applyGrayscale ? "grayscale-100" : "",
             )}
           />
-          <p className="absolute right-0 bottom-0 left-0 bg-white text-sm">
-            {image.name}
-          </p>
+          {showTitles && (
+            <p className="absolute right-0 bottom-0 left-0 bg-white text-sm">
+              {image.name}
+            </p>
+          )}
         </div>
       ))}
     </div>

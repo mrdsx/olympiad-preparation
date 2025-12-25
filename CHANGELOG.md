@@ -21,6 +21,16 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 - Fix cascades of matches pairs
 
+## [7.4.0] - December 25, 2025
+
+### Added
+
+- Add toggle images' titles visibility switch element
+
+### Changed
+
+- Update image of city "Звенигово"
+
 ## [7.3.0] - December 22, 2025
 
 ### Added

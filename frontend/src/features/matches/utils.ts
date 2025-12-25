@@ -85,8 +85,7 @@ function handleImagesGeneration(
   };
 }
 
-function processImages(imagesEntry: ImagesEntry): ImageItem[] {
-  const { images, columns, rows } = imagesEntry;
+function processImages({ images, columns, rows }: ImagesEntry): ImageItem[] {
   const categories = groupImagesByCategory(images);
   const imagesArray = buildImages(Object.values(categories));
   if (imagesArray.length !== columns * rows) {

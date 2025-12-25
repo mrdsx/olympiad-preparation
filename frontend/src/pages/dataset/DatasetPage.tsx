@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { ErrorText } from "@/components/ErrorText";
 
 import { ImagesGrid, TitleBar } from "./components";
+import { SwitchShowImagesTitles } from "./components/SwitchShowImagesTitles";
 import { DATASET_LINKS } from "./dataset-links";
 
 const FALLBACK_LINK = { id: "no-id", title: "-" };
@@ -17,6 +18,7 @@ function DatasetPage() {
   return (
     <>
       <TitleBar title={title} />
+      <SwitchShowImagesTitles />
       <ErrorBoundary
         fallback={<ErrorText message="Ошибка при загрузке изображений" />}
       >

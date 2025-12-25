@@ -11,7 +11,7 @@ const SECONDS_IN_MINUTE = 60;
 const GRADES_2_4: SchoolGrade[] = ["2", "3_4"];
 const GRADES_5_11: SchoolGrade[] = ["5_6", "7_11"];
 
-// persistent storages keys
+// persistent storages' keys
 const PSK = {
   ANAGRAMS_STORAGE: "anagrams-storage",
   BASE_WORD_STORAGE: "base-word-storage",
@@ -20,10 +20,11 @@ const PSK = {
   IMAGES_STORAGE: "images-storage",
   OLYMPIAD_STAGE_STORAGE: "olympiad-stage-storage",
   SCHOOL_GRADE_STORAGE: "school-grade-storage",
+  SHOW_IMAGES_TITLES_STORAGE: "show-images-titles-storage",
   USER_ANAGRAMS_STORAGE: "user-anagrams-storage",
   USER_WORD_STORAGE: "user-word-storage",
   WORD_GAME_MODE_STORAGE: "word-game-mode-storage",
-} satisfies Record<string, string>;
+} satisfies Record<string, `${string}-storage`>;
 
 const QUERY_KEYS = {
   GET_ANAGRAMS: "get-anagrams",
