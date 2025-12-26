@@ -8,7 +8,7 @@ import type {
   RebusItem,
 } from "../../types";
 import { groupImagesByCategory } from "../../utils";
-import type { RebusesInjector } from "../rebusesInjector/rebusesInjector";
+import { RebusesInjector } from "../rebusesInjector/rebusesInjector";
 import type {
   AreDiagonalsValidParams,
   BuildResultParams,
@@ -26,12 +26,7 @@ import type {
 const REGIONAL_STAGE_GRID_AREA = 16;
 const MAX_SAME_WORDS_ALLOWED = 2;
 
-class ImagesGenerator {
-  readonly images: ImageItem[];
-  readonly gridSize: GridSize;
-  readonly rebuses: RebusItem[];
-  readonly rebusesCount: number;
-  readonly rebusesInjector: RebusesInjector;
+interface ImagesGenerator {
   enforceColumnRowConstraints: boolean;
   enforceOnlyRowConstraints: boolean;
   colWords: ColWords;
@@ -39,6 +34,14 @@ class ImagesGenerator {
   grid: Grid;
   words: string[];
   wordsCount: WordsCount;
+}
+
+class ImagesGenerator {
+  readonly images: ImageItem[];
+  readonly gridSize: GridSize;
+  readonly rebuses: RebusItem[];
+  readonly rebusesCount: number;
+  readonly rebusesInjector: RebusesInjector;
 
   constructor(
     { images, gridSize, rebuses, rebusesCount }: ImagesGeneratorConfig,
@@ -61,6 +64,7 @@ class ImagesGenerator {
   public generate(): ImageItem[] {
     const groupedImages = groupImagesByCategory(this.images);
     const occurrencesMap = this.buildOccurrencesMap(groupedImages);
+    const gridArea = this.gridSize.columns * this.gridSize.rows;
     this.words = Object.keys(occurrencesMap);
     this.validateGridSize(occurrencesMap);
 
@@ -78,10 +82,11 @@ class ImagesGenerator {
       );
     }
 
-    if (this.enforceOnlyRowConstraints) {
+    if (gridArea > REGIONAL_STAGE_GRID_AREA) {
       this.grid = this.rebusesInjector.injectRebusCategory(
         this.grid,
         this.rebusesCount,
+        this.enforceOnlyRowConstraints,
       );
     }
     const neededPerWord = this.countNeededPerWord();
@@ -101,12 +106,12 @@ class ImagesGenerator {
   }
 
   private validateGridSize(occurrencesMap: OccurrencesMap): void {
-    const totalCells = this.gridSize.rows * this.gridSize.columns;
+    const gridArea = this.gridSize.rows * this.gridSize.columns;
     const totalMaxOccurrences = objectValuesSum(occurrencesMap);
 
-    if (totalCells > totalMaxOccurrences) {
+    if (gridArea > totalMaxOccurrences) {
       throw new Error(
-        `Grid size ${totalCells} exceeds total max occurrences ${totalMaxOccurrences}`,
+        `Grid size ${gridArea} exceeds total max occurrences ${totalMaxOccurrences}`,
       );
     }
   }
@@ -168,8 +173,7 @@ class ImagesGenerator {
   private initGridConstraints(occurrencesMap: OccurrencesMap): void {
     const maxArea = this.calculateMaxGridArea(occurrencesMap);
     const currentArea = this.gridSize.rows * this.gridSize.columns;
-    this.enforceColumnRowConstraints =
-      maxArea >= currentArea && currentArea <= REGIONAL_STAGE_GRID_AREA;
+    this.enforceColumnRowConstraints = maxArea >= currentArea;
     this.enforceOnlyRowConstraints =
       this.gridSize.columns <= this.words.length &&
       !this.enforceColumnRowConstraints;

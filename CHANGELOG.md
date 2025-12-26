@@ -21,6 +21,13 @@ Version numbers are stored in: `frontend/package.json`, `backend/src/config/cons
 
 - Fix cascades of matches pairs
 
+## [7.4.1] - December 26, 2025
+
+### Changed
+
+- Disallow duplicates in column when possible in matches generation
+- Adjust rebuses injection when there are no duplicates in grid
+
 ## [7.4.0] - December 25, 2025
 
 ### Added

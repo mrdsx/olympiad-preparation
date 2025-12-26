@@ -12,16 +12,22 @@ import type {
 
 const SKIPPED_CELLS_THRESHOLD = 1000;
 
-class RebusesInjector {
+interface RebusesInjector {
   rowCount: number;
   columnCount: number;
+}
 
+class RebusesInjector {
   constructor() {
     this.rowCount = 0;
     this.columnCount = 0;
   }
 
-  public injectRebusCategory(grid: Grid, rebusesCount: number): ValidGrid {
+  public injectRebusCategory(
+    grid: Grid,
+    rebusesCount: number,
+    replaceDuplicates: boolean,
+  ): ValidGrid {
     const validGrid = this.validateGrid(grid);
 
     this.rowCount = validGrid.length;
@@ -31,6 +37,15 @@ class RebusesInjector {
     const replacedGroups = new Set<string>();
     let rebusesPlaced = 0;
     let skipped = 0;
+
+    if (!replaceDuplicates) {
+      return this.randomlyInjectRebuses(
+        validGrid,
+        rebusesCount,
+        rowHasRebus,
+        columnHasRebus,
+      );
+    }
 
     const columnStats = this.collectColumnStats(validGrid);
 
@@ -52,7 +67,7 @@ class RebusesInjector {
     }
 
     if (rebusesPlaced < rebusesCount) {
-      return this.injectRebusCategory(grid, rebusesCount);
+      return this.injectRebusCategory(grid, rebusesCount, replaceDuplicates);
     }
     return validGrid;
   }
@@ -102,6 +117,37 @@ class RebusesInjector {
     }
 
     return stats;
+  }
+
+  private randomlyInjectRebuses(
+    grid: ValidGrid,
+    rebusesCount: number,
+    rowHasRebus: boolean[],
+    columnHasRebus: boolean[],
+  ): ValidGrid {
+    const resultGrid: ValidGrid = structuredClone(grid);
+    let placedRebuses = 0;
+
+    while (placedRebuses < rebusesCount) {
+      const columnIndex = getRandomInt(0, this.columnCount - 1);
+      const rowIndex = getRandomInt(0, this.rowCount - 1);
+      if (
+        !rowHasRebus[rowIndex] &&
+        !columnHasRebus[columnIndex] &&
+        !this.hasDiagonalRebus({
+          row: rowIndex,
+          column: columnIndex,
+          grid: resultGrid,
+        })
+      ) {
+        placedRebuses += 1;
+        resultGrid[rowIndex][columnIndex] = REBUS_CATEGORY;
+        rowHasRebus[rowIndex] = true;
+        columnHasRebus[columnIndex] = true;
+      }
+    }
+
+    return resultGrid;
   }
 
   private hasDiagonalRebus({ row, column, grid }: HasDiagonalParams): boolean {
@@ -177,7 +223,12 @@ class RebusesInjector {
 
   /** Returns valid grid without nulls and 'ребус' strings */
   private validateGrid(grid: Grid): ValidGrid {
+    const rowLength = grid[0].length;
     for (const row of grid) {
+      if (row.length !== rowLength) {
+        throw new Error("Invalid row sizes");
+      }
+
       for (const cell of row) {
         if (cell === null || cell === REBUS_CATEGORY) {
           throw new Error(
